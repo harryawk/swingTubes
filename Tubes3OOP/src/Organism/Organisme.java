@@ -3,18 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package makhluk;
+package Organism;
+
+import Movement.*;
 
 /**
  *
  * @author Ali-pc
  */
-/**
- * a base class for all organism within the ecosystem
- * @author Aditio Pangestu
- */
-public abstract class MakhlukHidup {
-	/**
+public abstract class Organisme extends CautionMovement{
+    /**
 	 * An attribute that save organism's age
 	 */
 	private int umur;
@@ -29,10 +27,6 @@ public abstract class MakhlukHidup {
 	 */
 	private char DNA;
 	
-	/**
-	 * A table attribute that contains the predator's DNA of this organism
-	 */
-	private char[] predator;
 	
 	/**
 	 * An integer constant value for organism's age-limit
@@ -49,10 +43,6 @@ public abstract class MakhlukHidup {
 	 */
 	private Point PPosisi;
 	
-	/**
-	 * A constant value that contains the predator table size
-	 */
-	private int ukuran_predator;
 	
 	/**
 	 * A boolean value, used to check wheter the organism die or not
@@ -63,16 +53,12 @@ public abstract class MakhlukHidup {
 	 * A constructor
 	 * Making an organism with a default value in every parameter
 	 */
-	public MakhlukHidup(){
+	public Organisme(){
                 posisi = new Point();
                 PPosisi = new Point();
 		umur = 0;
 		DNA = '*';
 		ulang_tahun = 0;
-		ukuran_predator = 10;
-		predator = new char[ukuran_predator];
-		for (int i=0; i<ukuran_predator; i++)
-			predator[i] = ' ';
 		mati = false;
 	}
 	
@@ -146,17 +132,7 @@ public abstract class MakhlukHidup {
 	 * @param i an integer argument
 	 * @return a char in Predator[i]
 	 */
-	public char getPredator(int i){
-		return predator[i];
-	}
 	
-	/**
-	 * A getter for predator table size
-	 * @return an integer
-	 */ 
-	public int getUkuranPredator(){
-		return ukuran_predator;
-	}
 	
 	/**
 	 * A setter for umur
@@ -207,15 +183,6 @@ public abstract class MakhlukHidup {
 	}
 	
 	/**
-	 * A setter for Predator
-	 * @param i is integer argument for table index, this integer is always valid
-	 * @param _predator is char of the predator's DNA
-	 */
-	public void setPredator(int i, char _predator){
-		predator[i] = _predator;
-	}
-	
-	/**
 	 * A setter for mati
 	 * @param _mati is boolean that used to tell if organism die or not
 	 */
@@ -224,31 +191,13 @@ public abstract class MakhlukHidup {
 	}
 	
 	/**
-	 * A normal member that takes one char argument and return boolean
-	 * @param DNA_predator is char of the Predator's DNA
-	 * @return a boolean that is true if the DNA is in the predator table and false if either.
+	 * A pure virtual member
+         * define this MakhlukHidup behavior based on other MakhlukHidup
+         * @param M is MakhlukHidup that cause this to react
 	 */
-	public boolean isPredator(char DNA_predator){
-		int i = 0;
-		boolean stopCheckingIsPredator = false;
-		while (i < getUkuranPredator() && (!stopCheckingIsPredator) ) {
-			if (getPredator(i) == DNA_predator) {
-				stopCheckingIsPredator = true;
-			} else {
-				i++;
-			}
-		}
-		return (i < getUkuranPredator());
-	}
-	
-	/**
-	 * A normal member that takes two argument and return boolean
-	 * @param rad is integer, the radius of circle
-	 * @param p is Point of another organism
-	 * @return a boolean that is true if the coordinate of another organism is in the radius
-	 * area of this organism Position and false if either
-	 */
-	public boolean isRadius (int rad, Point p){
+	public abstract void Reaction(Organisme M);
+        
+        public boolean isRadius (int rad, Point p){
             int _x, _y;
             _x = posisi.getAbsis() - p.getAbsis();
             if (_x < 0)
@@ -258,11 +207,4 @@ public abstract class MakhlukHidup {
                     _y = 0 - _y;
             return ((_y <= rad) &&(_x <= rad));
 	}
-	
-	/**
-	 * A pure virtual member
-         * define this MakhlukHidup behavior based on other MakhlukHidup
-         * @param M is MakhlukHidup that cause this to react
-	 */
-	public abstract void Reaction( MakhlukHidup M);
 }

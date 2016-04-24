@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package makhluk;
+package Movement;
 
 import java.util.Random;
 
 /**
- * A class that represent a point within Cartesian system
- * @author Ali Akbar
+ *
+ * @author Ali-pc
  */
 public class Point {
         /* An attribute to store the absis of the Point */
@@ -23,6 +23,7 @@ public class Point {
         public Point(){
                 x = 0; y = 0;
         }
+        
         /**
          * A ctor that construct A Point with a random cordinate that range from 0 to range
          * @param range is an integer, a range to random
