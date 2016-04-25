@@ -31,9 +31,30 @@ public class ListenKey implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
-        case VK_DOWN :
-            System.out.println("Bawah");
+        case VK_UP :
+            arrayList.add(VK_UP);
             break;
+        case VK_DOWN :
+            arrayList.add(VK_DOWN);
+            break;
+        case VK_LEFT :
+            arrayList.add(VK_LEFT);
+            break;
+        case VK_RIGHT :
+            arrayList.add(VK_RIGHT);
+            break;
+        case VK_W :
+            arrayList.add(VK_W);
+            break;
+        case VK_S :
+            arrayList.add(VK_S);
+            break;
+        case VK_A :
+            arrayList.add(VK_A);
+            break;
+        case VK_D :
+            arrayList.add(VK_D);
+            break;            
         default:
             break;
         }
@@ -41,7 +62,75 @@ public class ListenKey implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        
+        if (arrayList.size() > 2) {
+            //Do nothing
+        } else if (arrayList.size() == 2) {
+            int i = 0;
+            for (Integer content : arrayList) {
+                switch (arrayList.get(i)) {
+                    case VK_UP :
+                        System.out.print("atas");
+                        break;
+                    case VK_DOWN :
+                        System.out.print("bawah");
+                        break;
+                    case VK_LEFT :
+                        System.out.print("kiri");
+                        break;
+                    case VK_RIGHT :
+                        System.out.print("kanan");
+                        break;
+                    case VK_W :
+                        System.out.print("atas");
+                        break;
+                    case VK_S :
+                        System.out.print("bawah");
+                        break;
+                    case VK_A :
+                        System.out.print("kiri");
+                        break;
+                    case VK_D :
+                        System.out.print("kanan");
+                        break;
+                    default:
+                        break;
+                }
+                System.out.println();
+                arrayList.remove(i);
+            }
+        } else if (arrayList.size() > 0) { 
+            // ada 1 elemen
+            switch (arrayList.get(0)) {
+                case VK_UP :
+                    System.out.print("atas");
+                    break;
+                case VK_DOWN :
+                    System.out.print("bawah");
+                    break;
+                case VK_LEFT :
+                    System.out.print("kiri");
+                    break;
+                case VK_RIGHT :
+                    System.out.print("kanan");
+                    break;
+                case VK_W :
+                    System.out.print("atas");
+                    break;
+                case VK_S :
+                    System.out.print("bawah");
+                    break;
+                case VK_A :
+                    System.out.print("kiri");
+                    break;
+                case VK_D :
+                    System.out.print("kanan");
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            //Do ntohing
+        }
     }
 
     
