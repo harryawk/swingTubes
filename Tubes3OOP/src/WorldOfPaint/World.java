@@ -1,5 +1,6 @@
 package WorldOfPaint;
 
+import Controller.ListenKey;
 import Movement.*;
 import Organism.*;
 import java.util.*;
@@ -46,6 +47,7 @@ public class World extends JFrame{
             this.pack();
             this.setVisible(true);
             this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+            this.addKeyListener(new ListenKey(this));
         }
         /**
 	 *  Store an empty world (all dot)
@@ -56,6 +58,9 @@ public class World extends JFrame{
         /**
 	 *  Draw an empty world (all dot)
 	 */
+        public void cetak(String string) {
+            System.out.println(string);
+        }
     public void initDisplay() throws ExceptionInInitializerError
 	{
         
