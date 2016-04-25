@@ -32,8 +32,8 @@ public class World extends JFrame{
 	//private Vector<MakhlukHidup> daftar = new Vector<MakhlukHidup>(10);//array pointer objek makhluk
         
 ///Konduktor///=============================================================================
-    private int lifeState;
-    private int Count;
+    private int lifeState = 1;
+    private int Count = 0;
 
 //public//=============================================================================================
         
@@ -143,6 +143,20 @@ public class World extends JFrame{
         dunia.add(o);
     }
 
-///Konduktor///=======================================================================
-
+    public void pause()
+    {
+        lifeState = 0;
+    }
+    
+    public void resume()
+    {
+        lifeState = 1;
+    }
+    
+    public boolean isPaused()
+    {
+        return(lifeState == 0);
+    }
+    
+    
 }
