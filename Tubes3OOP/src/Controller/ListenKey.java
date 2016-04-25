@@ -5,7 +5,6 @@
  */
 package Controller;
 import WorldOfPaint.*;
-import Movement.Point;
 import javax.swing.*;
 import java.awt.event.*;
 import static java.awt.event.KeyEvent.*;
