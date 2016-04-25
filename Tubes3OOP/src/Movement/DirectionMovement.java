@@ -15,7 +15,7 @@ public class DirectionMovement implements Movement{
     private int direction;
     
     public DirectionMovement(){
-        
+        direction = 0;
     }
     public void setDirection(int i){
         direction = i;

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Organism;
+package Builder;
 
+import Organism.Organisme;
 import java.util.List;
 
 /**

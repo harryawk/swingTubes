@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Movement;
+package Instinct;
+
+import Movement.Point;
 
 /**
  *
  * @author Ali-pc
  */
 public interface Instinct {
-    public void run();
+    public void run(Point Awal, Point Predator);
 }

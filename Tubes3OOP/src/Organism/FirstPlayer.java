@@ -5,48 +5,40 @@
  */
 package Organism;
 
-import Movement.DirectionMovement;
-import Movement.Point;
-
 /**
  *
  * @author Ali-pc
  */
-public class Food implements Organisme{
-    private Point position;
-    private Point precPosition;
+
+import Movement.*;
+import Instinct.*;
+
+public class FirstPlayer extends Eater{
+    private String nickName;
     private boolean mati;
+    private int win;
     
-    public void setPosition(Point P){
-        position.setAbsis(P.getAbsis());
-        position.setOrdinat(P.getOrdinat());
-    }
-    
-    @Override
-    public Point getPosition(){
-        return position;
-    }
-    
-    public void setPrecPosition(Point P){
-        precPosition.setAbsis(P.getAbsis());
-        precPosition.setOrdinat(P.getOrdinat());
+    public FirstPlayer(String name){
+        nickName = name;
+        mati = false;
+        win = 0;
     }
     
     public void setMati(boolean t){
         mati = t;
     }
     
-    public Point getPrecPosition(){
-        return precPosition;
+    public String nickName(){
+        return nickName;
     }
     
     @Override
-    public String name(){
-        return "F";
+    public String name() {
+        return "1";
     }
-    
+
     @Override
-    public boolean isMati(){
+    public boolean isMati() {
         return mati;
     }
 
@@ -69,16 +61,26 @@ public class Food implements Organisme{
         setPosition(P2);
     }
     
+    public int getWin(){
+        return win;
+    }
+    
     public void Reaction(Organisme M){
-        if ((M.name() == "2") || (M.name() != "N")){
-            setMati(true);
-        }
-        else{
-            if (M.name() != "1"){
-                move();
+        if (getPosition() == M.getPosition()){
+            if ((M.name() != "2") && (M.name() != "N")){
+                setMati(true);
             }
             else{
+                if (M.name() != "2"){
+                    move();
+                }
+                else{
+                    win = 1;
+                }
             }
         }
-    }   
+        else{
+            move();
+        }
+    }
 }

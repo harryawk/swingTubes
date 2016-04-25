@@ -3,16 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Movement;
+package Instinct;
+
+import Movement.DirectionMovement;
+import Movement.Point;
 
 
 /**
  *
  * @author Ali-pc
  */
-public abstract class CautionMovement extends DirectionMovement implements Instinct{
-    public void gerakMenjauh(Point Awal, Point Predator)
-    {
+public class CautionMovement extends DirectionMovement implements Instinct{ 
+    @Override
+    public void run(Point Awal, Point Predator){
         if ((Awal.getAbsis() == Predator.getAbsis()) && (Awal.getOrdinat() > Predator.getOrdinat()))
            setDirection(5);
         else if ((Awal.getAbsis() < Predator.getAbsis()) && (Awal.getOrdinat() > Predator.getOrdinat()))
@@ -30,7 +33,4 @@ public abstract class CautionMovement extends DirectionMovement implements Insti
         else
             setDirection(4);
     }
-    
-    @Override
-    public abstract void run();
 }
