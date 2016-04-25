@@ -79,7 +79,7 @@ public class World extends JFrame{
 	{
             for(Organisme o : dunia)
             {
-                o.getPosisi().geser(5,5);
+                o.getPosition().geser(5,5);
             }
 	}
 
@@ -99,8 +99,8 @@ public class World extends JFrame{
 
         for(Organisme o : dunia)
         {       
-            x = o.getPosisi().getAbsis();
-            y = o.getPosisi().getOrdinat();
+            x = o.getPosition().getAbsis();
+            y = o.getPosition().getOrdinat();
             g.drawString("Z", x, y);
         }
     }

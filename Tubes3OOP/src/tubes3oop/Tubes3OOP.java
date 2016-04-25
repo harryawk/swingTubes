@@ -22,17 +22,17 @@ public class Tubes3OOP {
 	{
 		World w = new World();
 
-                Organisme o1 = new Eater();
-		Organisme o2 = new Eater();
-		Organisme o3 = new Eater();
+                NPCEater o1 = new NPCEater("wawa");
+		NPCEater o2 = new NPCEater("wawa");
+		NPCEater o3 = new NPCEater("wawa");
                 
 		Point p1 = new Point(50, 50);
 		Point p2 = new Point(500, 500);
 		Point p3 = new Point(350, 700);
                 
-                o1.setPosisi(p1);
-                o2.setPosisi(p2);
-                o3.setPosisi(p3);
+                o1.setPosition(p1);
+                o2.setPosition(p2);
+                o3.setPosition(p3);
 
 		w.add(o1);
 		w.add(o2);
