@@ -8,6 +8,7 @@ package tubes3oop;
 import WorldOfPaint.*;
 import Movement.*;
 import Organism.*;
+import Controller.ListenKey;
 
 /**
  *
@@ -21,7 +22,6 @@ public class Tubes3OOP {
     public static void main(String[] args)
 	{
 		World w = new World();
-
                 NPCEater o1 = new NPCEater("wawa");
 		NPCEater o2 = new NPCEater("wawa");
 		NPCEater o3 = new NPCEater("wawa");
