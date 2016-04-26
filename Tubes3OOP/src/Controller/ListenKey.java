@@ -20,6 +20,10 @@ public class ListenKey extends Thread implements KeyListener {
     private ArrayList<Integer> arrayList;
     private ArrayList<Integer> arrayList2;
     
+    /**
+     * Listen A key from world
+     * @param world
+     */
     public ListenKey(World world)  {
         this.world = world;
         arrayList = new ArrayList();
@@ -32,6 +36,10 @@ public class ListenKey extends Thread implements KeyListener {
     }
 
     @Override
+    /**
+     * An procedure that response when key pressed
+     * @param e KeyEvent
+     */
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case VK_UP :
@@ -64,6 +72,10 @@ public class ListenKey extends Thread implements KeyListener {
     }
 
     @Override
+    /**
+     * An procedure that response when key released
+     * @param e KeyEvent
+     */
     public void keyReleased(KeyEvent e) {
         
     }

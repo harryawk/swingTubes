@@ -10,5 +10,12 @@ package Movement;
  * @author Ali-pc
  */
 public interface Movement {
+
+    /**
+     *
+     * @param P1
+     * @param d
+     * @return
+     */
     public Point move(Point P1, int d);
 }
