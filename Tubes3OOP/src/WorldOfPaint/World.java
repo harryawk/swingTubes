@@ -144,6 +144,7 @@ public class World extends JFrame{
             {
                 dunia.remove(k);
             }
+            removeList = new ArrayList<Integer>();
 	}
 
     public void clear(Graphics g)
