@@ -15,10 +15,12 @@ import Movement.Point;
 public class NPCEater extends Eater {
     private String nickName;
     private boolean mati;
+    private DirectionMovement pergerakan;
     
     public NPCEater(String name){
         nickName = name;
         mati = false;
+        pergerakan = new DirectionMovement();
     }
     
     public void setMati(boolean t){
@@ -31,30 +33,22 @@ public class NPCEater extends Eater {
     
     @Override
     public String name() {
-        return "N";
+        return nickName();
     }
 
     @Override
     public boolean isMati() {
         return mati;
     }
-
-    @Override
-    public void move() {
-        DirectionMovement D = new DirectionMovement();
-        Point P1 = getPosition();
-        Point P2 = D.moveWithRandomDirection(getPosition()); //Posisi yang baru
-        setPrecPosition(P1);
-        setPosition(P2);
+    
+    public void setArah(int i){
+        pergerakan.setDirection(i);
     }
     
-    //Gerak dengan arah terkontrol
-    public void move(int i){
-        DirectionMovement D = new DirectionMovement();
+    @Override
+    public void move() {
         Point P1 = getPosition();
-        D.setDirection(i);
-        Point P2 = D.move(getPosition()); //Posisi yang baru
-        setPrecPosition(P1);
+        Point P2 = pergerakan.move(getPosition()); //Posisi yang baru
         setPosition(P2);
     }
     
@@ -74,33 +68,33 @@ public class NPCEater extends Eater {
             hunt(M);
         }
         else{
-            move();
+            pergerakan.setWithRandomDirection();
         }
     }
     
     public void hunt(Organisme M){
         if ((getPosition().getAbsis() == M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
                 < M.getPosition().getOrdinat()))
-            move(1);
+            setArah(1);
         else if ((getPosition().getAbsis() < M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
                 < M.getPosition().getOrdinat()))
-            move(2);
+            setArah(2);
         else if ((getPosition().getAbsis() < M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
                 == M.getPosition().getOrdinat()))
-            move(3);
+            setArah(3);
         else if ((getPosition().getAbsis() < M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
                 > M.getPosition().getOrdinat()))
-            move(4);
+            setArah(4);
         else if ((getPosition().getAbsis() == M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
                 > M.getPosition().getOrdinat()))
-            move(5);
+            setArah(5);
         else if ((getPosition().getAbsis() > M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
                 > M.getPosition().getOrdinat()))
-            move(6);
+            setArah(6);
         else if ((getPosition().getAbsis() > M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
                 == M.getPosition().getOrdinat()))
-            move(7);
+            setArah(7);
         else
-            move(8);
+            setArah(8);
     }
 }

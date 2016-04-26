@@ -5,138 +5,108 @@
  */
 package Controller;
 import WorldOfPaint.*;
-import Movement.Point;
-import org.jnativehook.GlobalScreen;
-import org.jnativehook.NativeHookException;
-import java.io.IOException;
-import org.jnativehook.keyboard.NativeKeyEvent;
-import org.jnativehook.keyboard.NativeKeyListener;
+import javax.swing.*;
+import java.awt.event.*;
+import static java.awt.event.KeyEvent.*;
+import java.util.ArrayList;
 
 /**
  * A class to listen keystroke that pressed by user while the application is running
  * @author Harry Alvin
  */
-class ListenKey implements NativeKeyListener {
-        
+public class ListenKey implements KeyListener {
     private World world;
-
-    public ListenKey() {
-        try {
-            GlobalScreen.registerNativeHook();
-        } catch (NativeHookException ex) {
-            System.err.println(ex.getMessage());
-        }
-        GlobalScreen.addNativeKeyListener(this);
+    private ArrayList<Integer> arrayList;
+    
+    public ListenKey(World world)  {
+        this.world = world;
+        arrayList = new ArrayList();
     }
+    
     @Override
-    /**
-     * nativeKeyPressed interface implementation
-     * @param e NativeKeyEvent to take the key that pressed by user
-     */
-    public void nativeKeyPressed(NativeKeyEvent e) {
-        Point P = new Point(30);
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
-            case NativeKeyEvent.VC_0:
-                world.creation(P,'0');
-                break;
-            case NativeKeyEvent.VC_1:
-                world.creation(P,'1');
-                break;
-            case NativeKeyEvent.VC_2:
-                world.creation(P,'2');
-                break;
-            case NativeKeyEvent.VC_3:
-                world.creation(P,'3');
-                break;
-            case NativeKeyEvent.VC_4:
-                world.creation(P,'4');
-                break;
-            case NativeKeyEvent.VC_5:
-                world.creation(P,'5');
-                break;
-            case NativeKeyEvent.VC_6:
-                world.creation(P,'6');
-                break;
-            case NativeKeyEvent.VC_7:
-                world.creation(P,'7');
-                break;
-            case NativeKeyEvent.VC_8:
-                world.creation(P,'8');
-                break;
-            case NativeKeyEvent.VC_9:
-                world.creation(P,'9');
-                break;
-            case NativeKeyEvent.VC_X:
-                world.killAll();
-                break;
-            case NativeKeyEvent.VC_SPACE:
-                world.resume();
-                break;
-            case NativeKeyEvent.VC_C:
-                try {
-                    world.tangkapLayar();
-                } catch (IOException e1) {
-                    System.err.println("IOException retrieved");
-                }
-                break;
-                //Step-by-step exec
-            case NativeKeyEvent.VC_M:
-                world.pause();
-                boolean resume = false;
-                ListenKey l = new ListenKey();
-                while (!resume) {
-                    l.nativeKeyPressed(e);
-                    if (e.getKeyCode() == NativeKeyEvent.VC_SPACE) {
-                        world.resume();
-                    }
-                    world.pause();
-                    if (e.getKeyCode() == NativeKeyEvent.VC_M) {
-                        resume = true;
-                    }
-                }
-                break;
-                //Pause
-            case NativeKeyEvent.VC_P:
-                world.pause();
-                break;
-            default:
-                //Do Nothing
-                break;
+        case VK_UP :
+            arrayList.add(VK_UP);
+            break;
+        case VK_DOWN :
+            arrayList.add(VK_DOWN);
+            break;
+        case VK_LEFT :
+            arrayList.add(VK_LEFT);
+            break;
+        case VK_RIGHT :
+            arrayList.add(VK_RIGHT);
+            break;
+        case VK_W :
+            arrayList.add(VK_W);
+            break;
+        case VK_S :
+            arrayList.add(VK_S);
+            break;
+        case VK_A :
+            arrayList.add(VK_A);
+            break;
+        case VK_D :
+            arrayList.add(VK_D);
+            break;            
+        default:
+            break;
         }
+    }
 
-    }
-    
     @Override
-    /**
-     * Overrides the nativeKeyReleased method to be implemented
-     * @param e 
-     */
-    public void nativeKeyReleased(NativeKeyEvent e) {
-        //Do nothing
-    }
-    
-    @Override
-    /**
-     * Overrides the nativeKeyTyped method to be implemented
-     * @param e NativeKeyEvent, the characteristic of the keystroke
-     */
-    public void nativeKeyTyped(NativeKeyEvent e) {
-        //Do Nothing
-    }
-    
-    /**
-     * Get the world which want to be integrated by ListenKey
-     * @param W World
-     */
-    public void simpanWorld(World W) {
-        world = W;
-    }
-    
-    public void keyStroke() {
-        try {
-            GlobalScreen.registerNativeHook();
-        } catch (NativeHookException ex) {
-            System.err.println(ex.getMessage());
+    public void keyReleased(KeyEvent e) {
+        if (arrayList.size() > 2) {
+            System.out.println("Do nothing"); //Do nothing
+        } else if (arrayList.size() <= 2 || arrayList.size() > 0) {
+            int i = 0;
+            while (arrayList.size() > 0) {
+                switch (arrayList.get(i)) {
+                    case VK_UP :
+                        System.out.print("atas");
+                        break;
+                    case VK_DOWN :
+                        System.out.print("bawah");
+                        break;
+                    case VK_LEFT :
+                        System.out.print("kiri");
+                        break;
+                    case VK_RIGHT :
+                        System.out.print("kanan");
+                        break;
+                    case VK_W :
+                        System.out.print("atas");
+                        break;
+                    case VK_S :
+                        System.out.print("bawah");
+                        break;
+                    case VK_A :
+                        System.out.print("kiri");
+                        break;
+                    case VK_D :
+                        System.out.print("kanan");
+                        break;
+                    default:
+                        break;
+                }
+                System.out.println();
+                arrayList.remove(i);
+                if (arrayList.size() < 0) {
+                    // Lanjut pengulangan
+                } else {
+                    break; // arrayList.size() == 0
+                }
+            }
+        } else {
+            //Do ntohing
         }
     }
+
+    
 }

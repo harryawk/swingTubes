@@ -16,10 +16,24 @@ public class Food implements Organisme{
     private Point position;
     private Point precPosition;
     private boolean mati;
+    private DirectionMovement pergerakan;
     
     public void setPosition(Point P){
         position.setAbsis(P.getAbsis());
         position.setOrdinat(P.getOrdinat());
+        pergerakan = new DirectionMovement();
+    }
+    
+     public void setArah(int i){
+        pergerakan.setDirection(i);
+    }
+    
+    @Override
+    public void move() {
+        Point P1 = getPosition();
+        Point P2 = pergerakan.move(getPosition()); //Posisi yang baru
+        setPrecPosition(P1);
+        setPosition(P2);
     }
     
     @Override
@@ -49,26 +63,7 @@ public class Food implements Organisme{
     public boolean isMati(){
         return mati;
     }
-
-    @Override
-    public void move() {
-        DirectionMovement D = new DirectionMovement();
-        Point P1 = getPosition();
-        Point P2 = D.moveWithRandomDirection(getPosition()); //Posisi yang baru
-        setPrecPosition(P1);
-        setPosition(P2);
-    }
-    
-    //Gerak dengan arah terkontrol
-    public void move(int i){
-        DirectionMovement D = new DirectionMovement();
-        Point P1 = getPosition();
-        D.setDirection(i);
-        Point P2 = D.move(getPosition()); //Posisi yang baru
-        setPrecPosition(P1);
-        setPosition(P2);
-    }
-    
+ 
     public void Reaction(Organisme M){
         if ((M.name() == "2") || (M.name() != "N")){
             setMati(true);
