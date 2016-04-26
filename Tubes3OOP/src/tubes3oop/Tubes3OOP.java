@@ -28,8 +28,8 @@ public class Tubes3OOP {
         NPCEater o2 = new NPCEater("wawa");
         NPCEater o3 = new NPCEater("wawa");
         
-        FirstPlayer pl1 = new FirstPlayer("jim");
-        SecondPlayer pl2 = new SecondPlayer("jam");
+        FirstPlayer pl1 = new FirstPlayer("1");
+        SecondPlayer pl2 = new SecondPlayer("2");
 
         Point p1 = new Point(50, 50);
         Point p2 = new Point(500, 500);
