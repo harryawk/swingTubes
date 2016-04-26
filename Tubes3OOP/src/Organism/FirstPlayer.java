@@ -18,6 +18,14 @@ public class FirstPlayer extends Eater{
     private int win;
     private DirectionMovement pergerakan;
     
+    public FirstPlayer(String name){
+        super();
+        nickName = name;
+        mati = false;
+        win = 0;
+        pergerakan = new DirectionMovement();
+    }
+    
     public void setArah(int i){
         pergerakan.setDirection(i);
     }
@@ -26,14 +34,6 @@ public class FirstPlayer extends Eater{
     public void move() {
         Point P2 = pergerakan.move(getPosition()); //Posisi yang baru
         setPosition(P2);
-    }
-    
-    public FirstPlayer(String name){
-        super();
-        nickName = name;
-        mati = false;
-        win = 0;
-        pergerakan = new DirectionMovement();
     }
         
     public void setMati(boolean t){
@@ -52,6 +52,11 @@ public class FirstPlayer extends Eater{
     @Override
     public boolean isMati() {
         return mati;
+    }
+    
+    @Override
+    public int getKecepatan(){
+        return 8;
     }
     
     public int getWin(){

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Controller;
+
 import WorldOfPaint.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -69,8 +70,8 @@ public class ListenKey implements KeyListener {
             while (arrayList.size() > 0) {
                 switch (arrayList.get(i)) {
                     case VK_UP :
-                        System.out.print("atas");
-                        break;
+                        System.out.print("atas"); 
+                       break;
                     case VK_DOWN :
                         System.out.print("bawah");
                         break;
