@@ -12,14 +12,13 @@ import java.util.Random;
  * @author Ali-pc
  */
 public class Point {
-        /* An attribute to store the absis of the Point */
+        
         private int x;
-        /* An attribute to store the ordinate of the Point */
+        
         private int y;
 
         /**
-         * A ctor that construct A Point with a random cordinate that range from 0 to range
-         * @param range is an integer, a range to random
+         * A constructor
          */
         public Point(){
                 Random rand = new Random();

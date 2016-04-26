@@ -19,6 +19,9 @@ public class Food implements Organisme{
     private CautionMovement pergerakan;
     private int kecepatan;
     
+    /**
+     *
+     */
     public Food() {
         position = new Point();
         mati = false;
@@ -26,15 +29,26 @@ public class Food implements Organisme{
         setKecepatan();
     }
     
+    /**
+     *
+     * @param P
+     */
     public void setPosition(Point P){
         position.setAbsis(P.getAbsis());
         position.setOrdinat(P.getOrdinat());
     }
     
-     public void setArah(int i){
+    /**
+     *
+     * @param i
+     */
+    public void setArah(int i){
         pergerakan.setDirection(i);
     }
     
+    /**
+     *
+     */
     public void setKecepatan(){
         Random rand = new Random();
         kecepatan = rand.nextInt(3)+2;
@@ -109,6 +123,12 @@ public class Food implements Organisme{
         }
     }
     
+    /**
+     *
+     * @param rad
+     * @param p
+     * @return
+     */
     public boolean isRadius (int rad, Point p){
         int _x, _y;
         _x = getPosition().getAbsis() - p.getAbsis();

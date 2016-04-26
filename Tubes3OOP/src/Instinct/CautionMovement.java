@@ -14,6 +14,12 @@ import Movement.Point;
  * @author Ali-pc
  */
 public class CautionMovement extends DirectionMovement implements Instinct{ 
+
+    /**
+     * a procedure that makes the organism move with a different direction from predator location
+     * @param Awal
+     * @param Predator
+     */
     @Override
     public void run(Point Awal, Point Predator){
         if ((Awal.getAbsis() == Predator.getAbsis()) && (Awal.getOrdinat() < Predator.getOrdinat()))

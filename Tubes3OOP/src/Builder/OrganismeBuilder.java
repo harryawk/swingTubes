@@ -10,18 +10,31 @@ package Builder;
  * @author Ali-pc
  */
 public class OrganismeBuilder {
+
+    /**
+     *
+     */
     public void makeFood(){
         
     }
     
+    /**
+     *
+     */
     public void makeEaterNPC(){
         
     }
     
+    /**
+     *
+     */
     public void makeFirstEater(){
     
     }
     
+    /**
+     *
+     */
     public void makeSecondEater(){
     
     }
