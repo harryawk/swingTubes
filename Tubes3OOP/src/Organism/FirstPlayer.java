@@ -63,8 +63,9 @@ public class FirstPlayer extends Eater{
         return win;
     }
     
+    @Override
     public void Reaction(Organisme M){
-        if (getPosition() == M.getPosition()){
+        if (isRadius(10,M.getPosition())){
             if (M.name() != "2"){
                 setMati(true);
             }

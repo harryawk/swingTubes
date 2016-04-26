@@ -29,6 +29,17 @@ public abstract class Eater implements Organisme{
         return position;
     }
     
+    public boolean isRadius (int rad, Point p){
+        int _x, _y;
+        _x = getPosition().getAbsis() - p.getAbsis();
+        if (_x < 0)
+                _x = 0 - _x;
+        _y = getPosition().getOrdinat() - p.getOrdinat();
+        if (_y < 0)
+                _y = 0 - _y;
+        return ((_y <= rad) &&(_x <= rad));
+    }
+    
     @Override
     public abstract String name();
     
