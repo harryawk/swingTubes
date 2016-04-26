@@ -53,21 +53,9 @@ public class Tubes3OOP {
         //game-loop
         while(true)
         {
-            if(!w.isPaused())
-            {
-                w.updateGame();
-                w.updateDisplay();
-                
-                if(count == 30)
-                {
-                    w.pause();
-                }
-            }
-            count++;
-            if(count > 70)
-            {
-                w.resume();
-            }
+            w.updateGame();
+            w.updateDisplay();
+
             try
             {
             Thread.sleep(33);

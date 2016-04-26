@@ -17,4 +17,6 @@ public interface Organisme {
     public void move();
     public Point getPosition();
     public void Reaction(Organisme o);
+    public boolean isOutside(int width, int height);  //tambahan bimo
+    public void setMati(boolean t); //tambahan bimp
 }

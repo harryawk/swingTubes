@@ -34,4 +34,19 @@ public abstract class Eater implements Organisme{
     
     @Override
     public abstract void move();
+    
+    public boolean isOutside(int width, int height)
+    {
+        if(getPosition().getAbsis() > width || getPosition().getAbsis() < 0)
+        {
+            return true;
+        }
+        
+        if(getPosition().getOrdinat() > height || getPosition().getAbsis() < 0)
+        {
+            return true;
+        }
+        
+        return false;
+    }
 }

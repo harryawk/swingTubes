@@ -29,6 +29,8 @@ public class World extends JFrame{
         ArrayList<Organisme> dunia = new ArrayList<Organisme>();
         FirstPlayer player1;
         SecondPlayer player2;
+        int width;
+        int height;
         
 
 ///Administrator///=========================================================================
@@ -47,6 +49,8 @@ public class World extends JFrame{
 	 *  A constructor of World class
 	 */
         public World() {
+            width   = 1366;
+            height = 768;
             this.setPreferredSize(new Dimension(1366, 768));
             this.pack();
             this.setVisible(true);
@@ -86,6 +90,7 @@ public class World extends JFrame{
 	 */
 	public void updateGame() throws ExceptionInInitializerError
 	{
+            //gerak
             player1.getPosition().geser(1,1);
             player2.getPosition().geser(1,1);
             for(Organisme o : dunia)
@@ -94,21 +99,50 @@ public class World extends JFrame{
                 m.start();
             }
             
+            //reaksi
             int i = 0;
             int j = 0;
             for(Organisme o : dunia)
             {
-                j=0;
-                
-                for(Organisme oo : dunia)
+                if(o != null)
                 {
-                    if(i != j)
+                    j=0;
+
+                    for(Organisme oo : dunia)
                     {
-                        o.Reaction(oo);
+                        if(i != j)
+                        {
+                            o.Reaction(oo);
+                        }
+                        j++;
                     }
-                    j++;
+                    i++;
+                }
+            }
+            
+            //cek lokasi
+            for(Organisme o : dunia)
+            {
+                if(o != null && o.isOutside(width, height))
+                {
+                    o.setMati(true);
+                }
+            }
+            
+            //pluck yang mati
+            i = 0;
+            ArrayList<Integer> removeList = new ArrayList<Integer>();
+            for(Organisme o : dunia)
+            {
+                if(o != null && o.isMati())
+                {
+                    removeList.add(i);
                 }
                 i++;
+            }
+            for(Integer k:removeList)
+            {
+                dunia.remove(k);
             }
 	}
 
@@ -139,7 +173,7 @@ public class World extends JFrame{
             x = o.getPosition().getAbsis();
             y = o.getPosition().getOrdinat();
             g.setColor(Color.black);
-            g.fillOval(x, y, 25, 25);
+            g.fillOval(x, y, 10, 10);
         }
     }
 	/*  Draw display at Pc and remove the previous drawing at Px
