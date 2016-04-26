@@ -27,9 +27,9 @@ public class DirectionMovement implements Movement{
         return direction;
     }
     public void setWithRandomDirection(){
-        if (timeToChangeDirection%100 == 0){
-            Random rand = new Random();
-            direction = rand.nextInt(8);
+        Random rand = new Random();
+        if (timeToChangeDirection%(rand.nextInt(30) + 20) == 0){
+            direction = rand.nextInt(8) + 1;
         }
         timeToChangeDirection++;
     }
