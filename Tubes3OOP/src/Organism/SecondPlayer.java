@@ -64,10 +64,11 @@ public class SecondPlayer extends Eater{
     }
     
     public void Reaction(Organisme M){
-        if (getPosition() == M.getPosition()){
+        if (isRadius(10,M.getPosition())){
             if (M.name() == "1"){
                 setMati(true);
-            } else if (M.name() == "F"){
+            }
+            else if (M.name() == "F"){
                 tingkat_kekenyangan++;
             }
         }

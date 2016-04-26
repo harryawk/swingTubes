@@ -202,9 +202,17 @@ public class World extends JPanel{
         
         if(GameOver())
         {
-            if(isTimeout())
+            g.setColor(Color.black);
+            if(player1.isMati())
             {
-                g.setColor(Color.black);
+                g.drawString("GameOver: kalah", 600, 720);
+            }
+            else if(player2.isMati())
+            {
+                g.drawString("GameOver: menang", 600, 720);
+            }
+            else if(isTimeout())
+            {
                 g.drawString("GameOver: timeout", 600, 720);
             }
         }
@@ -217,6 +225,11 @@ public class World extends JPanel{
 
 	public boolean GameOver()
 	{
+            if(player1.isMati() || player2.isMati())
+            {
+                return true;
+            }
+
             return (isTimeout());
 	}
      
