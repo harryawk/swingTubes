@@ -11,7 +11,6 @@ package Organism;
  */
 
 import Movement.*;
-import Instinct.*;
 
 public class FirstPlayer extends Eater{
     private String nickName;
@@ -19,26 +18,24 @@ public class FirstPlayer extends Eater{
     private int win;
     private DirectionMovement pergerakan;
     
-     public void setArah(int i){
+    public void setArah(int i){
         pergerakan.setDirection(i);
     }
     
     @Override
     public void move() {
-        Point P1 = getPosition();
         Point P2 = pergerakan.move(getPosition()); //Posisi yang baru
         setPosition(P2);
     }
     
     public FirstPlayer(String name){
+        super();
         nickName = name;
         mati = false;
         win = 0;
         pergerakan = new DirectionMovement();
     }
-    
-    
-    
+        
     public void setMati(boolean t){
         mati = t;
     }
@@ -63,20 +60,12 @@ public class FirstPlayer extends Eater{
     
     public void Reaction(Organisme M){
         if (getPosition() == M.getPosition()){
-            if ((M.name() != "2") && (M.name() != "N")){
+            if (M.name() != "2"){
                 setMati(true);
             }
             else{
-                if (M.name() != "2"){
-                    move();
-                }
-                else{
-                    win = 1;
-                }
+                win = 1;
             }
-        }
-        else{
-            move();
         }
     }
 }

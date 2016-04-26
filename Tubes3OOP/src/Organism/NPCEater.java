@@ -33,7 +33,7 @@ public class NPCEater extends Eater {
     
     @Override
     public String name() {
-        return "N";
+        return nickName();
     }
 
     @Override
@@ -68,7 +68,7 @@ public class NPCEater extends Eater {
             hunt(M);
         }
         else{
-            move();
+            pergerakan.setWithRandomDirection();
         }
     }
     

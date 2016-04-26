@@ -24,7 +24,6 @@ public class SecondPlayer extends Eater{
     
     @Override
     public void move() {
-        Point P1 = getPosition();
         Point P2 = pergerakan.move(getPosition()); //Posisi yang baru
         setPosition(P2);
     }
@@ -63,19 +62,9 @@ public class SecondPlayer extends Eater{
         if (getPosition() == M.getPosition()){
             if (M.name() == "1"){
                 setMati(true);
+            } else if (M.name() == "F"){
+                tingkat_kekenyangan++;
             }
-            else{
-                if (M.name() == "N"){
-                    move();
-                }
-                else if (M.name() == "F"){
-                    tingkat_kekenyangan++;
-                    move();
-                }
-            }
-        }
-        else{
-            move();
         }
     }
 }
