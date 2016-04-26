@@ -42,7 +42,7 @@ public class Food implements Organisme{
     
     @Override
     public void move() {
-        setPosition(pergerakan.move(getPosition()));
+        setPosition(pergerakan.move(getPosition(),getKecepatan()));
     }
     
     @Override

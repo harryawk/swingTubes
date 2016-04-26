@@ -32,7 +32,7 @@ public class FirstPlayer extends Eater{
     
     @Override
     public void move() {
-        Point P2 = pergerakan.move(getPosition()); //Posisi yang baru
+        Point P2 = pergerakan.move(getPosition(),getKecepatan()); //Posisi yang baru
         setPosition(P2);
     }
         

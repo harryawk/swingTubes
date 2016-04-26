@@ -35,11 +35,10 @@ public class DirectionMovement implements Movement{
     }
 
     @Override
-    public Point move(Point P1) {
+    public Point move(Point P1, int d) {
         Point temp = new Point(0,0);
         temp.setAbsis(P1.getAbsis());
         temp.setOrdinat(P1.getOrdinat());
-        int d = 1;
         switch (direction) {
             case 1 : temp.geser(0,d); break;        
             case 2 : temp.geser(d,d); break;        

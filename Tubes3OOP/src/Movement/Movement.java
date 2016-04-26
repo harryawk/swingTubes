@@ -10,5 +10,5 @@ package Movement;
  * @author Ali-pc
  */
 public interface Movement {
-    public Point move(Point P1);
+    public Point move(Point P1, int d);
 }

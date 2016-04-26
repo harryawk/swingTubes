@@ -49,7 +49,7 @@ public class NPCEater extends Eater {
     
     @Override
     public void move() {
-        setPosition(pergerakan.move(getPosition()));
+        setPosition(pergerakan.move(getPosition(),getKecepatan()));
     }
     
     @Override
