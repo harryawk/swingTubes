@@ -7,6 +7,7 @@ package Organism;
 
 import Instinct.CautionMovement;
 import Movement.Point;
+import java.awt.Color;
 import java.util.Random;
 
 /**
@@ -62,6 +63,11 @@ public class Food implements Organisme{
     @Override
     public Point getPosition(){
         return position;
+    }
+    
+    public Color getColor()
+    {
+        return Color.yellow;
     }
     
     @Override

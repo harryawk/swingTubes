@@ -11,6 +11,7 @@ package Organism;
  */
 
 import Movement.*;
+import java.awt.Color;
 
 public class FirstPlayer extends Eater{
     private String nickName;
@@ -61,6 +62,11 @@ public class FirstPlayer extends Eater{
     
     public int getWin(){
         return win;
+    }
+    
+    public Color getColor()
+    {
+        return Color.blue;
     }
     
     @Override

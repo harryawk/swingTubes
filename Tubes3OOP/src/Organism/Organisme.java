@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Organism;
+import java.awt.Color;
 
 /**
  * An interface that makes the organism
@@ -65,4 +66,10 @@ public interface Organisme {
      * @param t a boolean
      */
     public void setMati(boolean t); //tambahan bimo
+    
+    /**
+     * procedure to get color representation of a creature
+     * @return Color of the creature
+     */
+    public Color getColor(); //tambahan bimo
 }

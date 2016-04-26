@@ -7,6 +7,8 @@ package Organism;
 
 import Movement.DirectionMovement;
 import Movement.Point;
+import java.awt.Color;
+import java.util.Random;
 
 /**
  *
@@ -17,6 +19,7 @@ public class SecondPlayer extends Eater{
     private int tingkat_kekenyangan;
     private String nickName;
     private DirectionMovement pergerakan;
+    private Color myColor;
     
      public void setArah(int i){
         pergerakan.setDirection(i);
@@ -34,6 +37,8 @@ public class SecondPlayer extends Eater{
         tingkat_kekenyangan = 40;
         nickName = name;
         pergerakan = new DirectionMovement();
+        Random rand = new Random();
+        myColor = new Color(rand.nextInt(256),rand.nextInt(256),rand.nextInt(256));
     }
     
     public void setMati(boolean t){
@@ -71,6 +76,11 @@ public class SecondPlayer extends Eater{
     @Override
     public int getKecepatan(){
         return 7;
+    }
+    
+    public Color getColor()
+    {
+        return myColor;
     }
     
 }

@@ -22,7 +22,7 @@ public class Point {
          */
         public Point(){
                 Random rand = new Random();
-                int value1 = rand.nextInt(366);
+                int value1 = rand.nextInt(1366);
                 int value2 = rand.nextInt(768);
                 x = value1;
                 y = value2;

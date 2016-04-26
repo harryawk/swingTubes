@@ -60,6 +60,11 @@ public class NPCEater extends Eater {
         setPosition(pergerakan.move(getPosition(),getKecepatan()));
     }
     
+    public Color getColor()
+    {
+        return myColor;
+    }
+    
     @Override
     public void Reaction(Organisme M){
         if (isRadius(100,M.getPosition())){

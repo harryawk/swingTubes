@@ -173,23 +173,28 @@ public class World extends JPanel{
     {
         super.paintComponent(g);
         clear(g);
-
+        
+        g.setColor(Color.black);
+        g.drawRect(95, 95, width-190, height-190);
+        
         int x = 0;
         int y = 0;
         
         x = player1.getPosition().getAbsis();
         y = player1.getPosition().getOrdinat();
-        g.drawString("Z", x, y);
+        g.setColor(player1.getColor());
+        g.fillOval(x, y, 10, 10);
         
         x = player2.getPosition().getAbsis();
         y = player2.getPosition().getOrdinat();
-        g.drawString("Z", x, y);
+        g.setColor(player2.getColor());
+        g.fillOval(x, y, 10, 10);
 
         for(Organisme o : dunia)
         {       
             x = o.getPosition().getAbsis();
             y = o.getPosition().getOrdinat();
-            g.setColor(Color.black);
+            g.setColor(o.getColor());
             g.fillOval(x, y, 10, 10);
         }
     }
