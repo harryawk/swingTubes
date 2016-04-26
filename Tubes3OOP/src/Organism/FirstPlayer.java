@@ -17,12 +17,28 @@ public class FirstPlayer extends Eater{
     private String nickName;
     private boolean mati;
     private int win;
+    private DirectionMovement pergerakan;
+    
+     public void setArah(int i){
+        pergerakan.setDirection(i);
+    }
+    
+    @Override
+    public void move() {
+        Point P1 = getPosition();
+        Point P2 = pergerakan.move(getPosition()); //Posisi yang baru
+        setPrecPosition(P1);
+        setPosition(P2);
+    }
     
     public FirstPlayer(String name){
         nickName = name;
         mati = false;
         win = 0;
+        pergerakan = new DirectionMovement();
     }
+    
+    
     
     public void setMati(boolean t){
         mati = t;
@@ -40,25 +56,6 @@ public class FirstPlayer extends Eater{
     @Override
     public boolean isMati() {
         return mati;
-    }
-
-    @Override
-    public void move() {
-        DirectionMovement D = new DirectionMovement();
-        Point P1 = getPosition();
-        Point P2 = D.moveWithRandomDirection(getPosition()); //Posisi yang baru
-        setPrecPosition(P1);
-        setPosition(P2);
-    }
-    
-    //Gerak dengan arah terkontrol
-    public void move(int i){
-        DirectionMovement D = new DirectionMovement();
-        Point P1 = getPosition();
-        D.setDirection(i);
-        Point P2 = D.move(getPosition()); //Posisi yang baru
-        setPrecPosition(P1);
-        setPosition(P2);
     }
     
     public int getWin(){

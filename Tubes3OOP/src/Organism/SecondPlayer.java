@@ -16,12 +16,26 @@ public class SecondPlayer extends Eater{
     private boolean mati;
     private int tingkat_kekenyangan;
     private String nickName;
+    private DirectionMovement pergerakan;
+    
+     public void setArah(int i){
+        pergerakan.setDirection(i);
+    }
+    
+    @Override
+    public void move() {
+        Point P1 = getPosition();
+        Point P2 = pergerakan.move(getPosition()); //Posisi yang baru
+        setPrecPosition(P1);
+        setPosition(P2);
+    }
     
     public SecondPlayer(String name){
         super();
         mati = false;
         tingkat_kekenyangan = 40;
         nickName = name;
+        pergerakan = new DirectionMovement();
     }
     
     public void setMati(boolean t){
@@ -40,25 +54,6 @@ public class SecondPlayer extends Eater{
     @Override
     public boolean isMati() {
         return mati;
-    }
-
-    @Override
-    public void move() {
-        DirectionMovement D = new DirectionMovement();
-        Point P1 = getPosition();
-        Point P2 = D.moveWithRandomDirection(getPosition()); //Posisi yang baru
-        setPrecPosition(P1);
-        setPosition(P2);
-    }
-    
-    //Gerak dengan arah terkontrol
-    public void move(int i){
-        DirectionMovement D = new DirectionMovement();
-        Point P1 = getPosition();
-        D.setDirection(i);
-        Point P2 = D.move(getPosition()); //Posisi yang baru
-        setPrecPosition(P1);
-        setPosition(P2);
     }
     
     public void setTingkatKekenyangan(int a){
