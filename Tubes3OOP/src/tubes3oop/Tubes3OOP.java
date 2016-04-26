@@ -26,18 +26,28 @@ public class Tubes3OOP {
         NPCEater o1 = new NPCEater("wawa");
         NPCEater o2 = new NPCEater("wawa");
         NPCEater o3 = new NPCEater("wawa");
+        
+        FirstPlayer pl1 = new FirstPlayer("jim");
+        SecondPlayer pl2 = new SecondPlayer("jam");
 
         Point p1 = new Point(50, 50);
         Point p2 = new Point(500, 500);
         Point p3 = new Point(350, 700);
+        Point p4 = new Point(700, 700);
+        Point p5 = new Point(700, 300);
 
         o1.setPosition(p1);
         o2.setPosition(p2);
         o3.setPosition(p3);
+        
+        pl1.setPosition(p4);
+        pl2.setPosition(p5);
 
         w.add(o1);
         w.add(o2);
         w.add(o3);
+        w.registerPlayer1(pl1);
+        w.registerPlayer2(pl2);
 
         //game-loop
         while(true)
