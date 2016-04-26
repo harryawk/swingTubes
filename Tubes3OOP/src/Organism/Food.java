@@ -82,7 +82,31 @@ public class Food implements Organisme{
             else
                 pergerakan.setWithRandomDirection();
         } else
-            pergerakan.setWithRandomDirection();       
+            pergerakan.setWithRandomDirection(); 
+        
+         //tetap di dalam
+        int width  = 1366;
+        int height = 768; 
+        int x = getPosition().getAbsis();
+        int y = getPosition().getOrdinat();
+        
+        //boundary
+        if(x > (width-100))
+        {
+            setArah(7);
+        }
+        else if(x < 100)
+        {
+            setArah(3);
+        }
+        else if(y > (height-100))
+        {
+            setArah(1);
+        }
+        else if(y < 100)
+        {
+            setArah(5);
+        }
     }
     
     public boolean isRadius (int rad, Point p){

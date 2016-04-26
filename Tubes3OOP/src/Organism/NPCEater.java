@@ -66,27 +66,28 @@ public class NPCEater extends Eater {
             pergerakan.setWithRandomDirection();
         }
         
-        int width  = 500;
-        int height = 300; 
+        //tetap di dalam
+        int width  = 1366;
+        int height = 768; 
         int x = getPosition().getAbsis();
-        int y = getPosition().getAbsis();
+        int y = getPosition().getOrdinat();
         
         //boundary
-        if(x > width)
-        {
-            setArah(3);
-        }
-        else if(x < 0)
+        if(x > (width-100))
         {
             setArah(7);
         }
-        else if(y > height)
+        else if(x < 100)
         {
-            setArah(5);
+            setArah(3);
         }
-        else if(y < 0)
+        else if(y > (height-100))
         {
             setArah(1);
+        }
+        else if(y < 100)
+        {
+            setArah(5);
         }
             
     }
