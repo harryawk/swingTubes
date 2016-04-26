@@ -5,7 +5,7 @@
  */
 package Organism;
 
-import Movement.DirectionMovement;
+import Instinct.CautionMovement;
 import Movement.Point;
 import java.util.Random;
 
@@ -16,13 +16,13 @@ import java.util.Random;
 public class Food implements Organisme{
     private Point position;
     private boolean mati;
-    private DirectionMovement pergerakan;
+    private CautionMovement pergerakan;
     private int kecepatan;
     
     public Food() {
         position = new Point();
         mati = false;
-        pergerakan = new DirectionMovement();
+        pergerakan = new CautionMovement();
         setKecepatan();
     }
     
@@ -71,17 +71,30 @@ public class Food implements Organisme{
  
     @Override
     public void Reaction(Organisme M){
-        if ((M.name() == "2") || (M.name() != "N")){
-            setMati(true);
-        }
-        else{
-            if (M.name() != "1"){
-                move();
-            }
-            else{
-            }
-        }
-    }   
+        if (isRadius(10,M.getPosition())) {
+            if ((M.name() == "2") || (M.name() == "N")){
+                setMati(true);
+            } else
+                pergerakan.setWithRandomDirection();
+        } else if (isRadius(35,M.getPosition())) {
+            if ((M.name() == "N") || (M.name() == "2"))
+                pergerakan.run(getPosition(),M.getPosition());
+            else
+                pergerakan.setWithRandomDirection();
+        } else
+            pergerakan.setWithRandomDirection();       
+    }
+    
+    public boolean isRadius (int rad, Point p){
+        int _x, _y;
+        _x = getPosition().getAbsis() - p.getAbsis();
+        if (_x < 0)
+                _x = 0 - _x;
+        _y = getPosition().getOrdinat() - p.getOrdinat();
+        if (_y < 0)
+                _y = 0 - _y;
+        return ((_y <= rad) &&(_x <= rad));
+    }
     
     public boolean isOutside(int width, int height)
     {
@@ -98,3 +111,5 @@ public class Food implements Organisme{
         return false;
     }
 }
+    
+   

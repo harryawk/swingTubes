@@ -18,20 +18,13 @@ public class Point {
         private int y;
 
         /**
-         * A ctor that construct A Point with cordinate(0,0)
-         */
-        public Point(){
-                x = 0; y = 0;
-        }
-        
-        /**
          * A ctor that construct A Point with a random cordinate that range from 0 to range
          * @param range is an integer, a range to random
          */
-        public Point(int range){
+        public Point(){
                 Random rand = new Random();
-                int value1 = rand.nextInt(range);
-                int value2 = rand.nextInt(range);
+                int value1 = rand.nextInt(366);
+                int value2 = rand.nextInt(768);
                 x = value1;
                 y = value2;
         }
@@ -95,4 +88,5 @@ public class Point {
         {
                 return(Integer.toString(x)+" "+Integer.toString(y));
         }
+        
 }
