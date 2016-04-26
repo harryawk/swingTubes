@@ -53,7 +53,7 @@ public abstract class Eater implements Organisme{
         _y = getPosition().getOrdinat() - p.getOrdinat();
         if (_y < 0)
                 _y = 0 - _y;
-        return ((_y <= rad) &&(_x <= rad));
+        return ((_y <= rad) && (_x <= rad));
     }
     
     @Override
