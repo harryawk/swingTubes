@@ -47,21 +47,21 @@ public class ListenKey extends Thread implements KeyListener {
             arrayList.add(VK_RIGHT);
             break;
         case VK_W :
-            arrayList.add(VK_W);
+            arrayList2.add(VK_W);
             break;
         case VK_S :
-            arrayList.add(VK_S);
+            arrayList2.add(VK_S);
             break;
         case VK_A :
-            arrayList.add(VK_A);
+            arrayList2.add(VK_A);
             break;
         case VK_D :
-            arrayList.add(VK_D);
+            arrayList2.add(VK_D);
             break;            
         default:
             break;
         }
-        if (arrayList.size() > 1) {
+        if (arrayList.size() > 1 && arrayList2.size() > 1) {
             keyReleased(e);
         }
     }
@@ -73,9 +73,10 @@ public class ListenKey extends Thread implements KeyListener {
             System.out.println("Do Nothing"); //Do nothing
         } else if (arrayList.size() <= 2 || arrayList.size() > 0) {*/
             int i = 0;
-            while (arrayList.size() > 0 || arrayList2.size() > 0) {
+            int j = 0;
+            while (arrayList.size() > 0 && arrayList2.size() > 0) {
                 switch (arrayList.get(i)) {
-                    case VK_DOWN :
+                    case VK_UP :
                         if (arrayList.size() == 1) {
                             world.setPlayer1Direction(1);
                         } else {
@@ -96,7 +97,7 @@ public class ListenKey extends Thread implements KeyListener {
                             }
                         }
                         break;
-                    case VK_UP :
+                    case VK_DOWN :
                         if (arrayList.size() == 1) {
                             world.setPlayer1Direction(5);
                         } else {
@@ -123,45 +124,49 @@ public class ListenKey extends Thread implements KeyListener {
                     case VK_RIGHT :
                         world.setPlayer1Direction(3);
                         break;
-                    case VK_S :
-                        if (arrayList.size() == 1) {
-                            world.setPlayer2Direction(1);
-                        }
-                        else {
-                            if (arrayList.get(i+1) != VK_A && 
-                                    arrayList.get(i+1) != VK_D &&
-                                    arrayList.get(i+1) != VK_S) {
-                                world.setPlayer2Direction(1);
-                            } else if (arrayList.get(i+1) == VK_A) {
-                                world.setPlayer2Direction(8);
-                                i++;
-                                arrayList.remove(i);
-                                i--;
-                            } else if (arrayList.get(i+1) == VK_D) {
-                                world.setPlayer2Direction(2);
-                                i++;
-                                arrayList.remove(i);
-                                i--;
-                            }
-                        }
-                        break;
+                    default:
+                       break;
+                }
+                switch (arrayList2.get(j)) {
                     case VK_W :
-                        if (arrayList.size() == 1) {
+                    if (arrayList2.size() == 1) {
+                        world.setPlayer2Direction(1);
+                    }
+                    else {
+                        if (arrayList2.get(j+1) != VK_A && 
+                                arrayList2.get(j+1) != VK_D &&
+                                arrayList2.get(j+1) != VK_S) {
+                            world.setPlayer2Direction(1);
+                        } else if (arrayList2.get(j+1) == VK_A) {
+                            world.setPlayer2Direction(8);
+                            i++;
+                            arrayList2.remove(j);
+                            i--;
+                        } else if (arrayList2.get(j+1) == VK_D) {
+                            world.setPlayer2Direction(2);
+                            i++;
+                            arrayList2.remove(j);
+                            i--;
+                        }
+                    }
+                    break;
+                    case VK_S :
+                        if (arrayList2.size() == 1) {
                             world.setPlayer2Direction(5);
                         } else {
-                            if (arrayList.get(i+1) != VK_A && 
-                                    arrayList.get(i+1) != VK_D &&
-                                    arrayList.get(i+1) != VK_W) {
+                            if (arrayList2.get(j+1) != VK_A && 
+                                    arrayList2.get(j+1) != VK_D &&
+                                    arrayList2.get(j+1) != VK_W) {
                                 world.setPlayer2Direction(5);
-                            } else if (arrayList.get(i+1) == VK_A) {
+                            } else if (arrayList2.get(j+1) == VK_A) {
                                 world.setPlayer2Direction(6);
                                 i++;
-                                arrayList.remove(i);
+                                arrayList2.remove(j);
                                 i--;
-                            } else if (arrayList.get(i+1) == VK_D) {
+                            } else if (arrayList2.get(j+1) == VK_D) {
                                 world.setPlayer2Direction(4);
                                 i++;
-                                arrayList.remove(i);
+                                arrayList2.remove(j);
                                 i--;
                             }
                         }
@@ -177,6 +182,7 @@ public class ListenKey extends Thread implements KeyListener {
                 }
                 System.out.println();
                 arrayList.remove(i);
+                arrayList2.remove(i);
                 if (arrayList.size() < 0) {
                     // Lanjut pengulangan
                 } else {
