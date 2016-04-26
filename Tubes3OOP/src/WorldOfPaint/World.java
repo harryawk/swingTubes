@@ -57,7 +57,7 @@ public class World extends JFrame{
             width   = 1366;
             height = 768;
             dim = getSize();
-            offscreen = createImage(dim.width,dim.)
+            offscreen = createImage(dim.width,dim.height);
             this.setPreferredSize(new Dimension(1366, 768));
             this.pack();
             this.setVisible(true);
