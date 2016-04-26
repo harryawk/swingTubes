@@ -15,7 +15,6 @@ import Movement.Point;
 
 public abstract class Eater implements Organisme{
     private Point position = new Point();
-    private Point precPosition = new Point();
     
     public void setPosition(Point P){
         position.setAbsis(P.getAbsis());
@@ -25,15 +24,6 @@ public abstract class Eater implements Organisme{
     @Override
     public Point getPosition(){
         return position;
-    }
-    
-    public void setPrecPosition(Point P){
-        precPosition.setAbsis(P.getAbsis());
-        precPosition.setOrdinat(P.getOrdinat());
-    }
-    
-    public Point getPrecPosition(){
-        return precPosition;
     }
     
     @Override

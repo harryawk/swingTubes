@@ -26,7 +26,6 @@ public class SecondPlayer extends Eater{
     public void move() {
         Point P1 = getPosition();
         Point P2 = pergerakan.move(getPosition()); //Posisi yang baru
-        setPrecPosition(P1);
         setPosition(P2);
     }
     
