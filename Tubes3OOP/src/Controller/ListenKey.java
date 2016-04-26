@@ -14,13 +14,15 @@ import java.util.ArrayList;
  * A class to listen keystroke that pressed by user while the application is running
  * @author Harry Alvin
  */
-public class ListenKey implements KeyListener {
+public class ListenKey extends Thread implements KeyListener {
     private World world;
     private ArrayList<Integer> arrayList;
+    private ArrayList<Integer> arrayList2;
     
     public ListenKey(World world)  {
         this.world = world;
         arrayList = new ArrayList();
+        arrayList2 = new ArrayList();
     }
     
     @Override
@@ -58,39 +60,116 @@ public class ListenKey implements KeyListener {
         default:
             break;
         }
+        if (arrayList.size() > 2) {
+            keyReleased(e);
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        if (arrayList.size() > 2) {
-            System.out.println("Do nothing"); //Do nothing
-        } else if (arrayList.size() <= 2 || arrayList.size() > 0) {
+        /*if (arrayList.size() > 2) {
+            arrayList.clear();
+            System.out.println("Do Nothing"); //Do nothing
+        } else if (arrayList.size() <= 2 || arrayList.size() > 0) {*/
             int i = 0;
-            while (arrayList.size() > 0) {
+            while (arrayList.size() > 0 || arrayList2.size() > 0) {
                 switch (arrayList.get(i)) {
                     case VK_UP :
-                        System.out.print("atas");
+                        if (arrayList.size() == 1) {
+                            world.setPlayer1Direction(1);
+                        } else {
+                            if (arrayList.get(i+1) != VK_LEFT && 
+                                arrayList.get(i+1) != VK_RIGHT &&
+                                arrayList.get(i+1) != VK_DOWN) {
+                                world.setPlayer1Direction(1);
+                            } else if (arrayList.get(i+1) == VK_LEFT) {
+                                world.setPlayer1Direction(8);
+                                i++;
+                                arrayList.remove(i);
+                                i--;
+                            } else if (arrayList.get(i+1) == VK_RIGHT) {
+                                world.setPlayer1Direction(2);
+                                i++;
+                                arrayList.remove(i);
+                                i--;
+                            }
+                        }
                         break;
                     case VK_DOWN :
-                        System.out.print("bawah");
+                        if (arrayList.size() == 1) {
+                            world.setPlayer1Direction(5);
+                        } else {
+                            if (arrayList.get(i+1) != VK_LEFT && 
+                                    arrayList.get(i+1) != VK_RIGHT &&
+                                    arrayList.get(i+1) != VK_UP) {
+                                world.setPlayer1Direction(5);
+                            } else if (arrayList.get(i+1) == VK_LEFT) {
+                                world.setPlayer1Direction(6);
+                                i++;
+                                arrayList.remove(i);
+                                i--;
+                            } else if (arrayList.get(i+1) == VK_RIGHT) {
+                                world.setPlayer1Direction(4);
+                                i++;
+                                arrayList.remove(i);
+                                i--;
+                            }
+                        }
                         break;
                     case VK_LEFT :
-                        System.out.print("kiri");
+                        world.setPlayer1Direction(7);
                         break;
                     case VK_RIGHT :
-                        System.out.print("kanan");
+                        world.setPlayer1Direction(3);
                         break;
                     case VK_W :
-                        System.out.print("atas");
+                        if (arrayList.size() == 1) {
+                            world.setPlayer2Direction(1);
+                        }
+                        else {
+                            if (arrayList.get(i+1) != VK_A && 
+                                    arrayList.get(i+1) != VK_D &&
+                                    arrayList.get(i+1) != VK_S) {
+                                world.setPlayer2Direction(1);
+                            } else if (arrayList.get(i+1) == VK_A) {
+                                world.setPlayer2Direction(8);
+                                i++;
+                                arrayList.remove(i);
+                                i--;
+                            } else if (arrayList.get(i+1) == VK_D) {
+                                world.setPlayer2Direction(2);
+                                i++;
+                                arrayList.remove(i);
+                                i--;
+                            }
+                        }
                         break;
                     case VK_S :
-                        System.out.print("bawah");
+                        if (arrayList.size() == 1) {
+                            world.setPlayer2Direction(5);
+                        } else {
+                            if (arrayList.get(i+1) != VK_A && 
+                                    arrayList.get(i+1) != VK_D &&
+                                    arrayList.get(i+1) != VK_W) {
+                                world.setPlayer2Direction(5);
+                            } else if (arrayList.get(i+1) == VK_A) {
+                                world.setPlayer2Direction(6);
+                                i++;
+                                arrayList.remove(i);
+                                i--;
+                            } else if (arrayList.get(i+1) == VK_D) {
+                                world.setPlayer2Direction(4);
+                                i++;
+                                arrayList.remove(i);
+                                i--;
+                            }
+                        }
                         break;
                     case VK_A :
-                        System.out.print("kiri");
+                        world.setPlayer2Direction(7);
                         break;
                     case VK_D :
-                        System.out.print("kanan");
+                        world.setPlayer2Direction(3);
                         break;
                     default:
                         break;
@@ -103,10 +182,8 @@ public class ListenKey implements KeyListener {
                     break; // arrayList.size() == 0
                 }
             }
-        } else {
+        /*} else {
             //Do ntohing
-        }
+        }*/
     }
-
-    
 }
