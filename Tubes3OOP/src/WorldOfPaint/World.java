@@ -124,6 +124,7 @@ public class World extends JFrame{
             }
             
             //cek lokasi
+            /*
             for(Organisme o : dunia)
             {
                 if(o != null && o.isOutside(width, height))
@@ -131,6 +132,7 @@ public class World extends JFrame{
                     o.setMati(true);
                 }
             }
+            */
             
             //pluck yang mati
             i = 0;
