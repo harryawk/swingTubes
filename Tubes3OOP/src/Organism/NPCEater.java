@@ -22,6 +22,10 @@ public class NPCEater extends Eater {
     private CautionMovement pergerakan;
     Color myColor;
     
+    /**
+     *
+     * @param name
+     */
     public NPCEater(String name){
         mati = false;
         pergerakan = new CautionMovement();
@@ -43,6 +47,10 @@ public class NPCEater extends Eater {
         return mati;
     }
     
+    /**
+     *
+     * @param i
+     */
     public void setArah(int i){
         pergerakan.setDirection(i);
     }
@@ -97,6 +105,10 @@ public class NPCEater extends Eater {
         return 6;
     }
     
+    /**
+     * a method to implement hunt
+     * @param M
+     */
     public void hunt(Organisme M){
         if ((getPosition().getAbsis() == M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
                 > M.getPosition().getOrdinat()))

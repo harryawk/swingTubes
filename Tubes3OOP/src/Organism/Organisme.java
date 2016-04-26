@@ -6,18 +6,63 @@
 package Organism;
 
 /**
- *
- * @author Ali-pc
+ * An interface that makes the organism
+ * @author Ali Akbar
  */
 import Movement.Point;
 
+/**
+ *
+ * @author Ali-pc
+ */
 public interface Organisme {
+    /**
+    * a function that returns the name of the organism
+    * @return a String that contain the name of the organism
+    */
     public String name();
+    
+    /**
+    * a function to check if the organism still alive or not
+    * @return a boolean
+    */
     public boolean isMati();
+    
+    /**
+     * procedure to move the organism
+     */
     public void move();
+    
+    /**
+     * a function to get the current position of the organism
+     * @return a Point
+     */
     public Point getPosition();
+    
+    /**
+     * a procedure that control the reaction of organism if
+     * they meet another Organism
+     * @param o an organism
+     */
     public void Reaction(Organisme o);
+    
+    /**
+     * a function that return the velocity of the organism
+     * @return an integer
+     */
     public int getKecepatan();
+    
+    /**
+     * a function to check if the organism is outside the box or not
+     * @param width of box
+     * @param height of box
+     * @return a boolean
+     */
     public boolean isOutside(int width, int height);  //tambahan bimo
+    
+    /**
+     * a procedure to set the death variable
+     * @param t a boolean
+     */
     public void setMati(boolean t); //tambahan bimo
 }

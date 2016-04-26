@@ -12,13 +12,23 @@ package Organism;
  */
 import Movement.Point;
 
-
+/**
+ *
+ * @author Ali-pc
+ */
 public abstract class Eater implements Organisme{
     private Point position = new Point();
     
+    /**
+     *
+     */
     public Eater(){
     }
     
+    /**
+     *
+     * @param P
+     */
     public void setPosition(Point P){
         position.setAbsis(P.getAbsis());
         position.setOrdinat(P.getOrdinat());
@@ -29,6 +39,12 @@ public abstract class Eater implements Organisme{
         return position;
     }
     
+    /**
+     *
+     * @param rad
+     * @param p
+     * @return
+     */
     public boolean isRadius (int rad, Point p){
         int _x, _y;
         _x = getPosition().getAbsis() - p.getAbsis();

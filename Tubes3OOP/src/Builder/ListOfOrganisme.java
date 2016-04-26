@@ -15,14 +15,26 @@ import java.util.List;
 public class ListOfOrganisme {
     private List<Organisme> organisms;
     
+    /**
+     *
+     * @param O
+     */
     public void addOrganisme(Organisme O){
         organisms.add(O);
     }
     
+    /**
+     *
+     * @param i
+     */
     public void deleteOrganisme(int i){
         organisms.remove(i);
     }
     
+    /**
+     *
+     * @return
+     */
     public List<Organisme> getList(){
         return organisms;
     }

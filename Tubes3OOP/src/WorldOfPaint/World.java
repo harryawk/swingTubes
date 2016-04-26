@@ -63,9 +63,7 @@ public class World extends JFrame{
         public void printDunia() {
            
         }
-        /**
-	 *  Draw an empty world (all dot)
-	 */
+        
         public void cetak(String string) {
             System.out.println(string);
         }
@@ -84,10 +82,6 @@ public class World extends JFrame{
             repaint();
 	}
         
-        /**
-	 * update the position of a makhlukhidup within world matrix
-         * @param i is index of would be updated makhlukhidup
-	 */
 	public void updateGame() throws ExceptionInInitializerError
 	{
             System.out.println(dunia.size());
@@ -192,9 +186,7 @@ public class World extends JFrame{
 	{
 		return true;
 	}
-        /**
-	 *  Save current world in txt format
-	 */
+     
 	public void tangkapLayar() throws IOException, NullPointerException
 	{
 		
