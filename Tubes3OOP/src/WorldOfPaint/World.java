@@ -90,6 +90,7 @@ public class World extends JFrame{
 	 */
 	public void updateGame() throws ExceptionInInitializerError
 	{
+            System.out.println(dunia.size());
             //gerak
             player1.getPosition().geser(1,1);
             player2.getPosition().geser(1,1);
@@ -142,7 +143,7 @@ public class World extends JFrame{
             }
             for(Integer k:removeList)
             {
-                dunia.remove(k);
+                dunia.remove(k.intValue());
             }
             removeList = new ArrayList<Integer>();
 	}
