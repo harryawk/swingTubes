@@ -47,10 +47,10 @@ public class Tubes3OOP {
         FirstPlayer pl1 = new FirstPlayer("1");
         SecondPlayer pl2 = new SecondPlayer("2");
 
-        Point p1 = new Point(50, 50);
+        Point p1 = new Point(50, 300);
         Point p2 = new Point(500, 500);
         Point p3 = new Point(350, 700);
-        Point p4 = new Point(700, 700);
+        Point p4 = new Point(700, 500);
         Point p5 = new Point(700, 300);
         Point p6 = new Point();
         Point p7 = new Point();
@@ -80,7 +80,7 @@ public class Tubes3OOP {
         w.add(f4);
 
         //game-loop
-        while(true)
+        while(!w.GameOver())
         {
             overWorld.repaint();
             w.updateGame();
@@ -95,5 +95,8 @@ public class Tubes3OOP {
 
             }
         }
+        
+        w.updateDisplay();
+        overWorld.repaint();
     }
 }

@@ -32,6 +32,7 @@ public class World extends JPanel{
         SecondPlayer player2;
         int width;
         int height;
+        long worldGenesis;
 
 ///Administrator///=========================================================================
 	private int size=10; //banyak makhluk maksimal
@@ -54,6 +55,7 @@ public class World extends JPanel{
             setFocusable(true);   
             requestFocusInWindow();
             this.addKeyListener(new ListenKey(this));
+            worldGenesis = System.currentTimeMillis();
         }
         /**
 	 *  Store an empty world (all dot)
@@ -197,6 +199,15 @@ public class World extends JPanel{
             g.setColor(o.getColor());
             g.fillOval(x, y, 10, 10);
         }
+        
+        if(GameOver())
+        {
+            if(isTimeout())
+            {
+                g.setColor(Color.black);
+                g.drawString("GameOver: timeout", 600, 720);
+            }
+        }
     }
 	/*  Draw display at Pc and remove the previous drawing at Px
          *  @param Px is previous position that would be erased
@@ -204,9 +215,9 @@ public class World extends JPanel{
          *  @param display is the character that would be drawn at Pc
 	*/
 
-	public boolean isGameOver()
+	public boolean GameOver()
 	{
-		return true;
+            return (isTimeout());
 	}
      
 	public void tangkapLayar() throws IOException, NullPointerException
@@ -270,5 +281,9 @@ public class World extends JPanel{
         return(lifeState == 0);
     }
     
-    
+    public boolean isTimeout()
+    {
+        return(System.currentTimeMillis() - worldGenesis > 60000);
+    }
+   
 }
