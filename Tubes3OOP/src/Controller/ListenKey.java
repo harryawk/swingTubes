@@ -126,7 +126,7 @@ public class ListenKey extends Thread implements KeyListener {
                         break;
                     default:
                        break;
-                }
+                }/*
                 switch (arrayList2.get(j)) {
                     case VK_W :
                     if (arrayList2.size() == 1) {
@@ -179,10 +179,10 @@ public class ListenKey extends Thread implements KeyListener {
                         break;
                     default:
                         break;
-                }
+                }*/
                 System.out.println();
                 arrayList.remove(i);
-                arrayList2.remove(i);
+//                arrayList2.remove(i);
                 if (arrayList.size() < 0) {
                     // Lanjut pengulangan
                 } else {
