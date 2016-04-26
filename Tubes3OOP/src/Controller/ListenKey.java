@@ -22,7 +22,7 @@ public class ListenKey extends Thread implements KeyListener {
     
     /**
      * Listen A key from world
-     * @param world
+     * @param world the world that its keystroke want to be listened
      */
     public ListenKey(World world)  {
         this.world = world;
@@ -38,7 +38,7 @@ public class ListenKey extends Thread implements KeyListener {
     @Override
     /**
      * An procedure that response when key pressed
-     * @param e KeyEvent
+     * @param e Keystroke that being pressed
      */
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
@@ -74,7 +74,7 @@ public class ListenKey extends Thread implements KeyListener {
     @Override
     /**
      * An procedure that response when key released
-     * @param e KeyEvent
+     * @param e Keystroke that is released after being pressed
      */
     public void keyReleased(KeyEvent e) {
         
