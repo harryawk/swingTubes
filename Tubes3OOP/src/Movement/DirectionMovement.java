@@ -36,14 +36,15 @@ public class DirectionMovement implements Movement{
         temp.setOrdinat(P1.getOrdinat());
         int d = 1;
         switch (direction) {
-            case 1 : temp.geser(0,d); break;
-            case 2 : temp.geser(d,d); break;
+            case 1 : temp.geser(0,d); break;        
+            case 2 : temp.geser(d,d); break;        
             case 3 : temp.geser(d,0); break;
             case 4 : temp.geser(d,-1*d); break;
             case 5 : temp.geser(0,-1*d); break;
             case 6 : temp.geser(-1*d,-1*d); break;
             case 7 : temp.geser(-1*d,0); break;
             case 8 : temp.geser(-1*d,d); break;
+            default:
         }
         return temp;
     }

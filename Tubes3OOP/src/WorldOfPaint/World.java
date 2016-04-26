@@ -191,12 +191,12 @@ public class World extends JFrame{
     
     public void setPlayer1Direction(int i)
     {
-        
+        player1.setArah(i);
     }
     
     public void setPlayer2Direction(int i)
     {
-        
+        player1.setArah(i);
     }
 
     public void pause()
