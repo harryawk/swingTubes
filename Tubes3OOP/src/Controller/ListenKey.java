@@ -61,7 +61,7 @@ public class ListenKey extends Thread implements KeyListener {
         default:
             break;
         }
-        if (arrayList.size() > 2) {
+        if (arrayList.size() > 1) {
             keyReleased(e);
         }
     }
@@ -75,7 +75,7 @@ public class ListenKey extends Thread implements KeyListener {
             int i = 0;
             while (arrayList.size() > 0 || arrayList2.size() > 0) {
                 switch (arrayList.get(i)) {
-                    case VK_UP :
+                    case VK_DOWN :
                         if (arrayList.size() == 1) {
                             world.setPlayer1Direction(1);
                         } else {
@@ -96,7 +96,7 @@ public class ListenKey extends Thread implements KeyListener {
                             }
                         }
                         break;
-                    case VK_DOWN :
+                    case VK_UP :
                         if (arrayList.size() == 1) {
                             world.setPlayer1Direction(5);
                         } else {
@@ -123,7 +123,7 @@ public class ListenKey extends Thread implements KeyListener {
                     case VK_RIGHT :
                         world.setPlayer1Direction(3);
                         break;
-                    case VK_W :
+                    case VK_S :
                         if (arrayList.size() == 1) {
                             world.setPlayer2Direction(1);
                         }
@@ -145,7 +145,7 @@ public class ListenKey extends Thread implements KeyListener {
                             }
                         }
                         break;
-                    case VK_S :
+                    case VK_W :
                         if (arrayList.size() == 1) {
                             world.setPlayer2Direction(5);
                         } else {
