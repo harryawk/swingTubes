@@ -9,6 +9,9 @@ import WorldOfPaint.*;
 import Movement.*;
 import Organism.*;
 import Controller.ListenKey;
+import java.awt.Dimension;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.*;
 
 /**
  *
@@ -21,7 +24,13 @@ public class Tubes3OOP {
      */
     public static void main(String[] args)
     {
+        JFrame overWorld = new JFrame();
         World w = new World();
+        overWorld.add(w);
+        overWorld.setPreferredSize(new Dimension(1366, 768));
+        overWorld.pack();
+        overWorld.setVisible(true);
+        overWorld.setDefaultCloseOperation(EXIT_ON_CLOSE);
         int count = 0;
 
         NPCEater o1 = new NPCEater("wawa");
@@ -53,6 +62,7 @@ public class Tubes3OOP {
         //game-loop
         while(true)
         {
+            overWorld.repaint();
             w.updateGame();
             w.updateDisplay();
 

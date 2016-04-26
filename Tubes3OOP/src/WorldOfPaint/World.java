@@ -17,7 +17,7 @@ import java.io.*;
  *  contains information of all object within it and capable to display them.
  *  @author Harry Alvin
  */
-public class World extends JFrame{
+public class World extends JPanel{
         /**
          * Dunia[][] to store the world's frame
          * size the limit of MakhlukHidup in World
@@ -32,11 +32,6 @@ public class World extends JFrame{
         SecondPlayer player2;
         int width;
         int height;
-        
-        //variabel paint
-        Graphics bufferedGraphics;
-        Image offscreen;
-        Dimension dim;
 
 ///Administrator///=========================================================================
 	private int size=10; //banyak makhluk maksimal
@@ -55,13 +50,9 @@ public class World extends JFrame{
 	 */
         public World() {
             width   = 1366;
-            height = 768;
-            dim = getSize();
-            offscreen = createImage(dim.width,dim.height);
-            this.setPreferredSize(new Dimension(1366, 768));
-            this.pack();
-            this.setVisible(true);
-            this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+            height = 768;   
+            setFocusable(true);   
+            requestFocusInWindow();
             this.addKeyListener(new ListenKey(this));
         }
         /**
@@ -178,9 +169,9 @@ public class World extends JFrame{
         g.clearRect(0, 0, getWidth(), getHeight());
     }
 
-    public void paint(Graphics g) 
+    public void paintComponent(Graphics g) 
     {
-        super.paint(g);
+        super.paintComponent(g);
         clear(g);
 
         int x = 0;
