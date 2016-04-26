@@ -69,7 +69,7 @@ public class NPCEater extends Eater {
     
     @Override
     public int getKecepatan(){
-        return 7;
+        return 6;
     }
     
     public void hunt(Organisme M){
