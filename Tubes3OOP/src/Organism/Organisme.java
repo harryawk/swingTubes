@@ -16,4 +16,5 @@ public interface Organisme {
     public boolean isMati();
     public void move();
     public Point getPosition();
+    public void Reaction(Organisme o);
 }

@@ -89,7 +89,24 @@ public class World extends JFrame{
             player2.getPosition().geser(1,1);
             for(Organisme o : dunia)
             {
-                o.getPosition().geser(1,1);
+                o.move();
+            }
+            
+            int i = 0;
+            int j = 0;
+            for(Organisme o : dunia)
+            {
+                j=0;
+                
+                for(Organisme oo : dunia)
+                {
+                    if(i != j)
+                    {
+                        o.Reaction(oo);
+                    }
+                    j++;
+                }
+                i++;
             }
 	}
 

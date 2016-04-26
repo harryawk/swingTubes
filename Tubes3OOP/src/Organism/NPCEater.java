@@ -50,6 +50,9 @@ public class NPCEater extends Eater {
         Point P1 = getPosition();
         Point P2 = pergerakan.move(getPosition()); //Posisi yang baru
         setPosition(P2);
+        System.out.println("wawa");
+        System.out.println(P1);
+        System.out.println(P2);
     }
     
     public boolean isRadius (int rad, Point p){
