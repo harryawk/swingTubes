@@ -24,23 +24,9 @@ public class DirectionMovement implements Movement{
     public int getDirection(){
         return direction;
     }
-    public Point moveWithRandomDirection(Point P1){
+    public void setWithRandomDirection(){
         Random rand = new Random();
         direction = rand.nextInt(8);
-        Point temp = new Point(0,0);
-        temp.setAbsis(P1.getAbsis());
-        temp.setOrdinat(P1.getOrdinat());
-        switch (direction) {
-            case 1 : temp.geser(0,1); break;
-            case 2 : temp.geser(1,1); break;
-            case 3 : temp.geser(1,0); break;
-            case 4 : temp.geser(1,-1); break;
-            case 5 : temp.geser(0,-1); break;
-            case 6 : temp.geser(-1,-1); break;
-            case 7 : temp.geser(-1,0); break;
-            case 8 : temp.geser(-1,1); break;
-        }
-        return temp;
     }
 
     @Override
