@@ -5,8 +5,12 @@
  */
 package Organism;
 
+import Instinct.CautionMovement;
 import Movement.DirectionMovement;
 import Movement.Point;
+import Instinct.CautionMovement;
+import java.awt.Color;
+import java.util.Random;
 
 /**
  *
@@ -15,25 +19,23 @@ import Movement.Point;
 public class NPCEater extends Eater {
     private String nickName;
     private boolean mati;
-    private DirectionMovement pergerakan;
+    private CautionMovement pergerakan;
+    Color myColor;
     
     public NPCEater(String name){
-        nickName = name;
         mati = false;
-        pergerakan = new DirectionMovement();
+        pergerakan = new CautionMovement();
+        Random rand = new Random();
+        myColor = new Color(rand.nextInt(256),rand.nextInt(256),rand.nextInt(256));
     }
     
     public void setMati(boolean t){
         mati = t;
     }
     
-    public String nickName(){
-        return nickName;
-    }
-    
     @Override
     public String name() {
-        return nickName();
+        return "N";
     }
 
     @Override
@@ -47,32 +49,27 @@ public class NPCEater extends Eater {
     
     @Override
     public void move() {
-        Point P1 = getPosition();
-        Point P2 = pergerakan.move(P1); //Posisi yang baru
-        P1 = pergerakan.move(P2);
-        P2 = pergerakan.move(P1);
-        P1 = pergerakan.move(P2);
-        setPosition(P2);
+        setPosition(pergerakan.move(getPosition()));
     }
     
-    public boolean isRadius (int rad, Point p){
-        int _x, _y;
-        _x = getPosition().getAbsis() - p.getAbsis();
-        if (_x < 0)
-                _x = 0 - _x;
-        _y = getPosition().getOrdinat() - p.getOrdinat();
-        if (_y < 0)
-                _y = 0 - _y;
-        return ((_y <= rad) &&(_x <= rad));
-    }
-    
+    @Override
     public void Reaction(Organisme M){
-        if (isRadius(1,M.getPosition())){
-            hunt(M);
+        if (isRadius(50,M.getPosition())){
+            if (M.name() == "F")
+                hunt(M);
+            else if (M.name() == "1")
+                pergerakan.run(getPosition(),M.getPosition());
+            else
+                pergerakan.setWithRandomDirection();
         }
         else{
             pergerakan.setWithRandomDirection();
         }
+    }
+    
+    @Override
+    public int getKecepatan(){
+        return 7;
     }
     
     public void hunt(Organisme M){
