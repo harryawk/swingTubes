@@ -68,8 +68,6 @@ public class Tubes3OOP {
             {
                 w.resume();
             }
-            System.out.println(count);
-            System.out.println(w.isPaused());
             try
             {
             Thread.sleep(33);

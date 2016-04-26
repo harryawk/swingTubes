@@ -1,5 +1,6 @@
 package WorldOfPaint;
 
+import java.lang.*;
 import Controller.ListenKey;
 import Movement.*;
 import Organism.*;
@@ -89,7 +90,8 @@ public class World extends JFrame{
             player2.getPosition().geser(1,1);
             for(Organisme o : dunia)
             {
-                o.move();
+                MoveThread m = new MoveThread(o);
+                m.start();
             }
             
             int i = 0;
