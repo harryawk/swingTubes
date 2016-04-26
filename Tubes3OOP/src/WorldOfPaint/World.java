@@ -7,6 +7,7 @@ import Organism.*;
 import java.util.*;
 import javax.swing.*;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Graphics;
 import java.awt.Color;
 import java.io.*;
@@ -32,6 +33,10 @@ public class World extends JFrame{
         int width;
         int height;
         
+        //variabel paint
+        Graphics bufferedGraphics;
+        Image offscreen;
+        Dimension dim;
 
 ///Administrator///=========================================================================
 	private int size=10; //banyak makhluk maksimal
@@ -51,6 +56,8 @@ public class World extends JFrame{
         public World() {
             width   = 1366;
             height = 768;
+            dim = getSize();
+            offscreen = createImage(dim.width,dim.height);
             this.setPreferredSize(new Dimension(1366, 768));
             this.pack();
             this.setVisible(true);
@@ -96,9 +103,29 @@ public class World extends JFrame{
                 m.start();
             }
             
-            //reaksi
+        //reaksi
             int i = 0;
             int j = 0;
+            
+            //player terhadap player
+            player1.Reaction(player2);
+            player2.Reaction(player1);
+            
+            //player terhadap NPC
+            for(Organisme o : dunia)
+            {
+                player1.Reaction(o);
+                player2.Reaction(o);
+            }
+            
+            //npc terhadap player
+            for(Organisme o : dunia)
+            {
+                o.Reaction(player1);
+                o.Reaction(player2);
+            }
+            
+            //npc terhadap npc
             for(Organisme o : dunia)
             {
                 if(o != null)
@@ -150,7 +177,6 @@ public class World extends JFrame{
     {
         g.clearRect(0, 0, getWidth(), getHeight());
     }
-    
 
     public void paint(Graphics g) 
     {
