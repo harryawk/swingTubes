@@ -61,7 +61,7 @@ public class Tubes3OOP {
             System.out.println(w.isPaused());
             try
             {
-            Thread.sleep(166);
+            Thread.sleep(33);
             }
             catch(Exception e)
             {

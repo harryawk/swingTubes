@@ -24,6 +24,8 @@ public class World extends JFrame{
          * clear() void to clear the console screen
          */
         ArrayList<Organisme> dunia = new ArrayList<Organisme>();
+        FirstPlayer player1;
+        SecondPlayer player2;
         
 
 ///Administrator///=========================================================================
@@ -77,9 +79,11 @@ public class World extends JFrame{
 	 */
 	public void updateGame() throws ExceptionInInitializerError
 	{
+            player1.getPosition().geser(1,1);
+            player2.getPosition().geser(1,1);
             for(Organisme o : dunia)
             {
-                o.getPosition().geser(5,5);
+                o.getPosition().geser(1,1);
             }
 	}
 
@@ -96,6 +100,14 @@ public class World extends JFrame{
 
         int x = 0;
         int y = 0;
+        
+        x = player1.getPosition().getAbsis();
+        y = player1.getPosition().getOrdinat();
+        g.drawString("Z", x, y);
+        
+        x = player2.getPosition().getAbsis();
+        y = player2.getPosition().getOrdinat();
+        g.drawString("Z", x, y);
 
         for(Organisme o : dunia)
         {       
@@ -141,6 +153,26 @@ public class World extends JFrame{
     public void add(Organisme o)
     {
         dunia.add(o);
+    }
+    
+    public void registerPlayer1(FirstPlayer p)
+    {
+        player1= p;
+    }
+    
+    public void registerPlayer2(SecondPlayer p)
+    {
+        player2 = p;
+    }
+    
+    public void setPlayer1Direction(int i)
+    {
+        
+    }
+    
+    public void setPlayer2Direction(int i)
+    {
+        
     }
 
     public void pause()
