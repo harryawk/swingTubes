@@ -66,33 +66,28 @@ public class NPCEater extends Eater {
             pergerakan.setWithRandomDirection();
         }
         
-        int width  = 1366;
-        int height = 768; 
-        System.out.println(getPosition().getOrdinat());
+        int width  = 500;
+        int height = 300; 
+        int x = getPosition().getAbsis();
+        int y = getPosition().getAbsis();
         
         //boundary
-        
-        if ((getPosition().getAbsis() >= 0 && getPosition().getAbsis() < width) && (height
-                < getPosition().getOrdinat()))
-            setArah(1);
-        else if ((width < getPosition().getAbsis()) && (height
-                < getPosition().getOrdinat()))
-            setArah(2);
-        else if ((width < getPosition().getAbsis()) && ((getPosition().getOrdinat() >= 0 && getPosition().getOrdinat() < height)))
+        if(x > width)
+        {
             setArah(3);
-        else if ((width < getPosition().getAbsis()) && (height
-                > getPosition().getOrdinat()))
-            setArah(4);
-        else if (((getPosition().getAbsis() >= 0 && getPosition().getAbsis() < width)) && (height 
-                > getPosition().getOrdinat()))
-            setArah(5);
-        else if ((width > getPosition().getAbsis()) && (height 
-                > M.getPosition().getOrdinat()))
-            setArah(6);
-        else if ((width > getPosition().getAbsis()) && ((getPosition().getOrdinat() >= 0 && getPosition().getOrdinat() < height)))
+        }
+        else if(x < 0)
+        {
             setArah(7);
-        else if(isOutside(width, height))
-            setArah(8);
+        }
+        else if(y > height)
+        {
+            setArah(5);
+        }
+        else if(y < 0)
+        {
+            setArah(1);
+        }
             
     }
     
