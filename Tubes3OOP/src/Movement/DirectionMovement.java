@@ -23,6 +23,10 @@ public class DirectionMovement implements Movement{
         direction = i;
     }
     
+    public void setTimeToChangeDirection(int i){
+        timeToChangeDirection = i;
+    }
+    
     public int getDirection(){
         return direction;
     }
