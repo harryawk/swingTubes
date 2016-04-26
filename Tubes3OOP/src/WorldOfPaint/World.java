@@ -81,7 +81,7 @@ public class World extends JFrame{
 	 */
     public void updateDisplay() throws ExceptionInInitializerError
 	{
-        repaint();
+            repaint();
 	}
         
         /**
@@ -92,11 +92,13 @@ public class World extends JFrame{
 	{
             System.out.println(dunia.size());
             //gerak
-            player1.getPosition().geser(1,1);
-            player2.getPosition().geser(1,1);
+            MoveThread m = new MoveThread(player1);
+                m.start();
+            m = new MoveThread(player2);
+                m.start();
             for(Organisme o : dunia)
             {
-                MoveThread m = new MoveThread(o);
+                m = new MoveThread(o);
                 m.start();
             }
             
