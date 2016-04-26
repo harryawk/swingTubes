@@ -17,4 +17,5 @@ public interface Organisme {
     public void move();
     public Point getPosition();
     public void Reaction(Organisme o);
+    public int getKecepatan();
 }

@@ -7,6 +7,7 @@ package Organism;
 
 import Movement.DirectionMovement;
 import Movement.Point;
+import java.util.Random;
 
 /**
  *
@@ -14,26 +15,34 @@ import Movement.Point;
  */
 public class Food implements Organisme{
     private Point position;
-    private Point precPosition;
     private boolean mati;
     private DirectionMovement pergerakan;
+    private int kecepatan;
+    
+    public Food() {
+        position = new Point();
+        mati = false;
+        pergerakan = new DirectionMovement();
+        setKecepatan();
+    }
     
     public void setPosition(Point P){
         position.setAbsis(P.getAbsis());
         position.setOrdinat(P.getOrdinat());
-        pergerakan = new DirectionMovement();
     }
     
      public void setArah(int i){
         pergerakan.setDirection(i);
     }
     
+    public void setKecepatan(){
+        Random rand = new Random();
+        kecepatan = rand.nextInt(3)+2;
+    }
+    
     @Override
     public void move() {
-        Point P1 = getPosition();
-        Point P2 = pergerakan.move(getPosition()); //Posisi yang baru
-        setPrecPosition(P1);
-        setPosition(P2);
+        setPosition(pergerakan.move(getPosition()));
     }
     
     @Override
@@ -41,17 +50,13 @@ public class Food implements Organisme{
         return position;
     }
     
-    public void setPrecPosition(Point P){
-        precPosition.setAbsis(P.getAbsis());
-        precPosition.setOrdinat(P.getOrdinat());
+    @Override
+    public int getKecepatan(){
+        return kecepatan;
     }
     
     public void setMati(boolean t){
         mati = t;
-    }
-    
-    public Point getPrecPosition(){
-        return precPosition;
     }
     
     @Override
@@ -64,6 +69,7 @@ public class Food implements Organisme{
         return mati;
     }
  
+    @Override
     public void Reaction(Organisme M){
         if ((M.name() == "2") || (M.name() != "N")){
             setMati(true);
