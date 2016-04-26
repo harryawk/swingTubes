@@ -13,9 +13,11 @@ import java.util.Random;
  */
 public class DirectionMovement implements Movement{
     private int direction;
+    private int timeToChangeDirection;
     
     public DirectionMovement(){
         direction = 0;
+        timeToChangeDirection = 0;
     }
     public void setDirection(int i){
         direction = i;
@@ -25,8 +27,11 @@ public class DirectionMovement implements Movement{
         return direction;
     }
     public void setWithRandomDirection(){
-        Random rand = new Random();
-        direction = rand.nextInt(8);
+        if (timeToChangeDirection%100 == 0){
+            Random rand = new Random();
+            direction = rand.nextInt(8);
+        }
+        timeToChangeDirection++;
     }
 
     @Override
