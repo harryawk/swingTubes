@@ -6,6 +6,7 @@ import java.util.*;
 import javax.swing.*;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Color;
 import java.io.*;
 
 /**
@@ -113,7 +114,8 @@ public class World extends JFrame{
         {       
             x = o.getPosition().getAbsis();
             y = o.getPosition().getOrdinat();
-            g.drawString("Z", x, y);
+            g.setColor(Color.black);
+            g.fillOval(x, y, 25, 25);
         }
     }
 	/*  Draw display at Pc and remove the previous drawing at Px
