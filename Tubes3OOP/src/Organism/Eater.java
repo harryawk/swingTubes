@@ -98,8 +98,30 @@ public abstract class Eater implements Organisme{
         return 1;
     }
     
-    public void setKekenyangan(int k)
-    {
-        
+    public void boundaryRespon() {
+        //tetap di dalam
+        int width  = 1366;
+        int height = 768; 
+        int x = getPosition().getAbsis();
+        int y = getPosition().getOrdinat();
+
+        //boundary
+        if(x < 100)
+        {
+            getPosition().setAbsis(width-125);
+        }
+        else if(x > (width-115))
+        {
+            getPosition().setAbsis(110);
+        }
+        else if(y < 100)
+        {
+            getPosition().setOrdinat(height-125);
+        }
+        else if(y > (height-115))
+        {
+            getPosition().setOrdinat(110);
+        }
     }
+    
 }

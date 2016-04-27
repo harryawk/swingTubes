@@ -54,14 +54,6 @@ public interface Organisme {
     public int getKecepatan();
     
     /**
-     * a function to check if the organism is outside the box or not
-     * @param width of box
-     * @param height of box
-     * @return a boolean
-     */
-    public boolean isOutside(int width, int height);  //tambahan bimo
-    
-    /**
      * a procedure to set the death variable
      * @param t a boolean
      */
@@ -72,9 +64,5 @@ public interface Organisme {
      * @return Color of the creature
      */
     public Color getColor(); //tambahan bimo
-    
-    public int getKekenyangan();
-    
-    public void setKekenyangan(int k);
     
 }
