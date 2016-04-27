@@ -19,7 +19,8 @@ public class DirectionMovement implements Movement{
      *
      */
     public DirectionMovement(){
-        direction = 0;
+        Random rand = new Random();
+        direction = rand.nextInt(8)+1;
         timeToChangeDirection = 0;
     }
 
