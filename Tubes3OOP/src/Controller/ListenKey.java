@@ -34,7 +34,7 @@ public class ListenKey implements KeyListener {
     
     @Override
     public void keyTyped(KeyEvent e) {
-        System.out.println(e.paramString());
+        
     }
 
     @Override
@@ -103,32 +103,32 @@ public class ListenKey implements KeyListener {
                         } else if (downBef) {
                             if (arrayList.get(1) == VK_LEFT) {
                                 world.setPlayer2Direction(6);
-                                arrayList.remove(0); arrayList.remove(0); upBef=false;
+                                arrayList.remove(0); arrayList.remove(0); downBef=false;
                             } else if (arrayList.get(1) == VK_RIGHT) {
                                 world.setPlayer2Direction(4);
-                                arrayList.remove(0); arrayList.remove(0); upBef=false;
+                                arrayList.remove(0); arrayList.remove(0); downBef=false;
                             } else {
-                                world.setPlayer2Direction(5); arrayList.remove(0); upBef=false;
+                                world.setPlayer2Direction(5); arrayList.remove(0); downBef=false;
                             }
                         } else if (leftBef) {
                             if (arrayList.get(1) == VK_UP) {
                                 world.setPlayer2Direction(8);
-                                arrayList.remove(0); arrayList.remove(0); upBef=false;
+                                arrayList.remove(0); arrayList.remove(0); leftBef=false;
                             } else if (arrayList.get(1) == VK_DOWN) {
                                 world.setPlayer2Direction(6);
-                                arrayList.remove(0); arrayList.remove(0); upBef=false;
+                                arrayList.remove(0); arrayList.remove(0); leftBef=false;
                             } else {
-                                world.setPlayer2Direction(7); arrayList.remove(0); upBef=false;
+                                world.setPlayer2Direction(7); arrayList.remove(0); leftBef=false;
                             }
                         } else if (rightBef) {
                             if (arrayList.get(1) == VK_UP) {
                                 world.setPlayer2Direction(2);
-                                arrayList.remove(0); arrayList.remove(0); upBef=false;
+                                arrayList.remove(0); arrayList.remove(0); rightBef=false;
                             } else if (arrayList.get(1) == VK_DOWN) {
                                 world.setPlayer2Direction(4);
-                                arrayList.remove(0); arrayList.remove(0); upBef=false;
+                                arrayList.remove(0); arrayList.remove(0); rightBef=false;
                             } else {
-                                world.setPlayer2Direction(3); arrayList.remove(0); upBef=false;
+                                world.setPlayer2Direction(3); arrayList.remove(0); rightBef=false;
                             }
                         }
                     } catch (Exception e) {
@@ -142,42 +142,42 @@ public class ListenKey implements KeyListener {
                         if (wBef) {
                             if (arrayList2.get(1) == VK_A) {
                                 world.setPlayer1Direction(8);
-                                arrayList2.remove(0); arrayList2.remove(0); upBef=false;
+                                arrayList2.remove(0); arrayList2.remove(0); wBef=false;
                             } else if (arrayList2.get(1) == VK_D) {
                                 world.setPlayer1Direction(2);
-                                arrayList2.remove(0); arrayList2.remove(0); upBef=false;
+                                arrayList2.remove(0); arrayList2.remove(0); wBef=false;
                             } else {
-                                world.setPlayer1Direction(1); arrayList2.remove(0); upBef=false;
+                                world.setPlayer1Direction(1); arrayList2.remove(0); wBef=false;
                             }
                         } else if (sBef) {
                             if (arrayList2.get(1) == VK_A) {
                                 world.setPlayer1Direction(6);
-                                arrayList2.remove(0); arrayList2.remove(0); upBef=false;
+                                arrayList2.remove(0); arrayList2.remove(0); sBef=false;
                             } else if (arrayList2.get(1) == VK_D) {
                                 world.setPlayer1Direction(4);
-                                arrayList2.remove(0); arrayList2.remove(0); upBef=false;
+                                arrayList2.remove(0); arrayList2.remove(0); sBef=false;
                             } else {
-                                world.setPlayer1Direction(5); arrayList2.remove(0); upBef=false;
+                                world.setPlayer1Direction(5); arrayList2.remove(0); sBef=false;
                             }
                         } else if (aBef) {
                             if (arrayList2.get(1) == VK_W) {
                                 world.setPlayer1Direction(8);
-                                arrayList2.remove(0); arrayList2.remove(0); upBef=false;
+                                arrayList2.remove(0); arrayList2.remove(0); aBef=false;
                             } else if (arrayList2.get(1) == VK_S) {
                                 world.setPlayer1Direction(6);
-                                arrayList2.remove(0); arrayList2.remove(0); upBef=false;
+                                arrayList2.remove(0); arrayList2.remove(0); aBef=false;
                             } else {
-                                world.setPlayer1Direction(7); arrayList2.remove(0); upBef=false;
+                                world.setPlayer1Direction(7); arrayList2.remove(0); aBef=false;
                             }
                         } else if (dBef) {
                             if (arrayList2.get(1) == VK_W) {
                                 world.setPlayer1Direction(2);
-                                arrayList2.remove(0); arrayList2.remove(0); upBef=false;
+                                arrayList2.remove(0); arrayList2.remove(0); dBef=false;
                             } else if (arrayList2.get(1) == VK_S) {
                                 world.setPlayer1Direction(4);
-                                arrayList2.remove(0); arrayList2.remove(0); upBef=false;
+                                arrayList2.remove(0); arrayList2.remove(0); dBef=false;
                             } else {
-                                world.setPlayer1Direction(3); arrayList2.remove(0); upBef=false;
+                                world.setPlayer1Direction(3); arrayList2.remove(0); dBef=false;
                             }
                         }
                     } catch (Exception e) {
@@ -185,6 +185,8 @@ public class ListenKey implements KeyListener {
                     }
                 }
             });
+            t1.start();
+            t2.start();
         } else {
             if (arrayList.size() > 0) {
                 t1 = new Thread(new Runnable() {
@@ -193,18 +195,22 @@ public class ListenKey implements KeyListener {
                             case VK_UP :
                                 world.setPlayer1Direction(1);
                                 arrayList.remove(0);
+                                upBef = false;
                                 break;
                             case VK_DOWN :
                                 world.setPlayer1Direction(5);
                                 arrayList.remove(0);
+                                downBef = false;
                                 break;
                             case VK_LEFT :
                                 world.setPlayer1Direction(7);
                                 arrayList.remove(0);
+                                leftBef = false;
                                 break;
                             case VK_RIGHT :
                                 world.setPlayer1Direction(3);
                                 arrayList.remove(0);
+                                rightBef = false;
                                 break;
                             default :
                                 break;
@@ -220,18 +226,22 @@ public class ListenKey implements KeyListener {
                             case VK_W :
                                 world.setPlayer2Direction(1);
                                 arrayList2.remove(0);
+                                wBef = false;
                                 break;
                             case VK_S :
                                 world.setPlayer2Direction(5);
                                 arrayList2.remove(0);
+                                sBef = false;
                                 break;
                             case VK_A :
                                 world.setPlayer2Direction(7);
                                 arrayList2.remove(0);
+                                aBef = false;
                                 break;
                             case VK_D :
                                 world.setPlayer2Direction(3);
                                 arrayList2.remove(0);
+                                dBef = false;
                                 break;
                             default:
                                break;
@@ -249,6 +259,15 @@ public class ListenKey implements KeyListener {
      * @param e Keystroke that is released after being pressed
      */
     public void keyReleased(KeyEvent e) {
-        
+        switch (e.getKeyCode()) {
+            case VK_UP : arrayList.clear(); break;
+            case VK_DOWN : arrayList.clear(); break;
+            case VK_LEFT : arrayList.clear(); break;
+            case VK_RIGHT : arrayList.clear(); break;
+            case VK_W : arrayList2.clear(); break;
+            case VK_S : arrayList2.clear(); break;
+            case VK_A : arrayList2.clear(); break;
+            case VK_D : arrayList2.clear(); break;
+        }
     }
 }
