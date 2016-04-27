@@ -29,7 +29,6 @@ public class Food implements Organisme{
         mati = false;
         pergerakan = new CautionMovement();
         setKecepatan();
-        tingkat_kekenyangan = 300;
     }
     
     /**
@@ -60,7 +59,6 @@ public class Food implements Organisme{
     @Override
     public void move() {
         setPosition(pergerakan.move(getPosition(),getKecepatan()));
-        tingkat_kekenyangan--;
     }
     
     @Override
@@ -129,12 +127,6 @@ public class Food implements Organisme{
         else if(y > (height-115))
         {
             getPosition().setOrdinat(110);
-        }
-        
-        
-        
-        if (getKekenyangan() == 0){
-               setMati(true);
         }
     }
     

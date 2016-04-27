@@ -29,7 +29,7 @@ public abstract class Eater implements Organisme{
     public void setPosition(Point P){
         position.setAbsis(P.getAbsis());
         position.setOrdinat(P.getOrdinat());
-        tingkat_kekenyangan = 300;
+        tingkat_kekenyangan = 3;
     }
     
     @Override
@@ -94,12 +94,8 @@ public abstract class Eater implements Organisme{
     }
     
     @Override
-    public int getKekenyangan(){
-        return tingkat_kekenyangan;
-    }
+    public abstract int getKekenyangan();
     
     @Override
-    public void setKekenyangan(int k){
-        tingkat_kekenyangan = k;
-    }
+    public abstract void setKekenyangan(int k);
 }

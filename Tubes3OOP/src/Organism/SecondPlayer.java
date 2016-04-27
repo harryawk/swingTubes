@@ -19,6 +19,7 @@ public class SecondPlayer extends Eater{
     private int tingkat_kekenyangan;
     private DirectionMovement pergerakan;
     private Color myColor;
+    private int maxK = 700;
     
     /**
      *
@@ -44,7 +45,8 @@ public class SecondPlayer extends Eater{
     public SecondPlayer(){
         super();
         mati = false;
-        tingkat_kekenyangan = 40;
+        tingkat_kekenyangan = maxK;
+        nickName = name;
         pergerakan = new DirectionMovement();
         Random rand = new Random();
         myColor = new Color(rand.nextInt(256),rand.nextInt(256),rand.nextInt(256));
@@ -65,22 +67,19 @@ public class SecondPlayer extends Eater{
         return mati;
     }
     
-    /**
-     *
-     * @param a
-     */
-    public void setTingkatKekenyangan(int a){
-        tingkat_kekenyangan = a;
-    }
-    
     public void Reaction(Organisme M){
         if (isRadius(20,M.getPosition())){
             if (M.name() == "1"){
                 setMati(true);
             }
             else if (M.name() == "F"){
-                tingkat_kekenyangan++;
+                tingkat_kekenyangan = maxK;
             }
+        }
+        
+        //cek kekenyangan
+        if (getKekenyangan() == 0){
+            setMati(true);
         }
         
         //tetap di dalam
@@ -106,10 +105,7 @@ public class SecondPlayer extends Eater{
         {
             getPosition().setOrdinat(110);
         }
-        
-        if (getKekenyangan() == 0){
-            setMati(true);
-        }
+     
     }
     
     @Override
@@ -121,6 +117,16 @@ public class SecondPlayer extends Eater{
     public Color getColor()
     {
         return myColor;
+    }
+
+    @Override
+    public int getKekenyangan() {
+        return tingkat_kekenyangan;
+    }
+
+    @Override
+    public void setKekenyangan(int k) {
+        tingkat_kekenyangan = k;
     }
     
 }

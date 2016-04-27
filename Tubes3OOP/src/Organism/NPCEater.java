@@ -57,9 +57,6 @@ public class NPCEater extends Eater {
     @Override
     public void move() {
         setPosition(pergerakan.move(getPosition(),getKecepatan()));
-        int a = getKekenyangan();
-        a--;
-        setKekenyangan(a);
     }
     
     @Override
@@ -108,10 +105,6 @@ public class NPCEater extends Eater {
         else if(y > (height-115))
         {
             getPosition().setOrdinat(110);
-        }
-
-        if (getKekenyangan() == 0){
-            setMati(true);
         }
     }
     
