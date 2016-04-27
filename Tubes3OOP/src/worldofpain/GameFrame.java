@@ -63,7 +63,6 @@ public class GameFrame extends JFrame {
       }
       respawnTick -= 5;
     }
-
   }
 
   /**

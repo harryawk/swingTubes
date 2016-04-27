@@ -11,18 +11,32 @@ import java.awt.Color;
 import java.util.Random;
 
 /**
- *
+ * A class to implement food object.
  * @author Ali-pc
  */
 public class Food implements Organisme {
-
+  /**
+   * A private point of the position.
+   */
   private Point position;
+  
+  /**
+   * A private boolean member.
+   */
   private boolean mati;
+  
+  /**
+   * A private Caution Movement member.
+   */
   private CautionMovement pergerakan;
+  
+  /**
+   * A private integer member.
+   */
   private int kecepatan;
 
   /**
-   *
+   * A Constructor.
    */
   public Food() {
     position = new Point();

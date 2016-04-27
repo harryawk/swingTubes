@@ -146,7 +146,7 @@ public class World extends JPanel {
   }
 
   /**
-   *
+   * 
    * @param g
    */
   public void clear(Graphics g) {

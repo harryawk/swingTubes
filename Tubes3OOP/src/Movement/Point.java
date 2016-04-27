@@ -12,13 +12,17 @@ import java.util.Random;
  * @author Ali-pc
  */
 public class Point {
-
+  /**
+   * A private integer that contain the absis of point.
+   */
   private int x;
-
+  /**
+   * A private integer that contain the ordinate of point.
+   */
   private int y;
 
   /**
-   * A constructor
+   * A constructor.
    */
   public Point() {
     Random rand = new Random();
@@ -29,70 +33,63 @@ public class Point {
   }
 
   /**
-   * A ctor that construct A Point with absis = _x and ordinate = _y
-   *
-   * @param _x is an integer for the absis
-   * @param _y is an integer for the ordinate
+   * A ctor that construct A Point with absis = _x and ordinate = _y.
+   * @param xa is an integer for the absis.
+   * @param ya is an integer for the ordinate.
    */
-  public Point(int _x, int _y) {
-    x = _x;
-    y = _y;
+  public Point(final int xa, final int ya) {
+    this.x = xa;
+    this.y = ya;
   }
 
   /**
-   * A member procedure to make a point move tc x+dx and y+dy
-   *
-   * @param dx integer for dx
-   * @param dy integer for dy
+   * A member procedure to make a point move tc x+dx and y+dy.
+   * @param dx integer for delta x.
+   * @param dy integer for delta y.
    */
-  public void geser(int dx, int dy) {
+  public final void geser(final int dx, final int dy) {
     x += dx;
     y += dy;
   }
 
   /**
-   * Get the absis of the Point
-   *
+   * Get the absis of the Point.
    * @return an integer which represent abscissa
    */
-  public int getAbsis() {
+  public final int getAbsis() {
     return x;
   }
 
   /**
-   * Get the ordinate of the Point
-   *
+   * Get the ordinate of the Point.
    * @return an integer which represent ordinate
    */
-  public int getOrdinat() {
+  public final int getOrdinat() {
     return y;
   }
 
   /**
-   * Set the absis
-   *
-   * @param _x is integer of new abscissa
+   * Set the absis.
+   * @param xa is integer of new abscissa
    */
-  public void setAbsis(int _x) {
-    x = _x;
+  public final void setAbsis(final int xa) {
+    x = xa;
   }
 
   /**
-   * Set the ordinate
-   *
-   * @param _y integer of new ordinate
+   * Set the ordinate.
+   * @param ya integer of new ordinate
    */
-  public void setOrdinat(int _y) {
-    y = _y;
+  public final void setOrdinat(final int ya) {
+    y = ya;
   }
 
   /**
-   * override toString function
-   *
+   * override toString function.
    * @return the value of x and y in "x y" format as string
    */
-  public String toString() {
+  @Override
+  public final String toString() {
     return (Integer.toString(x) + " " + Integer.toString(y));
   }
-
 }

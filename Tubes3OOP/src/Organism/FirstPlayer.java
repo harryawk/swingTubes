@@ -9,22 +9,32 @@ package organism;
  *
  * @author Ali-pc
  */
-import movement.*;
+import movement.DirectionMovement;
+import movement.Point;
 import java.awt.Color;
 
 /**
- *
+ * A class that implement the first player.
  * @author CXXXV
  */
 public class FirstPlayer extends Eater {
-
+  /**
+   * a boolean private member.
+   */
   private boolean mati;
+
+  /**
+   * a boolean private member.
+   */
   private int win;
+
+  /**
+   * a Direction Movement private member named "pergerakan".
+   */
   private DirectionMovement pergerakan;
 
   /**
-   *
-   * @param name
+   * A constructor.
    */
   public FirstPlayer() {
     super();
@@ -34,55 +44,83 @@ public class FirstPlayer extends Eater {
   }
 
   /**
-   *
-   * @param i
+   * a function to set direction.
+   * @param i an integer.
    */
-  public void setArah(int i) {
+  public final void setArah(final int i) {
     pergerakan.setDirection(i);
   }
 
   @Override
-  public void move() {
-    Point P2 = pergerakan.move(getPosition(), getKecepatan()); //Posisi yang baru
-    setPosition(P2);
+  /**
+   * a procedure to move.
+   */
+  public final void move() {
+    Point newP = pergerakan.move(getPosition(), getKecepatan()); //New Position.
+    setPosition(newP);
   }
 
-  public void setMati(boolean t) {
+  @Override
+  /**
+   * a procedure to set the death or First Player.
+   * @param t a boolean.
+   */
+  public final void setMati(final boolean t) {
     mati = t;
   }
 
   @Override
-  public String name() {
+  /**
+   * a function that return a name.
+   * @return a String.
+   */
+  public final String name() {
     return "1";
   }
 
   @Override
-  public boolean isMati() {
+  /**
+   * a function to get death variable.
+   * @return a boolean
+   */
+  public final boolean isMati() {
     return mati;
   }
 
   @Override
-  public int getKecepatan() {
+  /**
+   * a function to get the velocity of the FirstPlayer.
+   * @return an integer.
+   */
+  public final int getKecepatan() {
     return 6;
   }
 
   /**
-   *
-   * @return
+   * a function to get win condition of the First Player.
+   * @return an integer.
    */
-  public int getWin() {
+  public final int getWin() {
     return win;
   }
 
   @Override
-  public Color getColor() {
+  /**
+   * a function that return the Color of the First Player.
+   * @return a Color.
+   */
+  public final Color getColor() {
     return Color.blue;
   }
 
   @Override
-  public void Reaction(Organisme M) {
-    if (isRadius(20, M.getPosition()) && M != null) {
-      if (M.name() != "2") {
+  /**
+   * a procedure to React.
+   * @param m an Organisme.
+   */
+  public final void Reaction(final Organisme m) {
+    if (isRadius(20, m.getPosition()) && m != null) {
+      if (m.name() != "2") {
         setMati(true);
       } else {
         win = 1;

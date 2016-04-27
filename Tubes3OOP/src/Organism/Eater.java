@@ -5,75 +5,79 @@ package organism;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/**
- * A class to implement an eater organism
- *
- * @author Ali-pc
- */
+
 import movement.Point;
 
+/**
+ * A class to implement an eater organism.
+ * @author Ali-pc
+ */
 public abstract class Eater implements Organisme {
-
+  /**
+   * A private Point of current position.
+   */
   private Point position;
 
   /**
-   * A constructor
+   * A constructor.
    */
   public Eater() {
     position = new Point();
   }
 
   @Override
-  public Point getPosition() {
+  public final Point getPosition() {
     return position;
   }
 
   @Override
   /**
-   * An abstract method that return name of the eater
+   * An abstract method that return name of the eater.
    */
   public abstract String name();
 
   @Override
   /**
-   * An abstract method to check if the eater already die or not
+   * An abstract method to check if the eater already die or not.
    */
   public abstract boolean isMati();
 
   @Override
   /**
-   * An abstract method to move the eater
+   * An abstract method to move the eater.
    */
   public abstract void move();
 
   /**
-   * a function check if some point is near to eater current position
-   *
-   * @param rad
-   * @param p
-   * @return
+   * a function check if some point is near to eater current position.
+   * @param rad an integer.
+   * @param p a Point.
+   * @return a boolean.
    */
-  public boolean isRadius(int rad, Point p) {
-    int _x, _y;
-    _x = getPosition().getAbsis() - p.getAbsis();
-    if (_x < 0) {
-      _x = 0 - _x;
+  public final boolean isRadius(final int rad, final Point p) {
+    int xa, ya;
+    xa = getPosition().getAbsis() - p.getAbsis();
+    if (xa < 0) {
+      xa = 0 - xa;
     }
-    _y = getPosition().getOrdinat() - p.getOrdinat();
-    if (_y < 0) {
-      _y = 0 - _y;
+    ya = getPosition().getOrdinat() - p.getOrdinat();
+    if (ya < 0) {
+      ya = 0 - ya;
     }
-    return ((_y <= rad) && (_x <= rad));
+    return ((ya <= rad) && (xa <= rad));
   }
 
-  public void boundaryRespon() {
-    //tetap di dalam
+  /**
+   * A public procedure to respon the boundary of the box frame.
+   */
+  public final void boundaryRespon() {
+    //tetap di dalam.
     int width = 1366;
     int height = 768;
     int x = getPosition().getAbsis();
     int y = getPosition().getOrdinat();
 
-    //boundary
+    //boundary.
     if (x < 100) {
       getPosition().setAbsis(width - 125);
     } else if (x > (width - 115)) {
@@ -86,13 +90,12 @@ public abstract class Eater implements Organisme {
   }
 
   /**
-   * Set the current position of the
-   *
-   * @param P
+   * Set the current position of the.
+   * @param p A point.
    */
-  public void setPosition(Point P) {
-    position.setAbsis(P.getAbsis());
-    position.setOrdinat(P.getOrdinat());
+  public final void setPosition(final Point p) {
+    position.setAbsis(p.getAbsis());
+    position.setOrdinat(p.getOrdinat());
   }
 
 }
