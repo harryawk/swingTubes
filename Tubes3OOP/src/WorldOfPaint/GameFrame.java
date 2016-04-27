@@ -23,6 +23,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
  */
 public class GameFrame extends JFrame {
     private World w;
+    private int respawnTick = 25;
     
     /**
      *
@@ -57,6 +58,14 @@ public class GameFrame extends JFrame {
     public void updateGame()
     {
         w.updateGame();
+        if(w.getTime() < respawnTick)
+        {
+            for (int i = 1; i <= 2; i++){
+               w.add(OrganismeBuilder.makeFood());
+            }
+            respawnTick -= 5;
+        }
+        
     }
 
     /**

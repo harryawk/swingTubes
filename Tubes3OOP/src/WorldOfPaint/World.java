@@ -368,5 +368,10 @@ public class World extends JPanel{
     {
         return(worldTimer <= 0);
     }
+    
+    public long getTime()
+    {
+        return worldTimer;
+    }
    
 }
