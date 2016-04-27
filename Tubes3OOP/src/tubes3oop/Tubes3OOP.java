@@ -41,5 +41,8 @@ public class Tubes3OOP {
 
             }
         }
+        
+        //finalisasi
+        w.updateDisplay();
     }
 }
