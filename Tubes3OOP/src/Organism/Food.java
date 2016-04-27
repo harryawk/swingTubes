@@ -72,7 +72,7 @@ public class Food implements Organisme{
     
     @Override
     public int getKecepatan(){
-        return 1;
+        return 2;
     }
     
     public void setMati(boolean t){
@@ -91,7 +91,7 @@ public class Food implements Organisme{
  
     @Override
     public void Reaction(Organisme M){
-        if (isRadius(10,M.getPosition())) {
+        if (isRadius(20,M.getPosition())) {
             if ((M.name() == "2") || (M.name() == "N")){
                 setMati(true);
             } else

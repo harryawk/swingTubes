@@ -13,12 +13,20 @@ package Organism;
 import Movement.*;
 import java.awt.Color;
 
+/**
+ *
+ * @author CXXXV
+ */
 public class FirstPlayer extends Eater{
     private String nickName;
     private boolean mati;
     private int win;
     private DirectionMovement pergerakan;
     
+    /**
+     *
+     * @param name
+     */
     public FirstPlayer(String name){
         super();
         nickName = name;
@@ -27,6 +35,10 @@ public class FirstPlayer extends Eater{
         pergerakan = new DirectionMovement();
     }
     
+    /**
+     *
+     * @param i
+     */
     public void setArah(int i){
         pergerakan.setDirection(i);
     }
@@ -41,6 +53,10 @@ public class FirstPlayer extends Eater{
         mati = t;
     }
     
+    /**
+     *
+     * @return
+     */
     public String nickName(){
         return nickName;
     }
@@ -60,6 +76,10 @@ public class FirstPlayer extends Eater{
         return 6;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getWin(){
         return win;
     }
@@ -71,7 +91,7 @@ public class FirstPlayer extends Eater{
     
     @Override
     public void Reaction(Organisme M){
-        if (isRadius(10,M.getPosition())){
+        if (isRadius(20,M.getPosition())){
             if (M.name() != "2"){
                 setMati(true);
             }

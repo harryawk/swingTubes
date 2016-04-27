@@ -21,7 +21,11 @@ public class SecondPlayer extends Eater{
     private DirectionMovement pergerakan;
     private Color myColor;
     
-     public void setArah(int i){
+    /**
+     *
+     * @param i
+     */
+    public void setArah(int i){
         pergerakan.setDirection(i);
     }
     
@@ -31,6 +35,10 @@ public class SecondPlayer extends Eater{
         setPosition(P2);
     }
     
+    /**
+     *
+     * @param name
+     */
     public SecondPlayer(String name){
         super();
         mati = false;
@@ -45,6 +53,10 @@ public class SecondPlayer extends Eater{
         mati = t;
     }
     
+    /**
+     *
+     * @return
+     */
     public String nickName(){
         return nickName();
     }
@@ -59,12 +71,16 @@ public class SecondPlayer extends Eater{
         return mati;
     }
     
+    /**
+     *
+     * @param a
+     */
     public void setTingkatKekenyangan(int a){
         tingkat_kekenyangan = a;
     }
     
     public void Reaction(Organisme M){
-        if (isRadius(10,M.getPosition())){
+        if (isRadius(20,M.getPosition())){
             if (M.name() == "1"){
                 setMati(true);
             }
@@ -100,7 +116,7 @@ public class SecondPlayer extends Eater{
     
     @Override
     public int getKecepatan(){
-        return 2;
+        return 4;
     }
     
     public Color getColor()
