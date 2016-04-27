@@ -1,5 +1,6 @@
 package WorldOfPaint;
 
+import Builder.ListOfOrganisme;
 import java.lang.*;
 import Controller.ListenKey;
 import Movement.*;
@@ -27,7 +28,7 @@ public class World extends JPanel{
          * Count counter of age
          * clear() void to clear the console screen
          */
-        ArrayList<Organisme> dunia = new ArrayList<Organisme>();
+        ListOfOrganisme dunia = new ListOfOrganisme();
         FirstPlayer player1;
         SecondPlayer player2;
         int width;
@@ -112,7 +113,7 @@ public class World extends JPanel{
                 m.start();
             m = new MoveThread(player2);
                 m.start();
-            for(Organisme o : dunia)
+            for(Organisme o : dunia.getList())
             {
                 m = new MoveThread(o);
                 m.start();
@@ -127,27 +128,27 @@ public class World extends JPanel{
             player2.Reaction(player1);
             
             //player terhadap NPC
-            for(Organisme o : dunia)
+            for(Organisme o : dunia.getList())
             {
                 player1.Reaction(o);
                 player2.Reaction(o);
             }
             
             //npc terhadap player
-            for(Organisme o : dunia)
+            for(Organisme o : dunia.getList())
             {
                 o.Reaction(player1);
                 o.Reaction(player2);
             }
             
             //npc terhadap npc
-            for(Organisme o : dunia)
+            for(Organisme o : dunia.getList())
             {
                 if(o != null)
                 {
                     j=0;
 
-                    for(Organisme oo : dunia)
+                    for(Organisme oo : dunia.getList())
                     {
                         if(i != j)
                         {
@@ -173,7 +174,7 @@ public class World extends JPanel{
             //pluck yang mati
             i = 0;
             ArrayList<Integer> removeList = new ArrayList<Integer>();
-            for(Organisme o : dunia)
+            for(Organisme o : dunia.getList())
             {
                 if(o != null && o.isMati())
                 {
@@ -183,7 +184,7 @@ public class World extends JPanel{
             }
             for(Integer k:removeList)
             {
-                dunia.remove(k.intValue());
+                dunia.deleteOrganismeAt(k.intValue());
             }
 	}
 
@@ -218,7 +219,7 @@ public class World extends JPanel{
         g.setColor(player2.getColor());
         g.fillOval(x, y, 20, 20);
 
-        for(Organisme o : dunia)
+        for(Organisme o : dunia.getList())
         {       
             x = o.getPosition().getAbsis();
             y = o.getPosition().getOrdinat();
@@ -295,7 +296,7 @@ public class World extends JPanel{
      */
     public void add(Organisme o)
     {
-        dunia.add(o);
+        dunia.addOrganisme(o);
     }
     
     /**
