@@ -27,7 +27,7 @@ public class ListOfOrganisme {
      *
      * @param i
      */
-    public void deleteOrganisme(int i){
+    public void deleteOrganismeAt(int i) throws OutOfMemoryError {
         organisms.remove(i);
     }
     
