@@ -80,8 +80,7 @@ public class FirstPlayerTest {
         boolean t = false;
         FirstPlayer instance = new FirstPlayer();
         instance.setMati(t);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(!instance.isMati());
     }
 
     /**
@@ -91,11 +90,9 @@ public class FirstPlayerTest {
     public void testName() {
         System.out.println("name");
         FirstPlayer instance = new FirstPlayer();
-        String expResult = "";
+        String expResult = "F";
         String result = instance.name();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -105,11 +102,10 @@ public class FirstPlayerTest {
     public void testIsMati() {
         System.out.println("isMati");
         FirstPlayer instance = new FirstPlayer();
+        instance.setMati(false);
         boolean expResult = false;
         boolean result = instance.isMati();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -119,11 +115,9 @@ public class FirstPlayerTest {
     public void testGetKecepatan() {
         System.out.println("getKecepatan");
         FirstPlayer instance = new FirstPlayer();
-        int expResult = 0;
+        int expResult = 7;
         int result = instance.getKecepatan();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -136,8 +130,6 @@ public class FirstPlayerTest {
         int expResult = 0;
         int result = instance.getWin();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -147,7 +139,7 @@ public class FirstPlayerTest {
     public void testGetColor() {
         System.out.println("getColor");
         FirstPlayer instance = new FirstPlayer();
-        Color expResult = null;
+        Color expResult = Color.blue;
         Color result = instance.getColor();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -160,11 +152,11 @@ public class FirstPlayerTest {
     @Test
     public void testReaction() {
         System.out.println("Reaction");
-        Organisme M = null;
+        Organisme M = new NPCEater();
         FirstPlayer instance = new FirstPlayer();
+        instance.setPosition(M.getPosition());
         instance.Reaction(M);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getWin(), 0);
     }
     
 }
