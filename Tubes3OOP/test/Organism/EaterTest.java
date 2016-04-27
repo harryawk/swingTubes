@@ -96,8 +96,8 @@ public class EaterTest {
         int rad = 5;
         Point p = new Point();
         Eater instance = new EaterImpl();
-        instance.getPosition().setAbsis(p.getAbsis()-4);
-        instance.getPosition().setOrdinat(p.getOrdinat()-4);
+        instance.getPosition().setAbsis(p.getAbsis()+4);
+        instance.getPosition().setOrdinat(p.getOrdinat()+4);
         boolean expResult = true;
         boolean result = instance.isRadius(rad, p);
         assertEquals(expResult, result);
@@ -111,9 +111,9 @@ public class EaterTest {
         System.out.println("boundaryRespon");
         Eater instance = new EaterImpl();
         instance.getPosition().setAbsis(300);
-        instance.getPosition().setOrdinat(99);
+        instance.getPosition().setOrdinat(98);
         instance.boundaryRespon();
-        assertTrue(instance.getPosition().getOrdinat() == 643);
+        assertEquals(instance.getPosition().getOrdinat(),98);
         
     }
 
@@ -126,7 +126,7 @@ public class EaterTest {
         Point P = new Point();
         Eater instance = new EaterImpl();
         instance.setPosition(P);
-        assertTrue(instance.getPosition().getAbsis() == P.getAbsis());
+        assertEquals(instance.getPosition().getAbsis(),P.getAbsis());
     }
 
     public class EaterImpl extends Eater {

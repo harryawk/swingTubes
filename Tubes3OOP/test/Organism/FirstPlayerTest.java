@@ -5,6 +5,7 @@
  */
 package Organism;
 
+import Movement.Point;
 import java.awt.Color;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -44,11 +45,14 @@ public class FirstPlayerTest {
     @Test
     public void testSetArah() {
         System.out.println("setArah");
-        int i = 0;
+        int i = 3;
         FirstPlayer instance = new FirstPlayer();
         instance.setArah(i);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Point temp = new Point();
+        temp.setAbsis(instance.getPosition().getAbsis());
+        temp.setOrdinat(instance.getPosition().getOrdinat());
+        instance.move();
+        assertTrue(instance.getPosition().getAbsis() == (temp.getAbsis()+1));
     }
 
     /**
@@ -57,10 +61,14 @@ public class FirstPlayerTest {
     @Test
     public void testMove() {
         System.out.println("move");
+        int i = 3;
         FirstPlayer instance = new FirstPlayer();
+        instance.setArah(i);
+        Point temp = new Point();
+        temp.setAbsis(instance.getPosition().getAbsis());
+        temp.setOrdinat(instance.getPosition().getOrdinat());
         instance.move();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(instance.getPosition().getAbsis() == (temp.getAbsis()+1));
     }
 
     /**
