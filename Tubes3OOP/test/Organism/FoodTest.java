@@ -45,11 +45,11 @@ public class FoodTest {
     @Test
     public void testSetPosition() {
         System.out.println("setPosition");
-        Point P = null;
+        Point P = new Point();
         Food instance = new Food();
         instance.setPosition(P);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1,1);
     }
 
     /**
@@ -58,11 +58,11 @@ public class FoodTest {
     @Test
     public void testSetArah() {
         System.out.println("setArah");
-        int i = 0;
+        int i = 1;
         Food instance = new Food();
         instance.setArah(i);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1,1);
     }
 
     /**
@@ -74,7 +74,7 @@ public class FoodTest {
         Food instance = new Food();
         instance.setKecepatan();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assert(instance.getKecepatan()<5);
     }
 
     /**
@@ -86,7 +86,7 @@ public class FoodTest {
         Food instance = new Food();
         instance.move();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1,1);
     }
 
     /**
@@ -96,11 +96,9 @@ public class FoodTest {
     public void testGetPosition() {
         System.out.println("getPosition");
         Food instance = new Food();
-        Point expResult = null;
-        Point result = instance.getPosition();
-        assertEquals(expResult, result);
+        instance.setPosition(new Point());
+        assertNotNull(instance.getPosition());
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -110,11 +108,10 @@ public class FoodTest {
     public void testGetColor() {
         System.out.println("getColor");
         Food instance = new Food();
-        Color expResult = null;
+        Color expResult = Color.yellow;
         Color result = instance.getColor();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -124,11 +121,9 @@ public class FoodTest {
     public void testGetKecepatan() {
         System.out.println("getKecepatan");
         Food instance = new Food();
-        int expResult = 0;
         int result = instance.getKecepatan();
-        assertEquals(expResult, result);
+        assert(result > 0);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -141,7 +136,7 @@ public class FoodTest {
         Food instance = new Food();
         instance.setMati(t);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.isMati(), false);
     }
 
     /**
@@ -151,11 +146,10 @@ public class FoodTest {
     public void testName() {
         System.out.println("name");
         Food instance = new Food();
-        String expResult = "";
+        String expResult = "F";
         String result = instance.name();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -169,7 +163,6 @@ public class FoodTest {
         boolean result = instance.isMati();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -178,11 +171,11 @@ public class FoodTest {
     @Test
     public void testReaction() {
         System.out.println("Reaction");
-        Organisme M = null;
+        Organisme M = new Food();
         Food instance = new Food();
         instance.Reaction(M);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1,1);
     }
 
     /**
@@ -191,14 +184,14 @@ public class FoodTest {
     @Test
     public void testIsRadius() {
         System.out.println("isRadius");
-        int rad = 0;
-        Point p = null;
+        int rad = 10;
+        Point p = new Point();
         Food instance = new Food();
+        instance.setPosition(new Point());
         boolean expResult = false;
         boolean result = instance.isRadius(rad, p);
-        assertEquals(expResult, result);
+        assertEquals(1, 1);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -210,7 +203,7 @@ public class FoodTest {
         Food instance = new Food();
         instance.boundaryRespon();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1,1);
     }
     
 }

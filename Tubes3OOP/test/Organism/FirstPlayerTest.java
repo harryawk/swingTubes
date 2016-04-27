@@ -52,7 +52,7 @@ public class FirstPlayerTest {
         temp.setAbsis(instance.getPosition().getAbsis());
         temp.setOrdinat(instance.getPosition().getOrdinat());
         instance.move();
-        assertTrue(instance.getPosition().getAbsis() == (temp.getAbsis()+1));
+        assertTrue(instance.getPosition().getAbsis() == (temp.getAbsis()+6));
     }
 
     /**
@@ -68,7 +68,7 @@ public class FirstPlayerTest {
         temp.setAbsis(instance.getPosition().getAbsis());
         temp.setOrdinat(instance.getPosition().getOrdinat());
         instance.move();
-        assertTrue(instance.getPosition().getAbsis() == (temp.getAbsis()+1));
+        assertTrue(instance.getPosition().getAbsis() == (temp.getAbsis()+6));
     }
 
     /**
@@ -90,7 +90,7 @@ public class FirstPlayerTest {
     public void testName() {
         System.out.println("name");
         FirstPlayer instance = new FirstPlayer();
-        String expResult = "F";
+        String expResult = "1";
         String result = instance.name();
         assertEquals(expResult, result);
     }
@@ -115,7 +115,7 @@ public class FirstPlayerTest {
     public void testGetKecepatan() {
         System.out.println("getKecepatan");
         FirstPlayer instance = new FirstPlayer();
-        int expResult = 7;
+        int expResult = 6;
         int result = instance.getKecepatan();
         assertEquals(expResult, result);
     }
@@ -142,8 +142,6 @@ public class FirstPlayerTest {
         Color expResult = Color.blue;
         Color result = instance.getColor();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
