@@ -6,7 +6,6 @@
 package organism;
 
 import movement.DirectionMovement;
-import movement.Point;
 import java.awt.Color;
 import java.util.Random;
 

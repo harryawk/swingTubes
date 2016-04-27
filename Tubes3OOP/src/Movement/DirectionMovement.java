@@ -76,7 +76,7 @@ public class DirectionMovement implements Movement {
   }
 
   @Override
-  public final Point move(final Point P1, int d) {
+  public final Point move(final Point P1, final int d) {
     Point temp = new Point(0, 0);
     temp.setAbsis(P1.getAbsis());
     temp.setOrdinat(P1.getOrdinat());
