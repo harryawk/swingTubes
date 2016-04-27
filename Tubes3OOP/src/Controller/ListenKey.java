@@ -79,166 +79,10 @@ public class ListenKey implements KeyListener {
             default:
                break;
         }
-        if (arrayList.size() > 0 || arrayList2.size() > 0) {
-            execute();
-        }
     }
     
-    public void execute() {
-        if (arrayList.size() >= 2 || arrayList.size() >= 2) {
-                //arrayList dan arrayList2
-            if (arrayList.size() >= 2) {
-                t1 = new Thread(new Runnable() {
-                    public void run() {
-                        try {
-                            if (upBef) {
-                                if (arrayList.get(1) == VK_LEFT) {
-                                    world.setPlayer2Direction(8);
-                                    arrayList.remove(0); arrayList.remove(0); upBef=false;
-                                } else if (arrayList.get(1) == VK_RIGHT) {
-                                    world.setPlayer2Direction(2);
-                                    arrayList.remove(0); arrayList.remove(0); upBef=false;
-                                } else {
-                                    world.setPlayer2Direction(1); arrayList.remove(0); upBef=false;
-                                }
-                            } else if (downBef) {
-                                if (arrayList.get(1) == VK_LEFT) {
-                                    world.setPlayer2Direction(6);
-                                    arrayList.remove(0); arrayList.remove(0); downBef=false;
-                                } else if (arrayList.get(1) == VK_RIGHT) {
-                                    world.setPlayer2Direction(4);
-                                    arrayList.remove(0); arrayList.remove(0); downBef=false;
-                                } else {
-                                    world.setPlayer2Direction(5); arrayList.remove(0); downBef=false;
-                                }
-                            } else if (leftBef) {
-                                if (arrayList.get(1) == VK_UP) {
-                                    world.setPlayer2Direction(8);
-                                    arrayList.remove(0); arrayList.remove(0); leftBef=false;
-                                } else if (arrayList.get(1) == VK_DOWN) {
-                                    world.setPlayer2Direction(6);
-                                    arrayList.remove(0); arrayList.remove(0); leftBef=false;
-                                } else {
-                                    world.setPlayer2Direction(7); arrayList.remove(0); leftBef=false;
-                                }
-                            } else if (rightBef) {
-                                if (arrayList.get(1) == VK_UP) {
-                                    world.setPlayer2Direction(2);
-                                    arrayList.remove(0); arrayList.remove(0); rightBef=false;
-                                } else if (arrayList.get(1) == VK_DOWN) {
-                                    world.setPlayer2Direction(4);
-                                    arrayList.remove(0); arrayList.remove(0); rightBef=false;
-                                } else {
-                                    world.setPlayer2Direction(3); arrayList.remove(0); rightBef=false;
-                                }
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-                t1.start();
-            }
-            if (arrayList2.size() >= 2) {
-                t2 = new Thread(new Runnable() {
-                    public void run() {
-                        try {
-                            if (wBef) {
-                                if (arrayList2.get(1) == VK_A) {
-                                    world.setPlayer1Direction(8);
-                                    arrayList2.remove(0); arrayList2.remove(0); wBef=false;
-                                } else if (arrayList2.get(1) == VK_D) {
-                                    world.setPlayer1Direction(2);
-                                    arrayList2.remove(0); arrayList2.remove(0); wBef=false;
-                                } else {
-                                    world.setPlayer1Direction(1); arrayList2.remove(0); wBef=false;
-                                }
-                            } else if (sBef) {
-                                if (arrayList2.get(1) == VK_A) {
-                                    world.setPlayer1Direction(6);
-                                    arrayList2.remove(0); arrayList2.remove(0); sBef=false;
-                                } else if (arrayList2.get(1) == VK_D) {
-                                    world.setPlayer1Direction(4);
-                                    arrayList2.remove(0); arrayList2.remove(0); sBef=false;
-                                } else {
-                                    world.setPlayer1Direction(5); arrayList2.remove(0); sBef=false;
-                                }
-                            } else if (aBef) {
-                                if (arrayList2.get(1) == VK_W) {
-                                    world.setPlayer1Direction(8);
-                                    arrayList2.remove(0); arrayList2.remove(0); aBef=false;
-                                } else if (arrayList2.get(1) == VK_S) {
-                                    world.setPlayer1Direction(6);
-                                    arrayList2.remove(0); arrayList2.remove(0); aBef=false;
-                                } else {
-                                    world.setPlayer1Direction(7); arrayList2.remove(0); aBef=false;
-                                }
-                            } else if (dBef) {
-                                if (arrayList2.get(1) == VK_W) {
-                                    world.setPlayer1Direction(2);
-                                    arrayList2.remove(0); arrayList2.remove(0); dBef=false;
-                                } else if (arrayList2.get(1) == VK_S) {
-                                    world.setPlayer1Direction(4);
-                                    arrayList2.remove(0); arrayList2.remove(0); dBef=false;
-                                } else {
-                                    world.setPlayer1Direction(3); arrayList2.remove(0); dBef=false;
-                                }
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-                t2.start();
-            }
-        } else {
-            if (arrayList.size() > 0) {
-                t1 = new Thread(new Runnable() {
-                    public void run() {
-                        switch (arrayList.get(0)) {
-                            case VK_UP :
-                                world.setPlayer1Direction(1);
-                                break;
-                            case VK_DOWN :
-                                world.setPlayer1Direction(5);
-                                break;
-                            case VK_LEFT :
-                                world.setPlayer1Direction(7);
-                                break;
-                            case VK_RIGHT :
-                                world.setPlayer1Direction(3);
-                                break;
-                            default :
-                                break;
-                        }
-                    }
-                });
-                t1.start();
-            }
-            if (arrayList2.size() > 0) {
-                t2 = new Thread(new Runnable() {
-                    public void run() {
-                        switch (arrayList2.get(0)) {
-                            case VK_W :
-                                world.setPlayer2Direction(1);
-                                break;
-                            case VK_S :
-                                world.setPlayer2Direction(5);
-                                break;
-                            case VK_A :
-                                world.setPlayer2Direction(7);
-                                break;
-                            case VK_D :
-                                world.setPlayer2Direction(3);
-                                break;
-                            default:
-                               break;
-                        }
-                    }
-                });
-                t2.start();
-            }
-        }
+    public boolean isAllFalse() {
+        return (!wBef && !sBef && !dBef && !aBef && !upBef && !downBef && !leftBef && !rightBef);
     }
 
     @Override
@@ -247,15 +91,350 @@ public class ListenKey implements KeyListener {
      * @param e Keystroke that is released after being pressed
      */
     public void keyReleased(KeyEvent e) {
-        /*switch (e.getKeyCode()) {
-            case VK_UP : arrayList.clear(); break;
-            case VK_DOWN : arrayList.clear(); break;
-            case VK_LEFT : arrayList.clear(); break;
-            case VK_RIGHT : arrayList.clear(); break;
-            case VK_W : arrayList2.clear(); break;
-            case VK_S : arrayList2.clear(); break;
-            case VK_A : arrayList2.clear(); break;
-            case VK_D : arrayList2.clear(); break;
-        }*/
-    }
+        if (isAllFalse()) {
+            if (arrayList.size() > 0) {
+                switch (arrayList.get(0)) {
+                    case VK_UP:
+                        arrayList.clear();
+                        world.setPlayer1Direction(1);
+                        break;
+                    case VK_DOWN:
+                        arrayList.clear();
+                        world.setPlayer1Direction(5);
+                        break;
+                    case VK_LEFT:
+                        arrayList.clear();
+                        world.setPlayer1Direction(7);
+                        break;
+                    case VK_RIGHT:
+                        arrayList.clear();
+                        world.setPlayer1Direction(3);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            //===============================
+            if (arrayList2.size() > 0) {
+                switch (arrayList2.get(0)) {
+                    case VK_W:
+                        arrayList2.clear();
+                        world.setPlayer2Direction(1);
+                        break;
+                    case VK_S:
+                        arrayList2.clear();
+                        world.setPlayer2Direction(5);
+                        break;
+                    case VK_A:
+                        arrayList2.clear();
+                        world.setPlayer2Direction(7);
+                        break;
+                    case VK_D:
+                        arrayList2.clear();
+                        world.setPlayer2Direction(3);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        } else { //loop == 2
+            if (arrayList.size() == 2) {
+                switch (arrayList.get(0)) {
+                    case VK_UP:
+                        switch (arrayList.get(1)) {
+                            case VK_LEFT:
+                                world.setPlayer1Direction(8);
+                                arrayList.clear();
+                                break;
+                            case VK_RIGHT:
+                                world.setPlayer1Direction(2);
+                                arrayList.clear();
+                                break;
+                            case VK_DOWN:
+                                world.setPlayer1Direction(1);
+                                arrayList.remove(0);
+                                keyReleased(e);
+                                break;
+                            case VK_UP:
+                                world.setPlayer1Direction(1);
+                                arrayList.remove(0);
+                                keyReleased(e);
+                            default:
+                                break;
+                        }
+                        break;
+                    case VK_DOWN:
+                        switch (arrayList.get(1)) {
+                            case VK_LEFT:
+                                world.setPlayer1Direction(6);
+                                arrayList.clear();
+                                break;
+                            case VK_RIGHT:
+                                world.setPlayer1Direction(4);
+                                arrayList.clear();
+                                break;
+                            case VK_DOWN:
+                                world.setPlayer1Direction(5);
+                                arrayList.remove(0);
+                                keyReleased(e);
+                                break;
+                            case VK_UP:
+                                world.setPlayer1Direction(5);
+                                arrayList.remove(0);
+                                keyReleased(e);
+                            default:
+                                break;
+                        }
+                        break;
+                    case VK_LEFT:
+                        switch (arrayList.get(1)) {
+                            case VK_UP:
+                                world.setPlayer1Direction(8);
+                                arrayList.clear();
+                                break;
+                            case VK_DOWN:
+                                world.setPlayer1Direction(6);
+                                arrayList.clear();
+                                break;
+                            case VK_LEFT:
+                                world.setPlayer1Direction(7);
+                                arrayList.remove(0);
+                                keyReleased(e);
+                                break;
+                            case VK_RIGHT:
+                                world.setPlayer1Direction(7);
+                                arrayList.remove(0);
+                                keyReleased(e);
+                            default:
+                                break;
+                        }
+                        break;
+                    case VK_RIGHT:
+                        switch (arrayList.get(1)) {
+                            case VK_UP:
+                                world.setPlayer1Direction(2);
+                                arrayList.clear();
+                                break;
+                            case VK_DOWN:
+                                world.setPlayer1Direction(4);
+                                arrayList.clear();
+                                break;
+                            case VK_LEFT:
+                                world.setPlayer1Direction(3);
+                                arrayList.remove(0);
+                                keyReleased(e);
+                                break;
+                            case VK_RIGHT:
+                                world.setPlayer1Direction(3);
+                                arrayList.remove(0);
+                                keyReleased(e);
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                if (arrayList.size() > 0) {
+                    switch (arrayList.get(0)) {
+                        case VK_UP:
+                            arrayList.clear();
+                            world.setPlayer1Direction(1);
+                            break;
+                        case VK_DOWN:
+                            arrayList.clear();
+                            world.setPlayer1Direction(5);
+                            break;
+                        case VK_LEFT:
+                            arrayList.clear();
+                            world.setPlayer1Direction(7);
+                            break;
+                        case VK_RIGHT:
+                            arrayList.clear();
+                            world.setPlayer1Direction(3);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                //===============================
+                if (arrayList2.size() > 0) {
+                    switch (arrayList2.get(0)) {
+                        case VK_W:
+                            arrayList2.clear();
+                            world.setPlayer2Direction(1);
+                            break;
+                        case VK_S:
+                            arrayList2.clear();
+                            world.setPlayer2Direction(5);
+                            break;
+                        case VK_A:
+                            arrayList2.clear();
+                            world.setPlayer2Direction(7);
+                            break;
+                        case VK_D:
+                            arrayList2.clear();
+                            world.setPlayer2Direction(3);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                upBef = false; downBef = false;
+                leftBef = false; rightBef = false;
+            }
+            //======================================
+            if (arrayList2.size() == 2) {
+                switch (arrayList2.get(0)) {
+                    case VK_W:
+                        switch (arrayList2.get(1)) {
+                            case VK_A:
+                                world.setPlayer2Direction(8);
+                                arrayList2.clear();
+                                break;
+                            case VK_D:
+                                world.setPlayer2Direction(2);
+                                arrayList2.clear();
+                                break;
+                            case VK_S:
+                                world.setPlayer2Direction(1);
+                                arrayList2.remove(0);
+                                keyReleased(e);
+                                break;
+                            case VK_W:
+                                world.setPlayer2Direction(1);
+                                arrayList2.remove(0);
+                                keyReleased(e);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case VK_S:
+                        switch (arrayList2.get(1)) {
+                            case VK_A:
+                                world.setPlayer2Direction(6);
+                                arrayList2.clear();
+                                break;
+                            case VK_D:
+                                world.setPlayer2Direction(4);
+                                arrayList2.clear();
+                                break;
+                            case VK_S:
+                                world.setPlayer2Direction(5);
+                                arrayList2.remove(0);
+                                keyReleased(e);
+                                break;
+                            case VK_W:
+                                world.setPlayer2Direction(5);
+                                arrayList2.remove(0);
+                                keyReleased(e);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case VK_A:
+                        switch (arrayList2.get(1)) {
+                            case VK_W:
+                                world.setPlayer2Direction(8);
+                                arrayList2.clear();
+                                break;
+                            case VK_S:
+                                world.setPlayer2Direction(6);
+                                arrayList2.clear();
+                                break;
+                            case VK_D:
+                                world.setPlayer2Direction(7);
+                                arrayList2.remove(0);
+                                keyReleased(e);
+                                break;
+                            case VK_A:
+                                world.setPlayer2Direction(7);
+                                arrayList2.remove(0);
+                                keyReleased(e);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case VK_D:
+                        switch (arrayList2.get(1)) {
+                            case VK_W:
+                                world.setPlayer2Direction(2);
+                                arrayList2.clear();
+                                break;
+                            case VK_S:
+                                world.setPlayer2Direction(4);
+                                arrayList2.clear();
+                                break;
+                            case VK_A:
+                                world.setPlayer2Direction(3);
+                                arrayList2.remove(0);
+                                keyReleased(e);
+                                break;
+                            case VK_D:
+                                world.setPlayer2Direction(3);
+                                arrayList2.remove(0);
+                                keyReleased(e);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+                } 
+            } else {
+                if (arrayList.size() > 0) {
+                    switch (arrayList.get(0)) {
+                        case VK_UP:
+                            arrayList.clear();
+                            world.setPlayer1Direction(1);
+                            break;
+                        case VK_DOWN:
+                            arrayList.clear();
+                            world.setPlayer1Direction(5);
+                            break;
+                        case VK_LEFT:
+                            arrayList.clear();
+                            world.setPlayer1Direction(7);
+                            break;
+                        case VK_RIGHT:
+                            arrayList.clear();
+                            world.setPlayer1Direction(3);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                //===============================
+                if (arrayList2.size() > 0) {
+                    switch (arrayList2.get(0)) {
+                        case VK_W:
+                            arrayList2.clear();
+                            world.setPlayer2Direction(1);
+                            break;
+                        case VK_S:
+                            arrayList2.clear();
+                            world.setPlayer2Direction(5);
+                            break;
+                        case VK_A:
+                            arrayList2.clear();
+                            world.setPlayer2Direction(7);
+                            break;
+                        case VK_D:
+                            arrayList2.clear();
+                            world.setPlayer2Direction(3);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                wBef = false; sBef = false;
+                aBef = false; dBef = false;
+            }
+        }
+    }   
 }
