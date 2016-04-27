@@ -64,7 +64,7 @@ public class NPCEater extends Eater {
     
     @Override
     public void Reaction(Organisme M){
-        if (isRadius(100,M.getPosition()) && M!=null){
+        if (M!=null && isRadius(100,M.getPosition())){
             if (M.name() == "F") {
                 if (pergerakan.getTimeToChangeDirection() % 5 == 0){
                     hunt(M);
@@ -96,28 +96,31 @@ public class NPCEater extends Eater {
      * @param M
      */
     public void hunt(Organisme M){
-        if ((getPosition().getAbsis() == M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
-                > M.getPosition().getOrdinat()))
-            setArah(1);
-        else if ((getPosition().getAbsis() < M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
-                > M.getPosition().getOrdinat()))
-            setArah(2);
-        else if ((getPosition().getAbsis() < M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
-                == M.getPosition().getOrdinat()))
-            setArah(3);
-        else if ((getPosition().getAbsis() < M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
-                < M.getPosition().getOrdinat()))
-            setArah(4);
-        else if ((getPosition().getAbsis() == M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
-                < M.getPosition().getOrdinat()))
-            setArah(5);
-        else if ((getPosition().getAbsis() > M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
-                < M.getPosition().getOrdinat()))
-            setArah(6);
-        else if ((getPosition().getAbsis() > M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
-                == M.getPosition().getOrdinat()))
-            setArah(7);
-        else
-            setArah(8);
+        if(M != null)
+        {
+            if ((getPosition().getAbsis() == M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
+                    > M.getPosition().getOrdinat()))
+                setArah(1);
+            else if ((getPosition().getAbsis() < M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
+                    > M.getPosition().getOrdinat()))
+                setArah(2);
+            else if ((getPosition().getAbsis() < M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
+                    == M.getPosition().getOrdinat()))
+                setArah(3);
+            else if ((getPosition().getAbsis() < M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
+                    < M.getPosition().getOrdinat()))
+                setArah(4);
+            else if ((getPosition().getAbsis() == M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
+                    < M.getPosition().getOrdinat()))
+                setArah(5);
+            else if ((getPosition().getAbsis() > M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
+                    < M.getPosition().getOrdinat()))
+                setArah(6);
+            else if ((getPosition().getAbsis() > M.getPosition().getAbsis()) && (getPosition().getOrdinat() 
+                    == M.getPosition().getOrdinat()))
+                setArah(7);
+            else
+                setArah(8);
+        }
     }
 }
