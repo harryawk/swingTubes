@@ -17,7 +17,6 @@ import java.util.Random;
 public class SecondPlayer extends Eater{
     private boolean mati;
     private int tingkat_kekenyangan;
-    private String nickName;
     private DirectionMovement pergerakan;
     private Color myColor;
     private int maxK = 700;
@@ -43,7 +42,7 @@ public class SecondPlayer extends Eater{
      *
      * @param name
      */
-    public SecondPlayer(String name){
+    public SecondPlayer(){
         super();
         mati = false;
         tingkat_kekenyangan = maxK;
@@ -57,13 +56,6 @@ public class SecondPlayer extends Eater{
         mati = t;
     }
     
-    /**
-     *
-     * @return
-     */
-    public String nickName(){
-        return nickName();
-    }
     
     @Override
     public String name() {
@@ -121,6 +113,7 @@ public class SecondPlayer extends Eater{
         return 4;
     }
     
+    @Override
     public Color getColor()
     {
         return myColor;

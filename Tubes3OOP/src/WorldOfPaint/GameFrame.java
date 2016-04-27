@@ -33,9 +33,9 @@ public class GameFrame extends JFrame {
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         //inisialisasi makhluk
-        NPCEater o1 = new NPCEater("wawa");
-        NPCEater o2 = new NPCEater("wawa");
-        NPCEater o3 = new NPCEater("wawa");
+        NPCEater o1 = new NPCEater();
+        NPCEater o2 = new NPCEater();
+        NPCEater o3 = new NPCEater();
         
         Food f1 = new Food();
         Food f2 = new Food();
@@ -48,8 +48,8 @@ public class GameFrame extends JFrame {
         Food f9 = new Food();
         
         
-        FirstPlayer pl1 = new FirstPlayer("1");
-        SecondPlayer pl2 = new SecondPlayer("2");
+        FirstPlayer pl1 = new FirstPlayer();
+        SecondPlayer pl2 = new SecondPlayer();
 
         Point p1 = new Point(50, 300);
         Point p2 = new Point(500, 500);
