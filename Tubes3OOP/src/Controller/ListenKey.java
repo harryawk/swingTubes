@@ -198,23 +198,15 @@ public class ListenKey implements KeyListener {
                         switch (arrayList.get(0)) {
                             case VK_UP :
                                 world.setPlayer1Direction(1);
-                                arrayList.remove(0);
-                                upBef = false;
                                 break;
                             case VK_DOWN :
                                 world.setPlayer1Direction(5);
-                                arrayList.remove(0);
-                                downBef = false;
                                 break;
                             case VK_LEFT :
                                 world.setPlayer1Direction(7);
-                                arrayList.remove(0);
-                                leftBef = false;
                                 break;
                             case VK_RIGHT :
                                 world.setPlayer1Direction(3);
-                                arrayList.remove(0);
-                                rightBef = false;
                                 break;
                             default :
                                 break;
@@ -229,23 +221,15 @@ public class ListenKey implements KeyListener {
                         switch (arrayList2.get(0)) {
                             case VK_W :
                                 world.setPlayer2Direction(1);
-                                arrayList2.remove(0);
-                                wBef = false;
                                 break;
                             case VK_S :
                                 world.setPlayer2Direction(5);
-                                arrayList2.remove(0);
-                                sBef = false;
                                 break;
                             case VK_A :
                                 world.setPlayer2Direction(7);
-                                arrayList2.remove(0);
-                                aBef = false;
                                 break;
                             case VK_D :
                                 world.setPlayer2Direction(3);
-                                arrayList2.remove(0);
-                                dBef = false;
                                 break;
                             default:
                                break;
