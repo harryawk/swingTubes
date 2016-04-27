@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Instinct;
+package instinct;
 
-import Movement.Point;
+import movement.Point;
 
 /**
  *
@@ -14,8 +14,7 @@ import Movement.Point;
 public interface Instinct {
 
   /**
-   * a method for run
-   *
+   * a method for run.
    * @param Awal
    * @param Predator
    */

@@ -6,7 +6,7 @@
 package worldofpain;
 
 import java.lang.*;
-import Organism.Organisme;
+import organism.Organisme;
 
 /**
  *
