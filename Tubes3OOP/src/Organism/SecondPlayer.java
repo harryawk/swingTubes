@@ -19,7 +19,7 @@ public class SecondPlayer extends Eater{
     private int tingkat_kekenyangan;
     private DirectionMovement pergerakan;
     private Color myColor;
-    private int maxK = 700;
+    private final int maxK = 700;
     
     /**
      *
@@ -31,8 +31,7 @@ public class SecondPlayer extends Eater{
     
     @Override
     public void move() {
-        Point P2 = pergerakan.move(getPosition(),getKecepatan());
-        setPosition(P2);
+        setPosition(pergerakan.move(getPosition(),getKecepatan()));
         int a = getKekenyangan();
         a--;
         setKekenyangan(a);
@@ -81,11 +80,6 @@ public class SecondPlayer extends Eater{
             setMati(true);
         }
         
-        //tetap di dalam
-        int width  = 1366;
-        int height = 768; 
-        int x = getPosition().getAbsis();
-        int y = getPosition().getOrdinat();
         boundaryRespon();
     }
     
