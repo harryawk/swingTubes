@@ -66,12 +66,16 @@ public class NPCEater extends Eater {
     public void Reaction(Organisme M){
         if (isRadius(100,M.getPosition())){
             if (M.name() == "F") {
-                hunt(M);
-                pergerakan.setTimeToChangeDirection(1);
+                if (pergerakan.getTimeToChangeDirection() % 5 == 0){
+                    hunt(M);
+                    pergerakan.setTimeToChangeDirection(1);
+                }
             }
             else if (M.name() == "1") {
-                pergerakan.run(getPosition(),M.getPosition());
-                pergerakan.setTimeToChangeDirection(1);
+                if (pergerakan.getTimeToChangeDirection() % 5 == 0){
+                    pergerakan.run(getPosition(),M.getPosition());
+                    pergerakan.setTimeToChangeDirection(1);
+                }
             }
             else
                 pergerakan.setWithRandomDirection();
