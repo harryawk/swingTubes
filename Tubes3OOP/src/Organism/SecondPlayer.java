@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Organism;
+package organism;
 
-import Movement.DirectionMovement;
-import Movement.Point;
+import movement.DirectionMovement;
+import movement.Point;
 import java.awt.Color;
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package Organism;
+package organism;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -10,7 +10,7 @@ package Organism;
  *
  * @author Ali-pc
  */
-import Movement.Point;
+import movement.Point;
 
 public abstract class Eater implements Organisme {
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Organism;
+package organism;
 
 import java.awt.Color;
 
@@ -12,7 +12,7 @@ import java.awt.Color;
  *
  * @author Ali Akbar
  */
-import Movement.Point;
+import movement.Point;
 
 /**
  *

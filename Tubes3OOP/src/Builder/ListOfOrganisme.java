@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Builder;
+package builder;
 
-import Organism.Organisme;
+import organism.Organisme;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,33 +15,39 @@ import java.util.List;
  */
 public class ListOfOrganisme {
 
-  private ArrayList<Organisme> organisms;
+    /**
+     * A private list of organism.
+     */
+    private ArrayList<Organisme> organisms;
 
-  public ListOfOrganisme() {
-    organisms = new ArrayList<Organisme>();
-  }
+    /**
+     * A constructor.
+     */
+    public ListOfOrganisme() {
+      organisms = new ArrayList<>();
+    }
 
-  /**
-   *
-   * @param O
-   */
-  public void addOrganisme(Organisme O) {
-    organisms.add(O);
-  }
+    /**
+     * a procedure to add organism to the list.
+     * @param organs
+     */
+    public final void addOrganisme(final Organisme organs) {
+      organisms.add(organs);
+    }
 
-  /**
-   *
-   * @param i
-   */
-  public void deleteOrganismeAt(int i) throws OutOfMemoryError {
-    organisms.remove(i);
-  }
+    /**
+     * @param i an integer.
+     * @throws OutOfMemoryError
+     */
+    public final void deleteOrganismeAt(final int i) throws OutOfMemoryError {
+      organisms.remove(i);
+    }
 
-  /**
-   *
-   * @return
-   */
-  public List<Organisme> getList() {
-    return organisms;
-  }
+    /**
+     * a function that return the list of organism.
+     * @return a List.
+     */
+    public List<Organisme> getList() {
+      return organisms;
+    }
 }
