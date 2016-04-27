@@ -113,8 +113,7 @@ public class EaterTest {
         instance.getPosition().setAbsis(300);
         instance.getPosition().setOrdinat(98);
         instance.boundaryRespon();
-        assertEquals(instance.getPosition().getOrdinat(),98);
-        
+        assertEquals(instance.getPosition().getOrdinat(),98);  
     }
 
     /**
@@ -130,7 +129,7 @@ public class EaterTest {
     }
 
     public class EaterImpl extends Eater {
-        
+       
         @Override
         public String name()
         {
