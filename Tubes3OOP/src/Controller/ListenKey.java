@@ -261,29 +261,6 @@ public class ListenKey implements KeyListener {
                             break;
                     }
                 }
-                //===============================
-                if (arrayList2.size() > 0) {
-                    switch (arrayList2.get(0)) {
-                        case VK_W:
-                            arrayList2.clear();
-                            world.setPlayer2Direction(1);
-                            break;
-                        case VK_S:
-                            arrayList2.clear();
-                            world.setPlayer2Direction(5);
-                            break;
-                        case VK_A:
-                            arrayList2.clear();
-                            world.setPlayer2Direction(7);
-                            break;
-                        case VK_D:
-                            arrayList2.clear();
-                            world.setPlayer2Direction(3);
-                            break;
-                        default:
-                            break;
-                    }
-                }
                 upBef = false; downBef = false;
                 leftBef = false; rightBef = false;
             }
@@ -390,29 +367,6 @@ public class ListenKey implements KeyListener {
                         break;
                 } 
             } else {
-                if (arrayList.size() > 0) {
-                    switch (arrayList.get(0)) {
-                        case VK_UP:
-                            arrayList.clear();
-                            world.setPlayer1Direction(1);
-                            break;
-                        case VK_DOWN:
-                            arrayList.clear();
-                            world.setPlayer1Direction(5);
-                            break;
-                        case VK_LEFT:
-                            arrayList.clear();
-                            world.setPlayer1Direction(7);
-                            break;
-                        case VK_RIGHT:
-                            arrayList.clear();
-                            world.setPlayer1Direction(3);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                //===============================
                 if (arrayList2.size() > 0) {
                     switch (arrayList2.get(0)) {
                         case VK_W:
