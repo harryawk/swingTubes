@@ -37,6 +37,7 @@ public class OrganismeBuilder {
      */
     public static FirstPlayer makeFirstEater(){
         FirstPlayer myFirst = new FirstPlayer();
+        myFirst.setArah(0);
         return myFirst;
     }
     
