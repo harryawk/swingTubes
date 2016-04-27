@@ -36,19 +36,7 @@ public class World extends JPanel{
         long lastTime;
         long worldTimer = 30;
 
-///Administrator///=========================================================================
-	private int size=10; //banyak makhluk maksimal
-	private int count=0; //banyak makhluk dalam daftar
-	//private Vector<MakhlukHidup> daftar = new Vector<MakhlukHidup>(10);//array pointer objek makhluk
-        
-///Konduktor///=============================================================================
-    private int lifeState = 1;
-    private int Count = 0;
-
-//public//=============================================================================================
-        
-//World//==============================================================================================
-	/**
+        /**
 	 *  A constructor of World class
 	 */
         public World() {
@@ -59,13 +47,7 @@ public class World extends JPanel{
             this.addKeyListener(new ListenKey(this));
             lastTime = System.currentTimeMillis();
         }
-        /**
-	 *  Store an empty world (all dot)
-	 */
-        public void printDunia() {
-           
-        }
-        
+
     /**
      *
      * @param string
@@ -73,16 +55,6 @@ public class World extends JPanel{
     public void cetak(String string) {
             System.out.println(string);
         }
-
-    /**
-     *
-     * @throws ExceptionInInitializerError
-     */
-    public void initDisplay() throws ExceptionInInitializerError
-	{
-        
-	}
-        
         
 //=======================================================================================
 	/**
@@ -124,21 +96,30 @@ public class World extends JPanel{
             int j = 0;
             
             //player terhadap player
-            player1.Reaction(player2);
-            player2.Reaction(player1);
+            if(player1 != null)
+                player1.Reaction(player2);
+            if(player2 != null)
+                player2.Reaction(player1);
             
             //player terhadap NPC
             for(Organisme o : dunia.getList())
             {
-                player1.Reaction(o);
-                player2.Reaction(o);
+                if(player1 != null)
+                    player1.Reaction(o);
+                if(player2 != null)
+                    player2.Reaction(o);
             }
             
             //npc terhadap player
             for(Organisme o : dunia.getList())
             {
-                o.Reaction(player1);
-                o.Reaction(player2);
+                if(o != null)
+                {
+                    if(player1 != null)
+                        o.Reaction(player1);
+                    if(player2 != null)
+                        o.Reaction(player2);
+                }   
             }
             
             //npc terhadap npc
@@ -150,7 +131,7 @@ public class World extends JPanel{
 
                     for(Organisme oo : dunia.getList())
                     {
-                        if(i != j)
+                        if(i != j && oo != null)
                         {
                             o.Reaction(oo);
                         }
@@ -159,17 +140,6 @@ public class World extends JPanel{
                     i++;
                 }
             }
-            
-            //cek lokasi
-            /*
-            for(Organisme o : dunia)
-            {
-                if(o != null && o.isOutside(width, height))
-                {
-                    o.setMati(true);
-                }
-            }
-            */
             
             //pluck yang mati
             i = 0;
@@ -194,7 +164,8 @@ public class World extends JPanel{
      */
     public void clear(Graphics g)
     {
-        g.clearRect(0, 0, getWidth(), getHeight());
+        if(g != null)
+            g.clearRect(0, 0, getWidth(), getHeight());
     }
 
     public void paintComponent(Graphics g) 
@@ -264,31 +235,6 @@ public class World extends JPanel{
             return (isTimeout());
 	}
      
-    /**
-     *
-     * @throws IOException
-     * @throws NullPointerException
-     */
-    public void tangkapLayar() throws IOException, NullPointerException
-	{
-		
-	}
-        /**
- 	*  create a new MakhlukHidup and put it in monitored list
-        *  @param P is position where the new creation will be created
-        *  @param opsi determine what MakhlukHidup is created
- 	*/	
-	//public void creation(Point P, char opsi)
-	{
-
-	}
-        /**
- 	*  make Mati attributes of all MakhlukHidup in daftar = true
- 	*/	
-	public void killAll()
-	{
-
-	}
 
     /**
      *
@@ -333,33 +279,7 @@ public class World extends JPanel{
     public void setPlayer2Direction(int i)
     {
         player2.setArah(i);
-    }
-
-    /**
-     *
-     */
-    public void pause()
-    {
-        lifeState = 0;
-    }
-    
-    /**
-     *
-     */
-    public void resume()
-    {
-        lifeState = 1;
-    }
-    
-    /**
-     *
-     * @return
-     */
-    public boolean isPaused()
-    {
-        return(lifeState == 0);
-    }
-    
+    }    
     /**
      *
      * @return
@@ -367,6 +287,11 @@ public class World extends JPanel{
     public boolean isTimeout()
     {
         return(worldTimer <= 0);
+    }
+    
+    public long getTime()
+    {
+        return worldTimer;
     }
    
 }

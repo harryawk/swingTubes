@@ -19,7 +19,6 @@ public class Food implements Organisme{
     private boolean mati;
     private CautionMovement pergerakan;
     private int kecepatan;
-    private int tingkat_kekenyangan;
     
     /**
      *
@@ -92,42 +91,21 @@ public class Food implements Organisme{
  
     @Override
     public void Reaction(Organisme M){
-        if (isRadius(20,M.getPosition())) {
+        if (isRadius(20,M.getPosition()) && M!=null) {
             if ((M.name() == "2") || (M.name() == "N")){
                 setMati(true);
             } else
                 pergerakan.setWithRandomDirection();
-        } else if (isRadius(35,M.getPosition())) {
-            if ((M.name() == "N") || (M.name() == "2"))
+        } else if (isRadius(45,M.getPosition())) {
+            if ((M.name() == "N") || (M.name() == "2")){
                 pergerakan.run(getPosition(),M.getPosition());
-            else
+                pergerakan.setTimeToChangeDirection(1);
+            } else
                 pergerakan.setWithRandomDirection();
         } else
             pergerakan.setWithRandomDirection(); 
         
-        //tetap di dalam
-        int width  = 1366;
-        int height = 768; 
-        int x = getPosition().getAbsis();
-        int y = getPosition().getOrdinat();
-        
-        //boundary
-        if(x < 100)
-        {
-            getPosition().setAbsis(width-125);
-        }
-        else if(x > (width-115))
-        {
-            getPosition().setAbsis(110);
-        }
-        else if(y < 100)
-        {
-            getPosition().setOrdinat(height-125);
-        }
-        else if(y > (height-115))
-        {
-            getPosition().setOrdinat(110);
-        }
+        boundaryRespon();
     }
     
     /**
@@ -147,29 +125,30 @@ public class Food implements Organisme{
         return ((_y <= rad) &&(_x <= rad));
     }
     
-    public boolean isOutside(int width, int height)
-    {
-        if(getPosition().getAbsis() > width || getPosition().getAbsis() < 0)
+    public void boundaryRespon() {
+        //tetap di dalam
+        int width  = 1366;
+        int height = 768; 
+        int x = getPosition().getAbsis();
+        int y = getPosition().getOrdinat();
+
+        //boundary
+        if(x < 100)
         {
-            return true;
+            getPosition().setAbsis(width-125);
         }
-        
-        if(getPosition().getOrdinat() > height || getPosition().getAbsis() < 0)
+        else if(x > (width-115))
         {
-            return true;
+            getPosition().setAbsis(110);
         }
-        
-        return false;
-    }
-    
-    @Override
-    public int getKekenyangan(){
-        return tingkat_kekenyangan;
-    }
-    
-    @Override
-    public void setKekenyangan(int k){
-        tingkat_kekenyangan = k;
+        else if(y < 100)
+        {
+            getPosition().setOrdinat(height-125);
+        }
+        else if(y > (height-115))
+        {
+            getPosition().setOrdinat(110);
+        }
     }
 }
     

@@ -19,7 +19,7 @@ public class OrganismeBuilder {
     /**
      *
      */
-    public Food makeFood(){
+    public static Food makeFood(){
         Food myFood = new Food();
         return myFood;
     }
@@ -27,7 +27,7 @@ public class OrganismeBuilder {
     /**
      *
      */
-    public NPCEater makeEaterNPC(){
+    public static NPCEater makeEaterNPC(){
         NPCEater myNPCEater = new NPCEater();
         return myNPCEater;
     }
@@ -35,15 +35,16 @@ public class OrganismeBuilder {
     /**
      *
      */
-    public FirstPlayer makeFirstEater(){
+    public static FirstPlayer makeFirstEater(){
         FirstPlayer myFirst = new FirstPlayer();
+        myFirst.setArah(0);
         return myFirst;
     }
     
     /**
      *
      */
-    public SecondPlayer makeSecondEater(){
+    public static SecondPlayer makeSecondEater(){
         SecondPlayer mySecond = new SecondPlayer();
         return mySecond;
     }

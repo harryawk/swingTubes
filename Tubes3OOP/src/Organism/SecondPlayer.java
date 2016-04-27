@@ -19,7 +19,7 @@ public class SecondPlayer extends Eater{
     private int tingkat_kekenyangan;
     private DirectionMovement pergerakan;
     private Color myColor;
-    private int maxK = 700;
+    private final int maxK = 700;
     
     /**
      *
@@ -31,8 +31,7 @@ public class SecondPlayer extends Eater{
     
     @Override
     public void move() {
-        Point P2 = pergerakan.move(getPosition(),getKecepatan());
-        setPosition(P2);
+        setPosition(pergerakan.move(getPosition(),getKecepatan()));
         int a = getKekenyangan();
         a--;
         setKekenyangan(a);
@@ -67,7 +66,7 @@ public class SecondPlayer extends Eater{
     }
     
     public void Reaction(Organisme M){
-        if (isRadius(20,M.getPosition())){
+        if (isRadius(20,M.getPosition()) && M!=null){
             if (M.name() == "1"){
                 setMati(true);
             }
@@ -81,30 +80,7 @@ public class SecondPlayer extends Eater{
             setMati(true);
         }
         
-        //tetap di dalam
-        int width  = 1366;
-        int height = 768; 
-        int x = getPosition().getAbsis();
-        int y = getPosition().getOrdinat();
-        
-        //boundary
-        if(x < 100)
-        {
-            getPosition().setAbsis(width-125);
-        }
-        else if(x > (width-115))
-        {
-            getPosition().setAbsis(110);
-        }
-        else if(y < 100)
-        {
-            getPosition().setOrdinat(height-125);
-        }
-        else if(y > (height-115))
-        {
-            getPosition().setOrdinat(110);
-        }
-     
+        boundaryRespon();
     }
     
     @Override
@@ -118,12 +94,10 @@ public class SecondPlayer extends Eater{
         return myColor;
     }
 
-    @Override
     public int getKekenyangan() {
         return tingkat_kekenyangan;
     }
 
-    @Override
     public void setKekenyangan(int k) {
         tingkat_kekenyangan = k;
     }

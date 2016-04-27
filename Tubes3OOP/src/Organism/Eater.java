@@ -13,45 +13,18 @@ package Organism;
 import Movement.Point;
 
 public abstract class Eater implements Organisme{
-    private Point position = new Point();
-    private int tingkat_kekenyangan;
+    private Point position;
     
     /**
      * A constructor
      */
     public Eater(){
-    }
-    
-    /**
-     * Set the current position of the 
-     * @param P
-     */
-    public void setPosition(Point P){
-        position.setAbsis(P.getAbsis());
-        position.setOrdinat(P.getOrdinat());
-        tingkat_kekenyangan = 3;
+         position = new Point();
     }
     
     @Override
     public Point getPosition(){
         return position;
-    }
-    
-    /**
-     * a function check if some point is near to eater current position
-     * @param rad
-     * @param p
-     * @return
-     */
-    public boolean isRadius (int rad, Point p){
-        int _x, _y;
-        _x = getPosition().getAbsis() - p.getAbsis();
-        if (_x < 0)
-                _x = 0 - _x;
-        _y = getPosition().getOrdinat() - p.getOrdinat();
-        if (_y < 0)
-                _y = 0 - _y;
-        return ((_y <= rad) && (_x <= rad));
     }
     
     @Override
@@ -73,33 +46,55 @@ public abstract class Eater implements Organisme{
     public abstract void move();
     
     /**
-     * a method to check if the eater is outside the box or not
-     * @param width an integer
-     * @param height an integer
-     * @return 
+     * a function check if some point is near to eater current position
+     * @param rad
+     * @param p
+     * @return
      */
-    public boolean isOutside(int width, int height)
-    {
-        if(getPosition().getAbsis() > width || getPosition().getAbsis() < 0)
-        {
-            return true;
-        }
-        
-        if(getPosition().getOrdinat() > height || getPosition().getAbsis() < 0)
-        {
-            return true;
-        }
-        
-        return false;
+    public boolean isRadius (int rad, Point p){
+        int _x, _y;
+        _x = getPosition().getAbsis() - p.getAbsis();
+        if (_x < 0)
+                _x = 0 - _x;
+        _y = getPosition().getOrdinat() - p.getOrdinat();
+        if (_y < 0)
+                _y = 0 - _y;
+        return ((_y <= rad) && (_x <= rad));
     }
     
-    public int getKekenyangan()
-    {
-        return 1;
+    public void boundaryRespon() {
+        //tetap di dalam
+        int width  = 1366;
+        int height = 768; 
+        int x = getPosition().getAbsis();
+        int y = getPosition().getOrdinat();
+
+        //boundary
+        if(x < 100)
+        {
+            getPosition().setAbsis(width-125);
+        }
+        else if(x > (width-115))
+        {
+            getPosition().setAbsis(110);
+        }
+        else if(y < 100)
+        {
+            getPosition().setOrdinat(height-125);
+        }
+        else if(y > (height-115))
+        {
+            getPosition().setOrdinat(110);
+        }
     }
     
-    public void setKekenyangan(int k)
-    {
-        
+    /**
+     * Set the current position of the 
+     * @param P
+     */
+    public void setPosition(Point P){
+        position.setAbsis(P.getAbsis());
+        position.setOrdinat(P.getOrdinat());
     }
+    
 }

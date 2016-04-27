@@ -6,9 +6,6 @@
 package Organism;
 
 import Instinct.CautionMovement;
-import Movement.DirectionMovement;
-import Movement.Point;
-import Instinct.CautionMovement;
 import java.awt.Color;
 import java.util.Random;
 
@@ -67,14 +64,18 @@ public class NPCEater extends Eater {
     
     @Override
     public void Reaction(Organisme M){
-        if (isRadius(100,M.getPosition())){
+        if (isRadius(100,M.getPosition()) && M!=null){
             if (M.name() == "F") {
-                hunt(M);
+                if (pergerakan.getTimeToChangeDirection() % 5 == 0){
+                    hunt(M);
+                    pergerakan.setTimeToChangeDirection(1);
+                }
             }
             else if (M.name() == "1") {
-                pergerakan.run(getPosition(),M.getPosition());
-                
-                pergerakan.setTimeToChangeDirection(1);
+                if (pergerakan.getTimeToChangeDirection() % 5 == 0){
+                    pergerakan.run(getPosition(),M.getPosition());
+                    pergerakan.setTimeToChangeDirection(1);
+                }
             }
             else
                 pergerakan.setWithRandomDirection();
@@ -82,30 +83,7 @@ public class NPCEater extends Eater {
         else{
             pergerakan.setWithRandomDirection();
         }
-        
-        //tetap di dalam
-        int width  = 1366;
-        int height = 768; 
-        int x = getPosition().getAbsis();
-        int y = getPosition().getOrdinat();
-        
-        //boundary
-        if(x < 100)
-        {
-            getPosition().setAbsis(width-125);
-        }
-        else if(x > (width-115))
-        {
-            getPosition().setAbsis(110);
-        }
-        else if(y < 100)
-        {
-            getPosition().setOrdinat(height-125);
-        }
-        else if(y > (height-115))
-        {
-            getPosition().setOrdinat(110);
-        }
+        boundaryRespon();
     }
     
     @Override
