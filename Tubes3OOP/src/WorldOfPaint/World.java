@@ -64,9 +64,18 @@ public class World extends JPanel{
            
         }
         
-        public void cetak(String string) {
+    /**
+     *
+     * @param string
+     */
+    public void cetak(String string) {
             System.out.println(string);
         }
+
+    /**
+     *
+     * @throws ExceptionInInitializerError
+     */
     public void initDisplay() throws ExceptionInInitializerError
 	{
         
@@ -82,7 +91,11 @@ public class World extends JPanel{
             repaint();
 	}
         
-	public void updateGame() throws ExceptionInInitializerError
+    /**
+     *
+     * @throws ExceptionInInitializerError
+     */
+    public void updateGame() throws ExceptionInInitializerError
 	{
             //gerak
             MoveThread m = new MoveThread(player1);
@@ -165,6 +178,10 @@ public class World extends JPanel{
             removeList = new ArrayList<Integer>();
 	}
 
+    /**
+     *
+     * @param g
+     */
     public void clear(Graphics g)
     {
         g.clearRect(0, 0, getWidth(), getHeight());
@@ -184,19 +201,19 @@ public class World extends JPanel{
         x = player1.getPosition().getAbsis();
         y = player1.getPosition().getOrdinat();
         g.setColor(player1.getColor());
-        g.fillOval(x, y, 10, 10);
+        g.fillOval(x, y, 20, 20);
         
         x = player2.getPosition().getAbsis();
         y = player2.getPosition().getOrdinat();
         g.setColor(player2.getColor());
-        g.fillOval(x, y, 10, 10);
+        g.fillOval(x, y, 20, 20);
 
         for(Organisme o : dunia)
         {       
             x = o.getPosition().getAbsis();
             y = o.getPosition().getOrdinat();
             g.setColor(o.getColor());
-            g.fillOval(x, y, 10, 10);
+            g.fillOval(x, y, 20, 20);
         }
         
         if(GameOver())
@@ -222,7 +239,11 @@ public class World extends JPanel{
          *  @param display is the character that would be drawn at Pc
 	*/
 
-	public boolean GameOver()
+    /**
+     *
+     * @return
+     */
+    public boolean GameOver()
 	{
             if(player1.isMati() || player2.isMati())
             {
@@ -232,7 +253,12 @@ public class World extends JPanel{
             return (isTimeout());
 	}
      
-	public void tangkapLayar() throws IOException, NullPointerException
+    /**
+     *
+     * @throws IOException
+     * @throws NullPointerException
+     */
+    public void tangkapLayar() throws IOException, NullPointerException
 	{
 		
 	}
@@ -253,46 +279,80 @@ public class World extends JPanel{
 
 	}
 
+    /**
+     *
+     * @param o
+     */
     public void add(Organisme o)
     {
         dunia.add(o);
     }
     
+    /**
+     *
+     * @param p
+     */
     public void registerPlayer1(FirstPlayer p)
     {
         player1= p;
     }
     
+    /**
+     *
+     * @param p
+     */
     public void registerPlayer2(SecondPlayer p)
     {
         player2 = p;
     }
     
+    /**
+     *
+     * @param i
+     */
     public void setPlayer1Direction(int i)
     {
         player1.setArah(i);
     }
     
+    /**
+     *
+     * @param i
+     */
     public void setPlayer2Direction(int i)
     {
         player2.setArah(i);
     }
 
+    /**
+     *
+     */
     public void pause()
     {
         lifeState = 0;
     }
     
+    /**
+     *
+     */
     public void resume()
     {
         lifeState = 1;
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean isPaused()
     {
         return(lifeState == 0);
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean isTimeout()
     {
         return(System.currentTimeMillis() - worldGenesis > 30000);

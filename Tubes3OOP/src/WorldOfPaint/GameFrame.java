@@ -21,6 +21,9 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class GameFrame extends JFrame {
     private World w;
     
+    /**
+     *
+     */
     public GameFrame()
     {
         w = new World();
@@ -75,15 +78,27 @@ public class GameFrame extends JFrame {
         w.add(f4);
     }
     
+    /**
+     *
+     */
     public void updateGame()
     {
         w.updateGame();
     }
+
+    /**
+     *
+     */
     public void updateDisplay()
     {
         w.updateDisplay();
         repaint();
     }
+
+    /**
+     *
+     * @return
+     */
     public boolean GameOver()
     {
         return w.GameOver();
