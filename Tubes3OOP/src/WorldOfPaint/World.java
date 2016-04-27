@@ -296,7 +296,7 @@ public class World extends JPanel{
     
     public boolean isTimeout()
     {
-        return(System.currentTimeMillis() - worldGenesis > 60000);
+        return(System.currentTimeMillis() - worldGenesis > 30000);
     }
    
 }
