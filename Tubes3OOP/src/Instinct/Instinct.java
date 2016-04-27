@@ -15,8 +15,8 @@ public interface Instinct {
 
   /**
    * a method for run.
-   * @param Awal
-   * @param Predator
+   * @param awal a Point.
+   * @param predator a Point.
    */
-  public void run(Point Awal, Point Predator);
+  void run(Point awal, Point predator);
 }

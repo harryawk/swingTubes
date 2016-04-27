@@ -36,7 +36,7 @@ public class DirectionMovement implements Movement {
    * a procedure to set the direction.
    * @param i an integer.
    */
-  public final void setDirection(int i) {
+  public final void setDirection(final int i) {
     direction = i;
   }
 
@@ -52,7 +52,7 @@ public class DirectionMovement implements Movement {
    * a function to get direction.
    * @return integer.
    */
-  public int getDirection() {
+  public final  int getDirection() {
     return direction;
   }
 
@@ -76,10 +76,10 @@ public class DirectionMovement implements Movement {
   }
 
   @Override
-  public final Point move(final Point P1, final int d) {
+  public final Point move(final Point p, final int d) {
     Point temp = new Point(0, 0);
-    temp.setAbsis(P1.getAbsis());
-    temp.setOrdinat(P1.getOrdinat());
+    temp.setAbsis(p.getAbsis());
+    temp.setOrdinat(p.getOrdinat());
     switch (direction) {
       case 1:
         temp.geser(0, -d);

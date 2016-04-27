@@ -21,7 +21,6 @@ import static org.junit.Assert.*;
  * @author Toshiba
  */
 public class ListOfOrganismeTest {
-    
     public ListOfOrganismeTest() {
     }
     

@@ -11,42 +11,57 @@ import static java.awt.event.KeyEvent.*;
 import java.util.ArrayList;
 
 /**
- * A class to listen keystroke that pressed by user while the application is
- * running
- *
+ * A class to listen keystroke that pressed by user while the application is.
+ * running.
  * @author Harry Alvin
  */
 public class ListenKey implements KeyListener {
-
+  /**
+   * a world private member.
+   */
   private final World world;
+  /**
+   * a priivate ArrayList member.
+   */
   private ArrayList<Integer> arrayList;
+  /**
+   * a private arraylist member.
+   */
   private ArrayList<Integer> arrayList2;
+  /**
+   * A private Array List member.
+   */
   private Thread t1, t2;
+  /**
+   * A private boolean member.
+   */
   private boolean wBef, sBef, dBef, aBef, upBef, downBef, leftBef, rightBef;
 
   /**
-   * Listen A key from world
-   *
-   * @param world the world that its keystroke want to be listened
+   * A constructor with parameter.
+   * @param worlds the world that its keystroke want to be listened
    */
-  public ListenKey(World world) {
-    this.world = world;
+  public ListenKey(final World worlds) {
+    this.world = worlds;
     arrayList = new ArrayList();
     arrayList2 = new ArrayList();
   }
 
   @Override
-  public void keyTyped(KeyEvent e) {
+  /**
+   * a procedure to get the typed key.
+   * @param e KeyEvent.
+   */
+  public final void keyTyped(final KeyEvent e) {
 
   }
 
   @Override
   /**
-   * An procedure that response when key pressed
-   *
+   * An procedure that response when key pressed.
    * @param e Keystroke that being pressed
    */
-  public void keyPressed(KeyEvent e) {
+  public final void keyPressed(final KeyEvent e) {
     switch (e.getKeyCode()) {
       case VK_UP:
         arrayList.add(VK_UP);
@@ -86,8 +101,7 @@ public class ListenKey implements KeyListener {
   }
 
   /**
-   * function to check was there a keystroke pressed
-   *
+   * function to check was there a keystroke pressed.
    * @return boolean tell that there was another keystroke before
    */
   public final boolean isAllFalse() {
@@ -97,11 +111,10 @@ public class ListenKey implements KeyListener {
 
   @Override
   /**
-   * An procedure that response when key released
-   *
+   * An procedure that response when key released.
    * @param e Keystroke that is released after being pressed
    */
-  public final void keyReleased(KeyEvent e) {
+  public final void keyReleased(final KeyEvent e) {
     if (isAllFalse()) {
       if (arrayList.size() > 0) {
         switch (arrayList.get(0)) {

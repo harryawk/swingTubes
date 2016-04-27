@@ -29,7 +29,7 @@ public class ListOfOrganisme {
 
     /**
      * a procedure to add organism to the list.
-     * @param organs
+     * @param organs an Organisme.
      */
     public final void addOrganisme(final Organisme organs) {
       organisms.add(organs);
@@ -37,7 +37,7 @@ public class ListOfOrganisme {
 
     /**
      * @param i an integer.
-     * @throws OutOfMemoryError
+     * @throws OutOfMemoryError an Exception.
      */
     public final void deleteOrganismeAt(final int i) throws OutOfMemoryError {
       organisms.remove(i);
@@ -47,7 +47,7 @@ public class ListOfOrganisme {
      * a function that return the list of organism.
      * @return a List.
      */
-    public List<Organisme> getList() {
+    public final List<Organisme> getList() {
       return organisms;
     }
 }

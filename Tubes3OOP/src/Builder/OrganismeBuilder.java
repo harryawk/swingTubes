@@ -15,9 +15,8 @@ import organism.SecondPlayer;
  * @author Ali-pc.
  */
 public class OrganismeBuilder {
-
     /**
-     * @return Food.
+     * @return a static food.
      */
     public static Food makeFood() {
       Food myFood = new Food();
@@ -43,6 +42,7 @@ public class OrganismeBuilder {
 
     /**
      * a function to make second player.
+     * @return a static SecondPlayer.
      */
     public static SecondPlayer makeSecondEater() {
       SecondPlayer mySecond = new SecondPlayer();
