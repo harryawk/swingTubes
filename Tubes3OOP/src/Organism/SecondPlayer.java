@@ -100,7 +100,7 @@ public class SecondPlayer extends Eater{
     
     @Override
     public int getKecepatan(){
-        return 4;
+        return 2;
     }
     
     public Color getColor()

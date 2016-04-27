@@ -72,7 +72,7 @@ public class Food implements Organisme{
     
     @Override
     public int getKecepatan(){
-        return kecepatan;
+        return 1;
     }
     
     public void setMati(boolean t){

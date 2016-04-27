@@ -10,7 +10,6 @@ import Movement.*;
 import Organism.*;
 import Controller.ListenKey;
 import java.awt.Dimension;
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.*;
 
 /**
@@ -35,7 +34,7 @@ public class Tubes3OOP {
 
             try
             {
-            Thread.sleep(33);
+                Thread.sleep(33);
             }
             catch(Exception e)
             {
