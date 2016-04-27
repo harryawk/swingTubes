@@ -44,12 +44,13 @@ public class CautionMovementTest {
     @Test
     public void testRun() {
         System.out.println("run");
-        Point Awal = null;
-        Point Predator = null;
+        Point Awal = new Point();
+        Point Predator = new Point();
+        Predator.setOrdinat(Awal.getOrdinat()+5);
+        Predator.setAbsis(Awal.getAbsis());
         CautionMovement instance = new CautionMovement();
         instance.run(Awal, Predator);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(instance.getDirection() == 1);
     }
     
 }
