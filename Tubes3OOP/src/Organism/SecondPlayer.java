@@ -15,23 +15,44 @@ import java.util.Random;
  * @author Ali-pc
  */
 public class SecondPlayer extends Eater {
-
+  /**
+   * a boolean private member.
+   */
   private boolean mati;
-  private int tingkat_kekenyangan;
+
+  /**
+   * a private integer member.
+   */
+  private int tingkatkekenyangan;
+
+  /**
+   * a private DirectionMovement member.
+   */
   private DirectionMovement pergerakan;
+
+  /**
+   * a private Color member.
+   */
   private Color myColor;
+
+  /**
+   * a private max kekenyangan member.
+   */
   private final int maxK = 700;
 
   /**
-   *
-   * @param i
+   * a procedure to set directtion.
+   * @param i an integer.
    */
-  public void setArah(int i) {
+  public final void setArah(final int i) {
     pergerakan.setDirection(i);
   }
 
   @Override
-  public void move() {
+  /**
+   * a procedure to move.
+   */
+  public final void move() {
     setPosition(pergerakan.move(getPosition(), getKecepatan()));
     int a = getKekenyangan();
     a--;
@@ -39,29 +60,40 @@ public class SecondPlayer extends Eater {
   }
 
   /**
-   *
-   * @param name
+   * a constructor.
    */
   public SecondPlayer() {
     super();
     mati = false;
-    tingkat_kekenyangan = maxK;
+    tingkatkekenyangan = maxK;
     pergerakan = new DirectionMovement();
     Random rand = new Random();
     myColor = new Color(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
   }
 
-  public void setMati(boolean t) {
+  /**
+   * a procedure to set death.
+   * @param t a boolean.
+   */
+  public final void setMati(final boolean t) {
     mati = t;
   }
 
   @Override
-  public String name() {
+  /**
+   * a function that return the second player name.
+   * @return String.
+   */
+  public final String name() {
     return "2";
   }
 
   @Override
-  public boolean isMati() {
+  /**
+   * a function to return the death variable.
+   * @return a boolean.
+   */
+  public final boolean isMati() {
     return mati;
   }
 
@@ -70,7 +102,7 @@ public class SecondPlayer extends Eater {
       if (M.name() == "1") {
         setMati(true);
       } else if (M.name() == "F") {
-        tingkat_kekenyangan = maxK;
+        tingkatkekenyangan = maxK;
       }
     }
 
@@ -83,21 +115,35 @@ public class SecondPlayer extends Eater {
   }
 
   @Override
-  public int getKecepatan() {
+  /**
+   * a function to return velocity.
+   */
+  public final int getKecepatan() {
     return 4;
   }
 
   @Override
-  public Color getColor() {
+  /**
+   * a function to return Color.
+   */
+  public final Color getColor() {
     return myColor;
   }
 
-  public int getKekenyangan() {
-    return tingkat_kekenyangan;
+  /**
+   * a function to return tingkat kekenyangan.
+   * @return an integer.
+   */
+  public final int getKekenyangan() {
+    return tingkatkekenyangan;
   }
 
-  public void setKekenyangan(int k) {
-    tingkat_kekenyangan = k;
+  /**
+   * a procedure to set kekenyangan.
+   * @param k an integer.
+   */
+  public final void setKekenyangan(final int k) {
+    tingkatkekenyangan = k;
   }
 
 }

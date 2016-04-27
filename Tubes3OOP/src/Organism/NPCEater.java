@@ -10,60 +10,92 @@ import java.awt.Color;
 import java.util.Random;
 
 /**
- *
+ * A class that implements the NPCEater.
  * @author Ali-pc
  */
 public class NPCEater extends Eater {
-
+  /**
+   * a private boolean member.
+   */
   private boolean mati;
+  
+  /**
+   * a private CautionMovement member.
+   */
   private CautionMovement pergerakan;
+  
+  /**
+   * a private Color member.
+   */
   private Color myColor;
 
   /**
-   *
-   * @param name
+   * A constructor.
    */
   public NPCEater() {
     mati = false;
     pergerakan = new CautionMovement();
     Random rand = new Random();
-    myColor = new Color(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
+    myColor = new Color(rand.nextInt(256), rand.nextInt(256),
+            rand.nextInt(256));
   }
 
+  /**
+   * a procedure to set death.
+   * @param t a boolean.
+   */
   public void setMati(boolean t) {
     mati = t;
   }
 
   @Override
-  public String name() {
+  /**
+   * a procedure to get the name of the NPCEater.
+   * @return String.
+   */
+  public final String name() {
     return "N";
   }
 
   @Override
-  public boolean isMati() {
+  /**
+   * a function to return the death variable.
+   * @return a boolean.
+   */
+  public final boolean isMati() {
     return mati;
   }
 
   /**
-   *
-   * @param i
+   * a procedure to set the direction.
+   * @param i an integer.
    */
-  public void setArah(int i) {
+  public final void setArah(final int i) {
     pergerakan.setDirection(i);
   }
 
   @Override
-  public void move() {
+  /**
+   * a procedure to move.
+   */
+  public final void move() {
     setPosition(pergerakan.move(getPosition(), getKecepatan()));
   }
 
   @Override
-  public Color getColor() {
+  /**
+   * a function to return the Color.
+   * @return Color.
+   */
+  public final Color getColor() {
     return myColor;
   }
 
   @Override
-  public void Reaction(Organisme M) {
+  /**
+   * a procedure to react.
+   */
+  public final void Reaction(final Organisme M) {
     if (M != null && isRadius(100, M.getPosition())) {
       if (M.name() == "F") {
         if (pergerakan.getTimeToChangeDirection() % 5 == 0) {
@@ -85,37 +117,47 @@ public class NPCEater extends Eater {
   }
 
   @Override
-  public int getKecepatan() {
+  /**
+   * a function that return the velocity.
+   * @return an integer.
+   */
+  public final int getKecepatan() {
     return 4;
   }
 
   /**
-   * a method to implement hunt
-   *
-   * @param M
+   * a method to implement hunt.
+   * @param M an Organisme.
    */
-  public void hunt(Organisme M) {
-    if (M != null) {
-      if ((getPosition().getAbsis() == M.getPosition().getAbsis()) && (getPosition().getOrdinat()
-              > M.getPosition().getOrdinat())) {
+  public final void hunt(final Organisme m) {
+    if (m != null) {
+      if ((getPosition().getAbsis() == m.getPosition().getAbsis())
+              && (getPosition().getOrdinat()
+              > m.getPosition().getOrdinat())) {
         setArah(1);
-      } else if ((getPosition().getAbsis() < M.getPosition().getAbsis()) && (getPosition().getOrdinat()
-              > M.getPosition().getOrdinat())) {
+      } else if ((getPosition().getAbsis() < m.getPosition().getAbsis())
+              && (getPosition().getOrdinat()
+              > m.getPosition().getOrdinat())) {
         setArah(2);
-      } else if ((getPosition().getAbsis() < M.getPosition().getAbsis()) && (getPosition().getOrdinat()
-              == M.getPosition().getOrdinat())) {
+      } else if ((getPosition().getAbsis() < m.getPosition().getAbsis())
+              && (getPosition().getOrdinat()
+              == m.getPosition().getOrdinat())) {
         setArah(3);
-      } else if ((getPosition().getAbsis() < M.getPosition().getAbsis()) && (getPosition().getOrdinat()
-              < M.getPosition().getOrdinat())) {
+      } else if ((getPosition().getAbsis() < m.getPosition().getAbsis())
+              && (getPosition().getOrdinat()
+              < m.getPosition().getOrdinat())) {
         setArah(4);
-      } else if ((getPosition().getAbsis() == M.getPosition().getAbsis()) && (getPosition().getOrdinat()
-              < M.getPosition().getOrdinat())) {
+      } else if ((getPosition().getAbsis() == m.getPosition().getAbsis())
+              && (getPosition().getOrdinat()
+              < m.getPosition().getOrdinat())) {
         setArah(5);
-      } else if ((getPosition().getAbsis() > M.getPosition().getAbsis()) && (getPosition().getOrdinat()
-              < M.getPosition().getOrdinat())) {
+      } else if ((getPosition().getAbsis() > m.getPosition().getAbsis())
+              && (getPosition().getOrdinat()
+              < m.getPosition().getOrdinat())) {
         setArah(6);
-      } else if ((getPosition().getAbsis() > M.getPosition().getAbsis()) && (getPosition().getOrdinat()
-              == M.getPosition().getOrdinat())) {
+      } else if ((getPosition().getAbsis() > m.getPosition().getAbsis())
+              && (getPosition().getOrdinat()
+              == m.getPosition().getOrdinat())) {
         setArah(7);
       } else {
         setArah(8);

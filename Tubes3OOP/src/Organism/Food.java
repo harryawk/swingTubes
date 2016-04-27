@@ -19,17 +19,17 @@ public class Food implements Organisme {
    * A private point of the position.
    */
   private Point position;
-  
+
   /**
    * A private boolean member.
    */
   private boolean mati;
-  
+
   /**
    * A private Caution Movement member.
    */
   private CautionMovement pergerakan;
-  
+
   /**
    * A private integer member.
    */
@@ -46,55 +46,75 @@ public class Food implements Organisme {
   }
 
   /**
-   *
-   * @param P
+   * a procedure to set position.
+   * @param p a Point.
    */
-  public void setPosition(Point P) {
-    position.setAbsis(P.getAbsis());
-    position.setOrdinat(P.getOrdinat());
+  public final void setPosition(final Point p) {
+    position.setAbsis(p.getAbsis());
+    position.setOrdinat(p.getOrdinat());
   }
 
   /**
-   *
-   * @param i
+   * a procedure to set the direction.
+   * @param i integer.
    */
-  public void setArah(int i) {
+  public final void setArah(final int i) {
     pergerakan.setDirection(i);
   }
 
   /**
-   *
+   * a procedure to set velocity.
    */
-  public void setKecepatan() {
+  public final void setKecepatan() {
     Random rand = new Random();
     kecepatan = rand.nextInt(2) + 2;
   }
 
   @Override
-  public void move() {
+  /**
+   * A procedure to move.
+   */
+  public final void move() {
     setPosition(pergerakan.move(getPosition(), getKecepatan()));
   }
 
   @Override
-  public Point getPosition() {
+  public final Point getPosition() {
     return position;
   }
 
-  public Color getColor() {
+  @Override
+  /**
+   * a function to get Color.
+   * @return a Color.
+   */
+  public final Color getColor() {
     return Color.yellow;
   }
 
   @Override
-  public int getKecepatan() {
+  /**
+   * A function to get the velocity.
+   * @return an integer.
+   */
+  public final int getKecepatan() {
     return 2;
   }
 
-  public void setMati(boolean t) {
+  /**
+   * a procedure to set the death of the organism.
+   * @param t a boolean.
+   */
+  public final void setMati(final boolean t) {
     mati = t;
   }
 
   @Override
-  public String name() {
+  /**
+   * a function that return the name of the Second Player.
+   * @return a String.
+   */
+  public final String name() {
     return "F";
   }
 
@@ -104,7 +124,11 @@ public class Food implements Organisme {
   }
 
   @Override
-  public void Reaction(Organisme M) {
+  /**
+   * a procedure to React.
+   * @param M an Organisme.
+   */
+  public final void Reaction(final Organisme M) {
     if (isRadius(20, M.getPosition()) && M != null) {
       if ((M.name() == "2") || (M.name() == "N")) {
         setMati(true);
@@ -126,25 +150,28 @@ public class Food implements Organisme {
   }
 
   /**
-   *
-   * @param rad
-   * @param p
-   * @return
+   * a function that return true if the point is inside the radius.
+   * @param rad an integer.
+   * @param p a Point.
+   * @return a boolean.
    */
-  public boolean isRadius(int rad, Point p) {
-    int _x, _y;
-    _x = getPosition().getAbsis() - p.getAbsis();
-    if (_x < 0) {
-      _x = 0 - _x;
+  public final boolean isRadius(final int rad, final Point p) {
+    int xa, ya;
+    xa = getPosition().getAbsis() - p.getAbsis();
+    if (xa < 0) {
+      xa = 0 - xa;
     }
-    _y = getPosition().getOrdinat() - p.getOrdinat();
-    if (_y < 0) {
-      _y = 0 - _y;
+    ya = getPosition().getOrdinat() - p.getOrdinat();
+    if (ya < 0) {
+      ya = 0 - ya;
     }
-    return ((_y <= rad) && (_x <= rad));
+    return ((ya <= rad) && (xa <= rad));
   }
 
-  public void boundaryRespon() {
+  /**
+   * a procedure to respone the boundary of the box frame.
+   */
+  public final void boundaryRespon() {
     //tetap di dalam
     int width = 1366;
     int height = 768;
