@@ -46,7 +46,6 @@ public class SecondPlayer extends Eater{
         super();
         mati = false;
         tingkat_kekenyangan = maxK;
-        nickName = name;
         pergerakan = new DirectionMovement();
         Random rand = new Random();
         myColor = new Color(rand.nextInt(256),rand.nextInt(256),rand.nextInt(256));

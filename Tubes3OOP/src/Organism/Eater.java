@@ -93,9 +93,13 @@ public abstract class Eater implements Organisme{
         return false;
     }
     
-    @Override
-    public abstract int getKekenyangan();
+    public int getKekenyangan()
+    {
+        return 1;
+    }
     
-    @Override
-    public abstract void setKekenyangan(int k);
+    public void setKekenyangan(int k)
+    {
+        
+    }
 }
