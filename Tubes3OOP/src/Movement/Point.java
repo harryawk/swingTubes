@@ -12,80 +12,87 @@ import java.util.Random;
  * @author Ali-pc
  */
 public class Point {
-        
-        private int x;
-        
-        private int y;
 
-        /**
-         * A constructor
-         */
-        public Point(){
-                Random rand = new Random();
-                int value1 = rand.nextInt(1366);
-                int value2 = rand.nextInt(768);
-                x = value1;
-                y = value2;
-        }
+  private int x;
 
-        /**
-         * A ctor that construct A Point with absis = _x and ordinate = _y
-         * @param _x is an integer for the absis
-         * @param _y is an integer for the ordinate
-         */
-        public Point(int _x, int _y){
-                x = _x;
-                y = _y;
-        }
+  private int y;
 
-        /**
-         * A member procedure to make a point move tc x+dx and y+dy
-         * @param dx integer for dx
-         * @param dy integer for dy
-         */
-        public void geser(int dx, int dy){
-                x += dx; y += dy;
-        }
+  /**
+   * A constructor
+   */
+  public Point() {
+    Random rand = new Random();
+    int value1 = rand.nextInt(1366);
+    int value2 = rand.nextInt(768);
+    x = value1;
+    y = value2;
+  }
 
-        /**
-         * Get the absis of the Point
-         * @return an integer which represent abscissa 
-         */
-        public int getAbsis(){
-                return x;
-        }
+  /**
+   * A ctor that construct A Point with absis = _x and ordinate = _y
+   *
+   * @param _x is an integer for the absis
+   * @param _y is an integer for the ordinate
+   */
+  public Point(int _x, int _y) {
+    x = _x;
+    y = _y;
+  }
 
-        /**
-         * Get the ordinate of the Point
-         * @return an integer which represent ordinate
-         */
-        public int getOrdinat(){
-                return y;
-        }
+  /**
+   * A member procedure to make a point move tc x+dx and y+dy
+   *
+   * @param dx integer for dx
+   * @param dy integer for dy
+   */
+  public void geser(int dx, int dy) {
+    x += dx;
+    y += dy;
+  }
 
-        /**
-         * Set the absis
-         * @param _x is integer of new abscissa
-         */
-        public void setAbsis(int _x){
-                x = _x;
-        }
+  /**
+   * Get the absis of the Point
+   *
+   * @return an integer which represent abscissa
+   */
+  public int getAbsis() {
+    return x;
+  }
 
-        /**
-         * Set the ordinate
-         * @param _y integer of new ordinate
-         */
-        public void setOrdinat(int _y){
-                y = _y;
-        }
+  /**
+   * Get the ordinate of the Point
+   *
+   * @return an integer which represent ordinate
+   */
+  public int getOrdinat() {
+    return y;
+  }
 
-        /**
-         * override toString function
-         * @return the value of x and y in "x y" format as string
-         */
-        public String toString()
-        {
-                return(Integer.toString(x)+" "+Integer.toString(y));
-        }
-        
+  /**
+   * Set the absis
+   *
+   * @param _x is integer of new abscissa
+   */
+  public void setAbsis(int _x) {
+    x = _x;
+  }
+
+  /**
+   * Set the ordinate
+   *
+   * @param _y integer of new ordinate
+   */
+  public void setOrdinat(int _y) {
+    y = _y;
+  }
+
+  /**
+   * override toString function
+   *
+   * @return the value of x and y in "x y" format as string
+   */
+  public String toString() {
+    return (Integer.toString(x) + " " + Integer.toString(y));
+  }
+
 }

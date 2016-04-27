@@ -11,11 +11,11 @@ package Movement;
  */
 public interface Movement {
 
-    /**
-     *
-     * @param P1
-     * @param d
-     * @return
-     */
-    public Point move(Point P1, int d);
+  /**
+   *
+   * @param P1
+   * @param d
+   * @return
+   */
+  public Point move(Point P1, int d);
 }

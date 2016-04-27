@@ -12,40 +12,40 @@ import Organism.SecondPlayer;
 
 /**
  *
- * @author Ali-pc
+ * @author Ali-pc.
  */
 public class OrganismeBuilder {
 
-    /**
-     *
-     */
-    public static Food makeFood(){
-        Food myFood = new Food();
-        return myFood;
-    }
-    
-    /**
-     *
-     */
-    public static NPCEater makeEaterNPC(){
-        NPCEater myNPCEater = new NPCEater();
-        return myNPCEater;
-    }
-    
-    /**
-     *
-     */
-    public static FirstPlayer makeFirstEater(){
-        FirstPlayer myFirst = new FirstPlayer();
-        myFirst.setArah(0);
-        return myFirst;
-    }
-    
-    /**
-     *
-     */
-    public static SecondPlayer makeSecondEater(){
-        SecondPlayer mySecond = new SecondPlayer();
-        return mySecond;
-    }
+  /**
+   *
+   */
+  public static Food makeFood() {
+    Food myFood = new Food();
+    return myFood;
+  }
+
+  /**
+   *
+   */
+  public static NPCEater makeEaterNPC() {
+    NPCEater myNPCEater = new NPCEater();
+    return myNPCEater;
+  }
+
+  /**
+   *
+   */
+  public static FirstPlayer makeFirstEater() {
+    FirstPlayer myFirst = new FirstPlayer();
+    myFirst.setArah(0);
+    return myFirst;
+  }
+
+  /**
+   *
+   */
+  public static SecondPlayer makeSecondEater() {
+    SecondPlayer mySecond = new SecondPlayer();
+    return mySecond;
+  }
 }

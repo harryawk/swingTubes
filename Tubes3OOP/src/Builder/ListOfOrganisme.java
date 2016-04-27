@@ -14,33 +14,34 @@ import java.util.List;
  * @author Ali-pc
  */
 public class ListOfOrganisme {
-    private ArrayList<Organisme> organisms;
-    
-    public ListOfOrganisme() {
-        organisms = new ArrayList<Organisme>();
-    }
-    
-    /**
-     *
-     * @param O
-     */
-    public void addOrganisme(Organisme O){
-        organisms.add(O);
-    }
-    
-    /**
-     *
-     * @param i
-     */
-    public void deleteOrganismeAt(int i) throws OutOfMemoryError {
-        organisms.remove(i);
-    }
-    
-    /**
-     *
-     * @return
-     */
-    public List<Organisme> getList(){
-        return organisms;
-    }
+
+  private ArrayList<Organisme> organisms;
+
+  public ListOfOrganisme() {
+    organisms = new ArrayList<Organisme>();
+  }
+
+  /**
+   *
+   * @param O
+   */
+  public void addOrganisme(Organisme O) {
+    organisms.add(O);
+  }
+
+  /**
+   *
+   * @param i
+   */
+  public void deleteOrganismeAt(int i) throws OutOfMemoryError {
+    organisms.remove(i);
+  }
+
+  /**
+   *
+   * @return
+   */
+  public List<Organisme> getList() {
+    return organisms;
+  }
 }

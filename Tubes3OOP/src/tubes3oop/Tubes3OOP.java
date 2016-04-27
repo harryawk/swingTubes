@@ -5,7 +5,7 @@
  */
 package tubes3oop;
 
-import WorldOfPaint.*;
+import worldofpain.GameFrame;
 import Movement.*;
 import Organism.*;
 import Controller.ListenKey;
@@ -18,31 +18,26 @@ import javax.swing.*;
  */
 public class Tubes3OOP {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args)
-    {
-        //inisialisasi dunia
-        GameFrame w = new GameFrame();
+  /**
+   * @param args the command line arguments
+   */
+  public static void main(String[] args) {
+    //inisialisasi dunia
+    GameFrame w = new GameFrame();
 
-        //game-loop
-        while(!w.GameOver())
-        {
-            w.updateGame();
-            w.updateDisplay();
+    //game-loop
+    while (!w.GameOver()) {
+      w.updateGame();
+      w.updateDisplay();
 
-            try
-            {
-                Thread.sleep(33);
-            }
-            catch(Exception e)
-            {
+      try {
+        Thread.sleep(33);
+      } catch (Exception e) {
 
-            }
-        }
-        
-        //finalisasi
-        w.updateDisplay();
+      }
     }
+
+    //finalisasi
+    w.updateDisplay();
+  }
 }

@@ -8,35 +8,37 @@ package Instinct;
 import Movement.DirectionMovement;
 import Movement.Point;
 
-
 /**
  *
  * @author Ali-pc
  */
-public class CautionMovement extends DirectionMovement implements Instinct{ 
+public class CautionMovement extends DirectionMovement implements Instinct {
 
-    /**
-     * a procedure that makes the organism move with a different direction from predator location
-     * @param Awal
-     * @param Predator
-     */
-    @Override
-    public void run(Point Awal, Point Predator){
-        if ((Awal.getAbsis() == Predator.getAbsis()) && (Awal.getOrdinat() > Predator.getOrdinat()))
-           setDirection(5);
-        else if ((Awal.getAbsis() < Predator.getAbsis()) && (Awal.getOrdinat() > Predator.getOrdinat()))
-            setDirection(6);
-        else if ((Awal.getAbsis() < Predator.getAbsis()) && (Awal.getOrdinat() == Predator.getOrdinat()))
-            setDirection(7);
-        else if ((Awal.getAbsis() < Predator.getAbsis()) && (Awal.getOrdinat() < Predator.getOrdinat()))
-            setDirection(8);
-        else if ((Awal.getAbsis() == Predator.getAbsis()) && (Awal.getOrdinat() < Predator.getOrdinat()))
-            setDirection(1);
-        else if ((Awal.getAbsis() > Predator.getAbsis()) && (Awal.getOrdinat() < Predator.getOrdinat()))
-            setDirection(2);
-        else if ((Awal.getAbsis() > Predator.getAbsis()) && (Awal.getOrdinat() == Predator.getOrdinat()))
-            setDirection(3);
-        else
-            setDirection(4);
+  /**
+   * a procedure that makes the organism move with a different direction from
+   * predator location
+   *
+   * @param Awal
+   * @param Predator
+   */
+  @Override
+  public void run(Point Awal, Point Predator) {
+    if ((Awal.getAbsis() == Predator.getAbsis()) && (Awal.getOrdinat() > Predator.getOrdinat())) {
+      setDirection(5);
+    } else if ((Awal.getAbsis() < Predator.getAbsis()) && (Awal.getOrdinat() > Predator.getOrdinat())) {
+      setDirection(6);
+    } else if ((Awal.getAbsis() < Predator.getAbsis()) && (Awal.getOrdinat() == Predator.getOrdinat())) {
+      setDirection(7);
+    } else if ((Awal.getAbsis() < Predator.getAbsis()) && (Awal.getOrdinat() < Predator.getOrdinat())) {
+      setDirection(8);
+    } else if ((Awal.getAbsis() == Predator.getAbsis()) && (Awal.getOrdinat() < Predator.getOrdinat())) {
+      setDirection(1);
+    } else if ((Awal.getAbsis() > Predator.getAbsis()) && (Awal.getOrdinat() < Predator.getOrdinat())) {
+      setDirection(2);
+    } else if ((Awal.getAbsis() > Predator.getAbsis()) && (Awal.getOrdinat() == Predator.getOrdinat())) {
+      setDirection(3);
+    } else {
+      setDirection(4);
     }
+  }
 }

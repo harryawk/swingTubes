@@ -13,10 +13,11 @@ import Movement.Point;
  */
 public interface Instinct {
 
-    /**
-     * a method for run
-     * @param Awal
-     * @param Predator
-     */
-    public void run(Point Awal, Point Predator);
+  /**
+   * a method for run
+   *
+   * @param Awal
+   * @param Predator
+   */
+  public void run(Point Awal, Point Predator);
 }
