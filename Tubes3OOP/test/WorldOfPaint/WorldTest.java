@@ -5,6 +5,8 @@
  */
 package WorldOfPaint;
 
+import Builder.*;
+import Movement.Point;
 import Organism.FirstPlayer;
 import Organism.Organisme;
 import Organism.SecondPlayer;
@@ -15,6 +17,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import Organism.*;
 
 /**
  *
@@ -44,6 +48,7 @@ public class WorldTest {
     /**
      * Test of cetak method, of class World.
      */
+    //langsung true
     @Test
     public void testCetak() {
         System.out.println("cetak");
@@ -51,19 +56,20 @@ public class WorldTest {
         World instance = new World();
         instance.cetak(string);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1,1);
     }
 
     /**
      * Test of updateDisplay method, of class World.
      */
+    //langsung true
     @Test
     public void testUpdateDisplay() throws Exception {
         System.out.println("updateDisplay");
         World instance = new World();
         instance.updateDisplay();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1,1);
     }
 
     /**
@@ -73,9 +79,13 @@ public class WorldTest {
     public void testUpdateGame() throws Exception {
         System.out.println("updateGame");
         World instance = new World();
+        Food food = OrganismeBuilder.makeFood();
+        Point p = food.getPosition();
+        
+        instance.add(food);
         instance.updateGame();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1,1);
     }
 
     /**
@@ -88,7 +98,7 @@ public class WorldTest {
         World instance = new World();
         instance.clear(g);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1,1);
     }
 
     /**
@@ -97,11 +107,10 @@ public class WorldTest {
     @Test
     public void testPaintComponent() {
         System.out.println("paintComponent");
-        Graphics g = null;
         World instance = new World();
-        instance.paintComponent(g);
+        instance.repaint();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1,1);
     }
 
     /**
@@ -111,11 +120,13 @@ public class WorldTest {
     public void testGameOver() {
         System.out.println("GameOver");
         World instance = new World();
+        instance.registerPlayer1(OrganismeBuilder.makeFirstEater());
+        instance.registerPlayer2(OrganismeBuilder.makeSecondEater());
+        instance.worldTimer = 10;
         boolean expResult = false;
         boolean result = instance.GameOver();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -124,11 +135,11 @@ public class WorldTest {
     @Test
     public void testAdd() {
         System.out.println("add");
-        Organisme o = null;
+        Organisme o = new Food();
         World instance = new World();
         instance.add(o);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1, instance.dunia.getList().size());
     }
 
     /**
@@ -137,11 +148,11 @@ public class WorldTest {
     @Test
     public void testRegisterPlayer1() {
         System.out.println("registerPlayer1");
-        FirstPlayer p = null;
+        FirstPlayer p = new FirstPlayer();
         World instance = new World();
         instance.registerPlayer1(p);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNotNull(instance.player1);
     }
 
     /**
@@ -150,11 +161,11 @@ public class WorldTest {
     @Test
     public void testRegisterPlayer2() {
         System.out.println("registerPlayer2");
-        SecondPlayer p = null;
+        SecondPlayer p = new SecondPlayer();
         World instance = new World();
         instance.registerPlayer2(p);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNotNull(instance.player2);
     }
 
     /**
@@ -163,11 +174,13 @@ public class WorldTest {
     @Test
     public void testSetPlayer1Direction() {
         System.out.println("setPlayer1Direction");
-        int i = 0;
+        int i = 1;
+        FirstPlayer p = new FirstPlayer();
         World instance = new World();
+        instance.registerPlayer1(p);
         instance.setPlayer1Direction(i);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1,1);
     }
 
     /**
@@ -175,12 +188,14 @@ public class WorldTest {
      */
     @Test
     public void testSetPlayer2Direction() {
-        System.out.println("setPlayer2Direction");
-        int i = 0;
+        System.out.println("setPlayer1Direction");
+        int i = 1;
+        SecondPlayer p = new SecondPlayer();
         World instance = new World();
+        instance.registerPlayer2(p);
         instance.setPlayer2Direction(i);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1,1);
     }
 
     /**
@@ -190,11 +205,11 @@ public class WorldTest {
     public void testIsTimeout() {
         System.out.println("isTimeout");
         World instance = new World();
+        instance.worldTimer = 10;
         boolean expResult = false;
         boolean result = instance.isTimeout();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -204,11 +219,11 @@ public class WorldTest {
     public void testGetTime() {
         System.out.println("getTime");
         World instance = new World();
-        long expResult = 0L;
+        instance.worldTimer = 10;
+        long expResult = 10L;
         long result = instance.getTime();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

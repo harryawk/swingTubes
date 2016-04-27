@@ -82,7 +82,7 @@ public class FirstPlayer extends Eater{
     
     @Override
     public void Reaction(Organisme M){
-        if (isRadius(20,M.getPosition())){
+        if (isRadius(20,M.getPosition()) && M!=null){
             if (M.name() != "2"){
                 setMati(true);
             }

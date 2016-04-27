@@ -96,21 +96,30 @@ public class World extends JPanel{
             int j = 0;
             
             //player terhadap player
-            player1.Reaction(player2);
-            player2.Reaction(player1);
+            if(player1 != null)
+                player1.Reaction(player2);
+            if(player2 != null)
+                player2.Reaction(player1);
             
             //player terhadap NPC
             for(Organisme o : dunia.getList())
             {
-                player1.Reaction(o);
-                player2.Reaction(o);
+                if(player1 != null)
+                    player1.Reaction(o);
+                if(player2 != null)
+                    player2.Reaction(o);
             }
             
             //npc terhadap player
             for(Organisme o : dunia.getList())
             {
-                o.Reaction(player1);
-                o.Reaction(player2);
+                if(o != null)
+                {
+                    if(player1 != null)
+                        o.Reaction(player1);
+                    if(player2 != null)
+                        o.Reaction(player2);
+                }   
             }
             
             //npc terhadap npc
@@ -122,7 +131,7 @@ public class World extends JPanel{
 
                     for(Organisme oo : dunia.getList())
                     {
-                        if(i != j)
+                        if(i != j && oo != null)
                         {
                             o.Reaction(oo);
                         }
@@ -131,17 +140,6 @@ public class World extends JPanel{
                     i++;
                 }
             }
-            
-            //cek lokasi
-            /*
-            for(Organisme o : dunia)
-            {
-                if(o != null && o.isOutside(width, height))
-                {
-                    o.setMati(true);
-                }
-            }
-            */
             
             //pluck yang mati
             i = 0;
@@ -166,7 +164,8 @@ public class World extends JPanel{
      */
     public void clear(Graphics g)
     {
-        g.clearRect(0, 0, getWidth(), getHeight());
+        if(g != null)
+            g.clearRect(0, 0, getWidth(), getHeight());
     }
 
     public void paintComponent(Graphics g) 

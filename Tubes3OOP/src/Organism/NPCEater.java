@@ -64,7 +64,7 @@ public class NPCEater extends Eater {
     
     @Override
     public void Reaction(Organisme M){
-        if (isRadius(100,M.getPosition())){
+        if (isRadius(100,M.getPosition()) && M!=null){
             if (M.name() == "F") {
                 if (pergerakan.getTimeToChangeDirection() % 5 == 0){
                     hunt(M);
