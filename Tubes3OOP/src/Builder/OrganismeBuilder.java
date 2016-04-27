@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Builder;
+package builder;
 
-import Organism.FirstPlayer;
-import Organism.Food;
-import Organism.NPCEater;
-import Organism.SecondPlayer;
+import organism.FirstPlayer;
+import organism.Food;
+import organism.NPCEater;
+import organism.SecondPlayer;
 
 /**
  *
@@ -16,36 +16,36 @@ import Organism.SecondPlayer;
  */
 public class OrganismeBuilder {
 
-  /**
-   *
-   */
-  public static Food makeFood() {
-    Food myFood = new Food();
-    return myFood;
-  }
+    /**
+     * @return Food.
+     */
+    public static Food makeFood() {
+      Food myFood = new Food();
+      return myFood;
+    }
 
-  /**
-   *
-   */
-  public static NPCEater makeEaterNPC() {
-    NPCEater myNPCEater = new NPCEater();
-    return myNPCEater;
-  }
+    /**
+     * @return NPCEater.
+     */
+    public static NPCEater makeEaterNPC() {
+      NPCEater myNPCEater = new NPCEater();
+      return myNPCEater;
+    }
 
-  /**
-   *
-   */
-  public static FirstPlayer makeFirstEater() {
-    FirstPlayer myFirst = new FirstPlayer();
-    myFirst.setArah(0);
-    return myFirst;
-  }
+    /**
+     * @return FirstPlayer.
+     */
+    public static FirstPlayer makeFirstEater() {
+      FirstPlayer myFirst = new FirstPlayer();
+      myFirst.setArah(0);
+      return myFirst;
+    }
 
-  /**
-   *
-   */
-  public static SecondPlayer makeSecondEater() {
-    SecondPlayer mySecond = new SecondPlayer();
-    return mySecond;
-  }
+    /**
+     * a function to make second player.
+     */
+    public static SecondPlayer makeSecondEater() {
+      SecondPlayer mySecond = new SecondPlayer();
+      return mySecond;
+    }
 }

@@ -6,9 +6,9 @@
 package tubes3oop;
 
 import worldofpain.GameFrame;
-import Movement.*;
-import Organism.*;
-import Controller.ListenKey;
+import movement.*;
+import organism.*;
+import controller.ListenKey;
 import java.awt.Dimension;
 import javax.swing.*;
 

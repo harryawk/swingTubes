@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Movement;
+package movement;
 
 import java.util.Random;
 
@@ -13,11 +13,18 @@ import java.util.Random;
  */
 public class DirectionMovement implements Movement {
 
+ /**
+  * A private member that contain the direction.
+  */
   private int direction;
+
+  /**
+   * A private member that contain time to change direction.
+   */
   private int timeToChangeDirection;
 
   /**
-   *
+   * A constructor.
    */
   public DirectionMovement() {
     Random rand = new Random();
@@ -26,37 +33,41 @@ public class DirectionMovement implements Movement {
   }
 
   /**
-   *
-   * @param i
+   * a procedure to set the direction.
+   * @param i an integer.
    */
-  public void setDirection(int i) {
+  public final void setDirection(int i) {
     direction = i;
   }
 
   /**
-   *
-   * @param i
+   * A procedure to set when the direction change.
+   * @param i integer.
    */
-  public void setTimeToChangeDirection(int i) {
+  public final void setTimeToChangeDirection(final int i) {
     timeToChangeDirection = i;
   }
 
   /**
-   *
-   * @return
+   * a function to get direction.
+   * @return integer.
    */
-  public int getDirection() {
+  public final int getDirection() {
     return direction;
   }
 
+  /**
+   * a function to get when is the time to change direction.
+   * @return an integer.
+   */
   public int getTimeToChangeDirection() {
     return timeToChangeDirection;
   }
 
   /**
-   *
+   * a procedure to set the direction to random.
    */
-  public void setWithRandomDirection() {
+  public final void setWithRandomDirection() {
     Random rand = new Random();
     if (timeToChangeDirection % (rand.nextInt(30) + 30) == 0) {
       direction = rand.nextInt(8) + 1;

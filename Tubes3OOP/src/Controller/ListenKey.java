@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package controller;
 
 import worldofpain.World;
 import java.awt.event.*;
@@ -90,8 +90,9 @@ public class ListenKey implements KeyListener {
    *
    * @return boolean tell that there was another keystroke before
    */
-  public boolean isAllFalse() {
-    return (!wBef && !sBef && !dBef && !aBef && !upBef && !downBef && !leftBef && !rightBef);
+  public final boolean isAllFalse() {
+    return (!wBef && !sBef && !dBef && !aBef && !upBef
+            && !downBef && !leftBef && !rightBef);
   }
 
   @Override
@@ -100,7 +101,7 @@ public class ListenKey implements KeyListener {
    *
    * @param e Keystroke that is released after being pressed
    */
-  public void keyReleased(KeyEvent e) {
+  public final void keyReleased(KeyEvent e) {
     if (isAllFalse()) {
       if (arrayList.size() > 0) {
         switch (arrayList.get(0)) {

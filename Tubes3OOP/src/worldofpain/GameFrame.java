@@ -5,13 +5,13 @@
  */
 package worldofpain;
 
-import Builder.OrganismeBuilder;
-import static Builder.OrganismeBuilder.makeFood;
-import Movement.Point;
-import Organism.FirstPlayer;
-import Organism.Food;
-import Organism.NPCEater;
-import Organism.SecondPlayer;
+import builder.OrganismeBuilder;
+import static builder.OrganismeBuilder.makeFood;
+import movement.Point;
+import organism.FirstPlayer;
+import organism.Food;
+import organism.NPCEater;
+import organism.SecondPlayer;
 import com.sun.corba.se.impl.orbutil.ObjectWriter;
 import java.awt.Dimension;
 import javax.swing.JFrame;

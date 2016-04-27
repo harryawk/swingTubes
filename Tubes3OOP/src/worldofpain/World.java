@@ -1,10 +1,10 @@
 package worldofpain;
 
-import Builder.ListOfOrganisme;
-import Controller.ListenKey;
-import Organism.FirstPlayer;
-import Organism.Organisme;
-import Organism.SecondPlayer;
+import builder.ListOfOrganisme;
+import controller.ListenKey;
+import organism.FirstPlayer;
+import organism.Organisme;
+import organism.SecondPlayer;
 import java.awt.Graphics;
 import java.awt.Color;
 import java.util.*;
