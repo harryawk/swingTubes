@@ -84,7 +84,6 @@ public class World extends JPanel{
         
 	public void updateGame() throws ExceptionInInitializerError
 	{
-            System.out.println(dunia.size());
             //gerak
             MoveThread m = new MoveThread(player1);
                 m.start();
