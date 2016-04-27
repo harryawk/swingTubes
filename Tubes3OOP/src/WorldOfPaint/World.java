@@ -32,7 +32,8 @@ public class World extends JPanel{
         SecondPlayer player2;
         int width;
         int height;
-        long worldGenesis;
+        long lastTime;
+        long worldTimer = 30;
 
 ///Administrator///=========================================================================
 	private int size=10; //banyak makhluk maksimal
@@ -55,7 +56,7 @@ public class World extends JPanel{
             setFocusable(true);   
             requestFocusInWindow();
             this.addKeyListener(new ListenKey(this));
-            worldGenesis = System.currentTimeMillis();
+            lastTime = System.currentTimeMillis();
         }
         /**
 	 *  Store an empty world (all dot)
@@ -97,6 +98,15 @@ public class World extends JPanel{
      */
     public void updateGame() throws ExceptionInInitializerError
 	{
+            //update waktu
+            long passedTime = (System.currentTimeMillis() - lastTime)/1000;
+            if(passedTime > 0)
+            {
+                lastTime = System.currentTimeMillis();
+                worldTimer -= passedTime;
+            }
+                 
+            
             //gerak
             MoveThread m = new MoveThread(player1);
                 m.start();
@@ -175,7 +185,6 @@ public class World extends JPanel{
             {
                 dunia.remove(k.intValue());
             }
-            removeList = new ArrayList<Integer>();
 	}
 
     /**
@@ -193,6 +202,7 @@ public class World extends JPanel{
         clear(g);
         
         g.setColor(Color.black);
+        g.drawString(Long.toString(worldTimer), 700, 80);
         g.drawRect(95, 95, width-190, height-190);
         
         int x = 0;
@@ -355,7 +365,7 @@ public class World extends JPanel{
      */
     public boolean isTimeout()
     {
-        return(System.currentTimeMillis() - worldGenesis > 30000);
+        return(worldTimer <= 0);
     }
    
 }
