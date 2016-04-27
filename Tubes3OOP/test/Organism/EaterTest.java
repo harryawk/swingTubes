@@ -46,11 +46,10 @@ public class EaterTest {
     public void testGetPosition() {
         System.out.println("getPosition");
         Eater instance = new EaterImpl();
-        Point expResult = null;
+        Point expResult = instance.getPosition();
         Point result = instance.getPosition();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue((expResult.getAbsis() == result.getAbsis()) && (expResult.getOrdinat() == result.getOrdinat()));
+        
     }
 
     /**
@@ -60,11 +59,9 @@ public class EaterTest {
     public void testName() {
         System.out.println("name");
         Eater instance = new EaterImpl();
-        String expResult = "";
+        String expResult = "eater";
         String result = instance.name();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -74,11 +71,9 @@ public class EaterTest {
     public void testIsMati() {
         System.out.println("isMati");
         Eater instance = new EaterImpl();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.isMati();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -89,8 +84,7 @@ public class EaterTest {
         System.out.println("move");
         Eater instance = new EaterImpl();
         instance.move();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(true);
     }
 
     /**
@@ -99,14 +93,14 @@ public class EaterTest {
     @Test
     public void testIsRadius() {
         System.out.println("isRadius");
-        int rad = 0;
-        Point p = null;
+        int rad = 5;
+        Point p = new Point();
         Eater instance = new EaterImpl();
-        boolean expResult = false;
+        instance.getPosition().setAbsis(p.getAbsis()-4);
+        instance.getPosition().setOrdinat(p.getOrdinat()-4);
+        boolean expResult = true;
         boolean result = instance.isRadius(rad, p);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -116,9 +110,11 @@ public class EaterTest {
     public void testBoundaryRespon() {
         System.out.println("boundaryRespon");
         Eater instance = new EaterImpl();
+        instance.getPosition().setAbsis(300);
+        instance.getPosition().setOrdinat(99);
         instance.boundaryRespon();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(instance.getPosition().getOrdinat() == 643);
+        
     }
 
     /**
@@ -127,11 +123,10 @@ public class EaterTest {
     @Test
     public void testSetPosition() {
         System.out.println("setPosition");
-        Point P = null;
+        Point P = new Point();
         Eater instance = new EaterImpl();
         instance.setPosition(P);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(instance.getPosition().getAbsis() == P.getAbsis());
     }
 
     public class EaterImpl extends Eater {
