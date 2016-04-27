@@ -57,7 +57,7 @@ public class FirstPlayer extends Eater{
     
     @Override
     public int getKecepatan(){
-        return 7;
+        return 6;
     }
     
     public int getWin(){

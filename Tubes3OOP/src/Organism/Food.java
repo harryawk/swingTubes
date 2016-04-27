@@ -52,7 +52,7 @@ public class Food implements Organisme{
      */
     public void setKecepatan(){
         Random rand = new Random();
-        kecepatan = rand.nextInt(3)+2;
+        kecepatan = rand.nextInt(2)+2;
     }
     
     @Override

@@ -112,7 +112,7 @@ public class NPCEater extends Eater {
     
     @Override
     public int getKecepatan(){
-        return 6;
+        return 4;
     }
     
     /**
