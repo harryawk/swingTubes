@@ -6,7 +6,6 @@
 package Controller;
 
 import WorldOfPaint.*;
-import javax.swing.*;
 import java.awt.event.*;
 import static java.awt.event.KeyEvent.*;
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ import java.util.ArrayList;
  * @author Harry Alvin
  */
 public class ListenKey implements KeyListener {
-    private World world;
+    private final World world;
     private ArrayList<Integer> arrayList;
     private ArrayList<Integer> arrayList2;
     private Thread t1,t2;
@@ -81,6 +80,10 @@ public class ListenKey implements KeyListener {
         }
     }
     
+    /**
+     * function to check was there a keystroke pressed
+     * @return boolean tell that there was another keystroke before
+     */
     public boolean isAllFalse() {
         return (!wBef && !sBef && !dBef && !aBef && !upBef && !downBef && !leftBef && !rightBef);
     }
