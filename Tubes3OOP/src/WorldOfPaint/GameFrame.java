@@ -42,8 +42,8 @@ public class GameFrame extends JFrame {
         Food f3 = new Food();
         Food f4 = new Food();
         
-        FirstPlayer pl1 = new FirstPlayer("1");
-        SecondPlayer pl2 = new SecondPlayer("2");
+        FirstPlayer pl1 = new FirstPlayer();
+        SecondPlayer pl2 = new SecondPlayer();
 
         Point p1 = new Point(50, 300);
         Point p2 = new Point(500, 500);

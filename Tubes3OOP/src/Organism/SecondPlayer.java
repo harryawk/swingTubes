@@ -41,7 +41,7 @@ public class SecondPlayer extends Eater{
      *
      * @param name
      */
-    public SecondPlayer(String name){
+    public SecondPlayer(){
         super();
         mati = false;
         tingkat_kekenyangan = 40;

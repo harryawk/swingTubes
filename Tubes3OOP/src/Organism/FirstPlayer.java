@@ -18,7 +18,6 @@ import java.awt.Color;
  * @author CXXXV
  */
 public class FirstPlayer extends Eater{
-    private String nickName;
     private boolean mati;
     private int win;
     private DirectionMovement pergerakan;
@@ -27,9 +26,8 @@ public class FirstPlayer extends Eater{
      *
      * @param name
      */
-    public FirstPlayer(String name){
+    public FirstPlayer(){
         super();
-        nickName = name;
         mati = false;
         win = 0;
         pergerakan = new DirectionMovement();
@@ -51,14 +49,6 @@ public class FirstPlayer extends Eater{
         
     public void setMati(boolean t){
         mati = t;
-    }
-    
-    /**
-     *
-     * @return
-     */
-    public String nickName(){
-        return nickName;
     }
     
     @Override
