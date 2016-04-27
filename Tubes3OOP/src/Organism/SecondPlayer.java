@@ -18,6 +18,7 @@ public class SecondPlayer extends Eater{
     private boolean mati;
     private int tingkat_kekenyangan;
     private DirectionMovement pergerakan;
+    private Color myColor;
     
     /**
      *
@@ -45,6 +46,8 @@ public class SecondPlayer extends Eater{
         mati = false;
         tingkat_kekenyangan = 40;
         pergerakan = new DirectionMovement();
+        Random rand = new Random();
+        myColor = new Color(rand.nextInt(256),rand.nextInt(256),rand.nextInt(256));
     }
     
     public void setMati(boolean t){
@@ -117,8 +120,6 @@ public class SecondPlayer extends Eater{
     @Override
     public Color getColor()
     {
-        Random rand = new Random();
-        Color myColor = new Color(rand.nextInt(256),rand.nextInt(256),rand.nextInt(256));
         return myColor;
     }
     

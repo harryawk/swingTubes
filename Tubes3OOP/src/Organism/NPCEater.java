@@ -17,17 +17,19 @@ import java.util.Random;
  * @author Ali-pc
  */
 public class NPCEater extends Eater {
-    private String nickName;
     private boolean mati;
     private CautionMovement pergerakan;
+    private Color myColor;
     
     /**
      *
      * @param name
      */
-    public NPCEater(String name){
+    public NPCEater(){
         mati = false;
         pergerakan = new CautionMovement();
+        Random rand = new Random();
+        myColor = new Color(rand.nextInt(256),rand.nextInt(256),rand.nextInt(256));
     }
     
     public void setMati(boolean t){
@@ -63,8 +65,6 @@ public class NPCEater extends Eater {
     @Override
     public Color getColor()
     {
-        Random rand = new Random();
-        Color myColor = new Color(rand.nextInt(256),rand.nextInt(256),rand.nextInt(256));
         return myColor;
     }
     
