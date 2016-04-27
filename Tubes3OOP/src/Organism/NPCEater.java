@@ -67,10 +67,10 @@ public class NPCEater extends Eater {
         if (isRadius(100,M.getPosition())){
             if (M.name() == "F") {
                 hunt(M);
+                pergerakan.setTimeToChangeDirection(1);
             }
             else if (M.name() == "1") {
                 pergerakan.run(getPosition(),M.getPosition());
-                
                 pergerakan.setTimeToChangeDirection(1);
             }
             else
