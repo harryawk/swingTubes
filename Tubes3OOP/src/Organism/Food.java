@@ -96,7 +96,7 @@ public class Food implements Organisme{
                 setMati(true);
             } else
                 pergerakan.setWithRandomDirection();
-        } else if (isRadius(35,M.getPosition())) {
+        } else if (isRadius(45,M.getPosition())) {
             if ((M.name() == "N") || (M.name() == "2")){
                 pergerakan.run(getPosition(),M.getPosition());
                 pergerakan.setTimeToChangeDirection(1);
