@@ -5,6 +5,7 @@
  */
 package WorldOfPaint;
 
+import Builder.OrganismeBuilder;
 import Movement.Point;
 import Organism.FirstPlayer;
 import Organism.Food;
@@ -49,34 +50,8 @@ public class GameFrame extends JFrame {
         
         
         FirstPlayer pl1 = new FirstPlayer();
+        pl1.setArah(0);
         SecondPlayer pl2 = new SecondPlayer();
-
-        Point p1 = new Point(50, 300);
-        Point p2 = new Point(500, 500);
-        Point p3 = new Point(350, 700);
-        Point p4 = new Point(700, 500);
-        Point p5 = new Point(700, 300);
-        Point p6 = new Point();
-        Point p7 = new Point();
-        Point p8 = new Point();
-        Point p9 = new Point();
-
-        o1.setPosition(p1);
-        o2.setPosition(p2);
-        o3.setPosition(p3);
-        
-        pl1.setPosition(p4);
-        pl2.setPosition(p5);
-        
-        f1.setPosition(p6);
-        f2.setPosition(p7);
-        f3.setPosition(p8);
-        f4.setPosition(p9);
-        f5.setPosition(new Point());
-        f6.setPosition(new Point());
-        f7.setPosition(new Point());
-        f8.setPosition(new Point());
-        f9.setPosition(new Point());
 
         w.add(o1);
         w.add(o2);

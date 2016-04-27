@@ -6,6 +6,7 @@
 package Builder;
 
 import Organism.Organisme;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +14,11 @@ import java.util.List;
  * @author Ali-pc
  */
 public class ListOfOrganisme {
-    private List<Organisme> organisms;
+    private ArrayList<Organisme> organisms;
+    
+    public ListOfOrganisme() {
+        organisms = new ArrayList<Organisme>();
+    }
     
     /**
      *
