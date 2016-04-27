@@ -1,7 +1,5 @@
 package worldofpain;
 
-import java.util.Vector;
-
 /**
  * An interface to MakhlukHidup. For monitoring interaction between object
  * within the world.
@@ -11,47 +9,41 @@ import java.util.Vector;
 interface AdministratorMakhlukHidup {
 
   /**
-   * put in a MakhlukHidup in the monitored list
-   *
+   * put in a MakhlukHidup in the monitored list.
    * @param n MakhlukHidup
    */
   //public void fillDaftar(MakhlukHidup n);
   /**
-   * put out a MakhlukHidup in the monitored list with certain value
-   *
+   * put out a MakhlukHidup in the monitored list with certain value.
    * @param n MakhlukHidup
    */
-  //public void pluck(MakhlukHidup n);
+  //public void pluck(MakhlukHidup n).
   /**
-   * put out a MakhlukHidup in the monitored list with certain index
-   *
+   * put out a MakhlukHidup in the monitored list with certain index.
    * @param i integer index of the MakhlukHidup
    */
-  public void pluck(int i);
+   void pluck(int i);
 
   /**
-   * create a thread to monitor each pair of MakhlukHidup
+   * create a thread to monitor each pair of MakhlukHidup.
    */
-  public void sinyal();
+  void sinyal();
 
   /**
-   * Get size of the daftar attribute
-   *
+   * Get size of the daftar attribute.
    * @return integer size, member of AdministratorMakhlukHidup
    */
-  public int get_size();
+  int get_size();
 
   /**
-   * Get the sum of MakhlukHidup in daftar attribute
-   *
-   * @return integer count, number of MakhlukHidup inside daftar
+   * Get the sum of MakhlukHidup in daftar attribute.
+   * @return integer count, number of MakhlukHidup inside daftar.
    */
-  public int get_count();
+  int get_count();
 
   /**
-   * Get the daftar attribute that is represented by Vector
-   *
-   * @return Vector of MakhlukHidup
+   * Get the daftar attribute that is represented by Vector.
+   * @return Vector of MakhlukHidup.
    */
   //public Vector<MakhlukHidup> get_daftar();
   /**
@@ -62,16 +54,14 @@ interface AdministratorMakhlukHidup {
    */
   //public MakhlukHidup get_daftar(int i);
   /**
-   * Set the size attribute
-   *
+   * Set the size attribute.
    * @param s integer size
    */
-  public void set_size(int s);
+  void set_size(int s);
 
   /**
-   * Set the count attribute
-   *
+   * Set the count attribute.
    * @param c integer count
    */
-  public void set_count(int c);
+  void set_count(int c);
 }

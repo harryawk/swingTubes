@@ -6,13 +6,6 @@
 package worldofpain;
 
 import builder.OrganismeBuilder;
-import static builder.OrganismeBuilder.makeFood;
-import movement.Point;
-import organism.FirstPlayer;
-import organism.Food;
-import organism.NPCEater;
-import organism.SecondPlayer;
-import com.sun.corba.se.impl.orbutil.ObjectWriter;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
@@ -22,12 +15,17 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
  * @author CXXXV
  */
 public class GameFrame extends JFrame {
-
+  /**
+   * the world.
+   */
   private World w;
+  /**
+   * respawn time.
+   */
   private int respawnTick = 25;
 
   /**
-   *
+   * a constructor.
    */
   public GameFrame() {
     w = new World();
@@ -53,9 +51,9 @@ public class GameFrame extends JFrame {
   }
 
   /**
-   *
+   * a procedure to update game.
    */
-  public void updateGame() {
+  public final void updateGame() {
     w.updateGame();
     if (w.getTime() < respawnTick) {
       for (int i = 1; i <= 2; i++) {
@@ -66,18 +64,18 @@ public class GameFrame extends JFrame {
   }
 
   /**
-   *
+   * a procedure to update the display of the game.
    */
-  public void updateDisplay() {
+  public final void updateDisplay() {
     w.updateDisplay();
     repaint();
   }
 
   /**
-   *
-   * @return
+   * the game over procedure.
+   * @return boolean.
    */
-  public boolean GameOver() {
+  public final boolean GameOver() {
     return w.GameOver();
   }
 

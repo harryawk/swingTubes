@@ -1,42 +1,38 @@
 package worldofpain;
 
 /**
- * An interface to told the MakhlukHidup to do it's behavior
- *
+ * An interface to told the MakhlukHidup to do it's behavior.
  * @author Harry Alvin
  */
 interface KonduktorMakhlukHidup {
 
   /**
-   * Increasing the MskhlukHidup age according to it's duration to birthday
-   * celebration
-   *
+   * Increasing the MskhlukHidup age according to it's duration to birthday.
+   * celebration.
    * @param m1 is a MakhlukHidup
    */
   //public void aging(MakhlukHidup m1);
   /**
-   * Pausing the lifeState of MakhlukHidup in the world
+   * Pausing the lifeState of MakhlukHidup in the world.
    */
-  public void pause();
+  void pause();
 
   /**
-   * Returning the lifeState of MakhlukHidup in the world to normal
+   * Returning the lifeState of MakhlukHidup in the world to normal.
    */
-  public void resume();
+  void resume();
 
   /**
-   * Set the count attribute to c
-   *
+   * Set the count attribute to c.
    * @param c is integer that count attribute want to be set
    */
-  public void setCount(int c);
+  void setCount(int c);
 
   /**
-   * Get the count attributes
-   *
+   * Get the count attributes.
    * @return integer that represents the count attribute
    */
-  public int getCount();
+  int getCount();
   /**
    * Analyzing what kind of MakhlukHidup is the m1
    *

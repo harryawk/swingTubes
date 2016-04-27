@@ -5,7 +5,6 @@
  */
 package worldofpain;
 
-import java.lang.*;
 import organism.Organisme;
 
 /**
@@ -13,15 +12,24 @@ import organism.Organisme;
  * @author CXXXV
  */
 public class MoveThread extends Thread {
-
-  MoveThread(Organisme o) {
+  /**
+   * a constructor.
+   * @param o Organisme.
+   */
+  MoveThread(final Organisme o) {
     organisme = o;
   }
 
+  /**
+   * a private organism member.
+   */
   private Organisme organisme;
 
   @Override
-  public void run() {
+  /**
+   * a procedure to run.
+   */
+  public final void run() {
     organisme.move();
   }
 

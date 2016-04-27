@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 /**
  * A World is a singleton that contains information of all object within it and
  * capable to display them.
- *
  * @author Harry Alvin
  */
 public class World extends JPanel {
@@ -25,13 +24,37 @@ public class World extends JPanel {
    * that instance of MakhlukHidup lifeState indicates the MakhlukHidup has died
    * or not yet Count counter of age clear() void to clear the console screen.
    */
-  ListOfOrganisme dunia = new ListOfOrganisme();
-  FirstPlayer player1;
-  SecondPlayer player2;
-  int width;
-  int height;
-  long lastTime;
-  long worldTimer = 30;
+  private ListOfOrganisme dunia = new ListOfOrganisme();
+
+  /**
+   * first player private member.
+   */
+  private FirstPlayer player1;
+
+  /**
+   * private second player member.
+   */
+  private SecondPlayer player2;
+
+  /**
+   * private member widht.
+   */
+  private int width;
+
+  /**
+   * private member height.
+   */
+  private int height;
+
+  /**
+   * a private long member.
+   */
+  private long lastTime;
+
+  /**
+   * a private long member.
+   */
+  private long worldTimer = 30;
 
   /**
    * A constructor of World class.
@@ -49,15 +72,16 @@ public class World extends JPanel {
    * Print a string to log.
    * @param string that will be printed.
    */
-  public void cetak(String string) {
+  public final void cetak(final String string) {
     System.out.println(string);
   }
 
-  //=======================================================================================
+  //===========================================================================
   /**
    * Draw all current object within world.
+   * @throws ExceptionInInitializerError Exception.
    */
-  public void updateDisplay() throws ExceptionInInitializerError {
+  public final void updateDisplay() throws ExceptionInInitializerError {
     repaint();
   }
 
@@ -65,7 +89,7 @@ public class World extends JPanel {
    * Update the state of the game.
    * @throws ExceptionInInitializerError Exception.
    */
-  public void updateGame() throws ExceptionInInitializerError {
+  public final void updateGame() throws ExceptionInInitializerError {
     //update waktu
     long passedTime = (System.currentTimeMillis() - lastTime) / 1000;
     if (passedTime > 0) {
@@ -83,11 +107,11 @@ public class World extends JPanel {
       m.start();
     }
 
-    //reaksi
-    int i=0;
-    int j=0;
+    //reaksi.
+    int i = 0;
+    int j = 0;
 
-    //player terhadap player
+    //player terhadap player.
     if (player1 != null) {
       player1.Reaction(player2);
     }
@@ -95,7 +119,7 @@ public class World extends JPanel {
       player2.Reaction(player1);
     }
 
-    //player terhadap NPC
+    //player terhadap NPC.
     for (Organisme o : dunia.getList()) {
       if (player1 != null) {
         player1.Reaction(o);
@@ -105,7 +129,7 @@ public class World extends JPanel {
       }
     }
 
-    //npc terhadap player
+    //npc terhadap player.
     for (Organisme o : dunia.getList()) {
       if (o != null) {
         if (player1 != null) {
@@ -117,7 +141,7 @@ public class World extends JPanel {
       }
     }
 
-    //npc terhadap npc
+    //npc terhadap npc.
     for (Organisme o : dunia.getList()) {
       if (o != null) {
         j = 0;
@@ -150,14 +174,14 @@ public class World extends JPanel {
    * Clear the game board.
    * @param g is the graphics that will be cleared.
    */
-  public void clear(Graphics g) {
+  public final void clear(final Graphics g) {
     if (g != null) {
       g.clearRect(0, 0, getWidth(), getHeight());
     }
   }
 
   @Override
-  public void paintComponent(Graphics g) {
+  public final void paintComponent(final Graphics g) {
     super.paintComponent(g);
     clear(g);
 
@@ -196,12 +220,12 @@ public class World extends JPanel {
       }
     }
   }
-  
+
   /**
    * Condition wether the game is over or not.
    * @return true if the game achieve over state.
    */
-  public boolean GameOver() {
+  public final boolean GameOver() {
     if (player1.isMati() || player2.isMati()) {
       return true;
     }
@@ -213,7 +237,7 @@ public class World extends JPanel {
    * Add an organism to the world.
    * @param o is organism that will be added to the world.
    */
-  public void add(Organisme o) {
+  public final void add(final Organisme o) {
     dunia.addOrganisme(o);
   }
 
@@ -221,7 +245,7 @@ public class World extends JPanel {
    * Change player1 with input.
    * @param p is the player1 that will be added to the world.
    */
-  public void registerPlayer1(FirstPlayer p) {
+  public final void registerPlayer1(final FirstPlayer p) {
     player1 = p;
   }
 
@@ -229,7 +253,7 @@ public class World extends JPanel {
    * Change player2 with input.
    * @param p is the player2 that will be added to the world.
    */
-  public void registerPlayer2(SecondPlayer p) {
+  public final void registerPlayer2(final SecondPlayer p) {
     player2 = p;
   }
 
@@ -237,7 +261,7 @@ public class World extends JPanel {
    * Assign direction to player1.
    * @param i is the direction that will be assigned to player1.
    */
-  public void setPlayer1Direction(int i) {
+  public final void setPlayer1Direction(final int i) {
     player1.setArah(i);
   }
 
@@ -245,7 +269,7 @@ public class World extends JPanel {
    * Assign direction to player2.
    * @param i is the direction that will be assigned to player2.
    */
-  public void setPlayer2Direction(int i) {
+  public final void setPlayer2Direction(final int i) {
     player2.setArah(i);
   }
 
@@ -253,16 +277,15 @@ public class World extends JPanel {
    * Condition wether time(30 seconds) has passed.
    * @return wether time(30 seconds) has passed.
    */
-  public boolean isTimeout() {
+  public final boolean isTimeout() {
     return (worldTimer <= 0);
   }
-  
+
   /**
    * Get time(in second) left to timeout.
-   * @return the remaining time before timeout. 
+   * @return the remaining time before timeout.
    */
-  public long getTime() {
+  public final long getTime() {
     return worldTimer;
   }
-
 }

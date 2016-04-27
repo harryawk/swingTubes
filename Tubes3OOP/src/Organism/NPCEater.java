@@ -18,12 +18,12 @@ public class NPCEater extends Eater {
    * a private boolean member.
    */
   private boolean mati;
-  
+
   /**
    * a private CautionMovement member.
    */
   private CautionMovement pergerakan;
-  
+
   /**
    * a private Color member.
    */
@@ -44,7 +44,7 @@ public class NPCEater extends Eater {
    * a procedure to set death.
    * @param t a boolean.
    */
-  public void setMati(boolean t) {
+  public final void setMati(final boolean t) {
     mati = t;
   }
 
@@ -95,16 +95,16 @@ public class NPCEater extends Eater {
   /**
    * a procedure to react.
    */
-  public final void Reaction(final Organisme M) {
-    if (M != null && isRadius(100, M.getPosition())) {
-      if (M.name() == "F") {
+  public final void Reaction(final Organisme m) {
+    if (m != null && isRadius(100, m.getPosition())) {
+      if (m.name() == "F") {
         if (pergerakan.getTimeToChangeDirection() % 5 == 0) {
-          hunt(M);
+          hunt(m);
           pergerakan.setTimeToChangeDirection(1);
         }
-      } else if (M.name() == "1") {
+      } else if (m.name() == "1") {
         if (pergerakan.getTimeToChangeDirection() % 5 == 0) {
-          pergerakan.run(getPosition(), M.getPosition());
+          pergerakan.run(getPosition(), m.getPosition());
           pergerakan.setTimeToChangeDirection(1);
         }
       } else {
@@ -127,7 +127,7 @@ public class NPCEater extends Eater {
 
   /**
    * a method to implement hunt.
-   * @param M an Organisme.
+   * @param m an Organisme.
    */
   public final void hunt(final Organisme m) {
     if (m != null) {

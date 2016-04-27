@@ -119,25 +119,25 @@ public class Food implements Organisme {
   }
 
   @Override
-  public boolean isMati() {
+  public final boolean isMati() {
     return mati;
   }
 
   @Override
   /**
    * a procedure to React.
-   * @param M an Organisme.
+   * @param m an Organisme.
    */
-  public final void Reaction(final Organisme M) {
-    if (isRadius(20, M.getPosition()) && M != null) {
-      if ((M.name() == "2") || (M.name() == "N")) {
+  public final void Reaction(final Organisme m) {
+    if (isRadius(20, m.getPosition()) && m != null) {
+      if ((m.name() == "2") || (m.name() == "N")) {
         setMati(true);
       } else {
         pergerakan.setWithRandomDirection();
       }
-    } else if (isRadius(45, M.getPosition())) {
-      if ((M.name() == "N") || (M.name() == "2")) {
-        pergerakan.run(getPosition(), M.getPosition());
+    } else if (isRadius(45, m.getPosition())) {
+      if ((m.name() == "N") || (m.name() == "2")) {
+        pergerakan.run(getPosition(), m.getPosition());
         pergerakan.setTimeToChangeDirection(1);
       } else {
         pergerakan.setWithRandomDirection();

@@ -6,11 +6,6 @@
 package tubes3oop;
 
 import worldofpain.GameFrame;
-import movement.*;
-import organism.*;
-import controller.ListenKey;
-import java.awt.Dimension;
-import javax.swing.*;
 
 /**
  *
@@ -21,7 +16,7 @@ public class Tubes3OOP {
   /**
    * @param args the command line arguments
    */
-  public static void main(String[] args) {
+  public static void main(final String[] args) {
     //inisialisasi dunia
     GameFrame w = new GameFrame();
 

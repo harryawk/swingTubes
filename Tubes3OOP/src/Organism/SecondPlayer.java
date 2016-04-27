@@ -67,7 +67,8 @@ public class SecondPlayer extends Eater {
     tingkatkekenyangan = maxK;
     pergerakan = new DirectionMovement();
     Random rand = new Random();
-    myColor = new Color(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
+    myColor = new Color(rand.nextInt(256), rand.nextInt(256),
+            rand.nextInt(256));
   }
 
   /**
@@ -95,12 +96,16 @@ public class SecondPlayer extends Eater {
   public final boolean isMati() {
     return mati;
   }
-
-  public void Reaction(Organisme M) {
-    if (isRadius(20, M.getPosition()) && M != null) {
-      if (M.name() == "1") {
+  
+  /**
+   * a procedure to react.
+   * @param m an organism.
+   */
+  public final void Reaction(final Organisme m) {
+    if (isRadius(20, m.getPosition()) && m != null) {
+      if (m.name() == "1") {
         setMati(true);
-      } else if (M.name() == "F") {
+      } else if (m.name() == "F") {
         tingkatkekenyangan = maxK;
       }
     }
