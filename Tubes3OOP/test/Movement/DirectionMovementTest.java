@@ -104,13 +104,13 @@ public class DirectionMovementTest {
     @Test
     public void testMove() {
         System.out.println("move");
-        Point P1 = null;
+        Point P1 = new Point();
         int d = 6;
         DirectionMovement instance = new DirectionMovement();
         instance.setDirection(1);
-        Point expResult = new Point();
+        Point expResult = P1;
         Point result = instance.move(P1, d);
-        assertEquals(expResult.getOrdinat(), result.getOrdinat()+d);
+        assertEquals((expResult.getOrdinat()-d), result.getOrdinat());
     }
     
 }
