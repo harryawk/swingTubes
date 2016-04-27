@@ -58,6 +58,9 @@ public class NPCEater extends Eater {
     @Override
     public void move() {
         setPosition(pergerakan.move(getPosition(),getKecepatan()));
+        int a = getKekenyangan();
+        a--;
+        setKekenyangan(a);
     }
     
     public Color getColor()
@@ -106,7 +109,10 @@ public class NPCEater extends Eater {
         {
             getPosition().setOrdinat(110);
         }
-            
+
+        if (getKekenyangan() == 0){
+            setMati(true);
+        }
     }
     
     @Override

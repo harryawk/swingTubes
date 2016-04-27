@@ -33,6 +33,9 @@ public class SecondPlayer extends Eater{
     public void move() {
         Point P2 = pergerakan.move(getPosition(),getKecepatan());
         setPosition(P2);
+        int a = getKekenyangan();
+        a--;
+        setKekenyangan(a);
     }
     
     /**
@@ -111,6 +114,10 @@ public class SecondPlayer extends Eater{
         else if(y > (height-115))
         {
             getPosition().setOrdinat(110);
+        }
+        
+        if (getKekenyangan() == 0){
+            setMati(true);
         }
     }
     
