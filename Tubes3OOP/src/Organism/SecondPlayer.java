@@ -17,7 +17,6 @@ import java.util.Random;
 public class SecondPlayer extends Eater{
     private boolean mati;
     private int tingkat_kekenyangan;
-    private String nickName;
     private DirectionMovement pergerakan;
     
     /**
@@ -45,7 +44,6 @@ public class SecondPlayer extends Eater{
         super();
         mati = false;
         tingkat_kekenyangan = 40;
-        nickName = name;
         pergerakan = new DirectionMovement();
     }
     
@@ -53,13 +51,6 @@ public class SecondPlayer extends Eater{
         mati = t;
     }
     
-    /**
-     *
-     * @return
-     */
-    public String nickName(){
-        return nickName();
-    }
     
     @Override
     public String name() {
