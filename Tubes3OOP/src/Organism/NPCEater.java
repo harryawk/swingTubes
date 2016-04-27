@@ -93,19 +93,19 @@ public class NPCEater extends Eater {
         //boundary
         if(x > (width-100))
         {
-            setArah(7);
+            getPosition().setAbsis(110);
         }
         else if(x < 100)
         {
-            setArah(3);
+            getPosition().setAbsis(1256);
         }
         else if(y > (height-100))
         {
-            setArah(1);
+            getPosition().setOrdinat(110);
         }
         else if(y < 100)
         {
-            setArah(5);
+            getPosition().setOrdinat(658);
         }
             
     }

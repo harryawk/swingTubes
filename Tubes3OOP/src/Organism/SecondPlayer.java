@@ -72,6 +72,30 @@ public class SecondPlayer extends Eater{
                 tingkat_kekenyangan++;
             }
         }
+        
+        //tetap di dalam
+        int width  = 1366;
+        int height = 768; 
+        int x = getPosition().getAbsis();
+        int y = getPosition().getOrdinat();
+        
+        //boundary
+        if(x > (width-100))
+        {
+            getPosition().setAbsis(110);
+        }
+        else if(x < 100)
+        {
+            getPosition().setAbsis(1256);
+        }
+        else if(y > (height-100))
+        {
+            getPosition().setOrdinat(110);
+        }
+        else if(y < 100)
+        {
+            getPosition().setOrdinat(658);
+        }
     }
     
     @Override
