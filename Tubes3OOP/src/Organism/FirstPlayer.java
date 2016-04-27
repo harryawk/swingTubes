@@ -84,6 +84,7 @@ public class FirstPlayer extends Eater{
         return win;
     }
     
+    @Override
     public Color getColor()
     {
         return Color.blue;

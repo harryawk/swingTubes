@@ -20,7 +20,6 @@ public class NPCEater extends Eater {
     private String nickName;
     private boolean mati;
     private CautionMovement pergerakan;
-    Color myColor;
     
     /**
      *
@@ -29,8 +28,6 @@ public class NPCEater extends Eater {
     public NPCEater(String name){
         mati = false;
         pergerakan = new CautionMovement();
-        Random rand = new Random();
-        myColor = new Color(rand.nextInt(256),rand.nextInt(256),rand.nextInt(256));
     }
     
     public void setMati(boolean t){
@@ -63,8 +60,11 @@ public class NPCEater extends Eater {
         setKekenyangan(a);
     }
     
+    @Override
     public Color getColor()
     {
+        Random rand = new Random();
+        Color myColor = new Color(rand.nextInt(256),rand.nextInt(256),rand.nextInt(256));
         return myColor;
     }
     

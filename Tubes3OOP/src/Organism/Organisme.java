@@ -76,4 +76,5 @@ public interface Organisme {
     public int getKekenyangan();
     
     public void setKekenyangan(int k);
+    
 }
