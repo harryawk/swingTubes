@@ -107,21 +107,21 @@ public class FirstPlayer extends Eater{
         int y = getPosition().getOrdinat();
         
         //boundary
-        if(x > (width-100))
+        if(x < 100)
+        {
+            getPosition().setAbsis(width-125);
+        }
+        else if(x > (width-115))
         {
             getPosition().setAbsis(110);
         }
-        else if(x < 100)
-        {
-            getPosition().setAbsis(1256);
-        }
-        else if(y > (height-100))
-        {
-            getPosition().setOrdinat(110);
-        }
         else if(y < 100)
         {
-            getPosition().setOrdinat(658);
+            getPosition().setOrdinat(height-125);
+        }
+        else if(y > (height-115))
+        {
+            getPosition().setOrdinat(110);
         }
     }
 }
