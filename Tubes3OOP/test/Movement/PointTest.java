@@ -43,12 +43,14 @@ public class PointTest {
     @Test
     public void testGeser() {
         System.out.println("geser");
-        int dx = 0;
-        int dy = 0;
+        int dx = 5;
+        int dy = 7;
         Point instance = new Point();
+        Point temp = new Point(); 
+        temp.setAbsis(instance.getAbsis());
+        temp.setOrdinat(instance.getOrdinat());
         instance.geser(dx, dy);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(((instance.getAbsis()-dx) == temp.getAbsis()) && ((instance.getOrdinat()-dy) == temp.getOrdinat()));
     }
 
     /**
@@ -58,11 +60,10 @@ public class PointTest {
     public void testGetAbsis() {
         System.out.println("getAbsis");
         Point instance = new Point();
-        int expResult = 0;
+        int expResult = 6;
+        instance.setAbsis(expResult);
         int result = instance.getAbsis();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -72,11 +73,10 @@ public class PointTest {
     public void testGetOrdinat() {
         System.out.println("getOrdinat");
         Point instance = new Point();
-        int expResult = 0;
+        int expResult = 873;
+        instance.setOrdinat(expResult);
         int result = instance.getOrdinat();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -88,8 +88,7 @@ public class PointTest {
         int _x = 0;
         Point instance = new Point();
         instance.setAbsis(_x);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(true);
     }
 
     /**
@@ -101,8 +100,7 @@ public class PointTest {
         int _y = 0;
         Point instance = new Point();
         instance.setOrdinat(_y);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(true);
     }
 
     /**
@@ -112,11 +110,9 @@ public class PointTest {
     public void testToString() {
         System.out.println("toString");
         Point instance = new Point();
-        String expResult = "";
+        String expResult = instance.getAbsis()+" "+instance.getOrdinat();
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
