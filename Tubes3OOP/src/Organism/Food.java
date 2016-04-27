@@ -19,6 +19,7 @@ public class Food implements Organisme{
     private boolean mati;
     private CautionMovement pergerakan;
     private int kecepatan;
+    private int tingkat_kekenyangan;
     
     /**
      *
@@ -28,6 +29,7 @@ public class Food implements Organisme{
         mati = false;
         pergerakan = new CautionMovement();
         setKecepatan();
+        tingkat_kekenyangan = 300;
     }
     
     /**
@@ -58,6 +60,7 @@ public class Food implements Organisme{
     @Override
     public void move() {
         setPosition(pergerakan.move(getPosition(),getKecepatan()));
+        tingkat_kekenyangan--;
     }
     
     @Override
@@ -127,6 +130,12 @@ public class Food implements Organisme{
         {
             getPosition().setOrdinat(658);
         }
+        
+        
+        
+        if (getKekenyangan() == 0){
+               setMati(true);
+        }
     }
     
     /**
@@ -159,6 +168,16 @@ public class Food implements Organisme{
         }
         
         return false;
+    }
+    
+    @Override
+    public int getKekenyangan(){
+        return tingkat_kekenyangan;
+    }
+    
+    @Override
+    public void setKekenyangan(int k){
+        tingkat_kekenyangan = k;
     }
 }
     
