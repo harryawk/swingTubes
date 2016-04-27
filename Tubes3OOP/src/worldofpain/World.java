@@ -5,10 +5,11 @@ import controller.ListenKey;
 import organism.FirstPlayer;
 import organism.Organisme;
 import organism.SecondPlayer;
-import java.awt.Graphics;
+
 import java.awt.Color;
-import java.util.*;
-import javax.swing.*;
+import java.awt.Graphics;
+import java.util.ArrayList;
+import javax.swing.JPanel;
 
 /**
  * A World is a singleton that contains information of all object within it and
@@ -22,7 +23,7 @@ public class World extends JPanel {
    * Dunia[][] to store the worlds frame size the limit of MakhlukHidup in World
    * count counter of MakhlukHidup currently in World daftar the list of things
    * that instance of MakhlukHidup lifeState indicates the MakhlukHidup has died
-   * or not yet Count counter of age clear() void to clear the console screen
+   * or not yet Count counter of age clear() void to clear the console screen.
    */
   ListOfOrganisme dunia = new ListOfOrganisme();
   FirstPlayer player1;
@@ -45,24 +46,24 @@ public class World extends JPanel {
   }
 
   /**
-   *
-   * @param string
+   * Print a string to log.
+   * @param string that will be printed.
    */
   public void cetak(String string) {
     System.out.println(string);
   }
 
-//=======================================================================================
+  //=======================================================================================
   /**
-   * Draw all current object within world
+   * Draw all current object within world.
    */
   public void updateDisplay() throws ExceptionInInitializerError {
     repaint();
   }
 
   /**
-   *
-   * @throws ExceptionInInitializerError
+   * Update the state of the game.
+   * @throws ExceptionInInitializerError Exception.
    */
   public void updateGame() throws ExceptionInInitializerError {
     //update waktu
@@ -83,8 +84,8 @@ public class World extends JPanel {
     }
 
     //reaksi
-    int i = 0;
-    int j = 0;
+    int i=0;
+    int j=0;
 
     //player terhadap player
     if (player1 != null) {
@@ -133,7 +134,7 @@ public class World extends JPanel {
 
     //pluck yang mati
     i = 0;
-    ArrayList<Integer> removeList = new ArrayList<Integer>();
+    ArrayList<Integer> removeList = new ArrayList<>();
     for (Organisme o : dunia.getList()) {
       if (o != null && o.isMati()) {
         removeList.add(i);
@@ -146,8 +147,8 @@ public class World extends JPanel {
   }
 
   /**
-   * 
-   * @param g
+   * Clear the game board.
+   * @param g is the graphics that will be cleared.
    */
   public void clear(Graphics g) {
     if (g != null) {
@@ -155,6 +156,7 @@ public class World extends JPanel {
     }
   }
 
+  @Override
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
     clear(g);
@@ -163,8 +165,8 @@ public class World extends JPanel {
     g.drawString(Long.toString(worldTimer), 700, 80);
     g.drawRect(95, 95, width - 190, height - 190);
 
-    int x = 0;
-    int y = 0;
+    int x;
+    int y;
 
     x = player1.getPosition().getAbsis();
     y = player1.getPosition().getOrdinat();
@@ -194,15 +196,10 @@ public class World extends JPanel {
       }
     }
   }
-
-  /*  Draw display at Pc and remove the previous drawing at Px
-         *  @param Px is previous position that would be erased
-         *  @param Pc is the new position that would be drawn
-         *  @param display is the character that would be drawn at Pc
-   */
+  
   /**
-   *
-   * @return
+   * Condition wether the game is over or not.
+   * @return true if the game achieve over state.
    */
   public boolean GameOver() {
     if (player1.isMati() || player2.isMati()) {
@@ -213,53 +210,57 @@ public class World extends JPanel {
   }
 
   /**
-   *
-   * @param o
+   * Add an organism to the world.
+   * @param o is organism that will be added to the world.
    */
   public void add(Organisme o) {
     dunia.addOrganisme(o);
   }
 
   /**
-   *
-   * @param p
+   * Change player1 with input.
+   * @param p is the player1 that will be added to the world.
    */
   public void registerPlayer1(FirstPlayer p) {
     player1 = p;
   }
 
   /**
-   *
-   * @param p
+   * Change player2 with input.
+   * @param p is the player2 that will be added to the world.
    */
   public void registerPlayer2(SecondPlayer p) {
     player2 = p;
   }
 
   /**
-   *
-   * @param i
+   * Assign direction to player1.
+   * @param i is the direction that will be assigned to player1.
    */
   public void setPlayer1Direction(int i) {
     player1.setArah(i);
   }
 
   /**
-   *
-   * @param i
+   * Assign direction to player2.
+   * @param i is the direction that will be assigned to player2.
    */
   public void setPlayer2Direction(int i) {
     player2.setArah(i);
   }
 
   /**
-   *
-   * @return
+   * Condition wether time(30 seconds) has passed.
+   * @return wether time(30 seconds) has passed.
    */
   public boolean isTimeout() {
     return (worldTimer <= 0);
   }
-
+  
+  /**
+   * Get time(in second) left to timeout.
+   * @return the remaining time before timeout. 
+   */
   public long getTime() {
     return worldTimer;
   }
