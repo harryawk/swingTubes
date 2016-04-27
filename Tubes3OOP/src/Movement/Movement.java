@@ -12,10 +12,9 @@ package movement;
 public interface Movement {
 
   /**
-   *
-   * @param P1
-   * @param d
-   * @return
+   * @param p a Point.
+   * @param d an integer.
+   * @return Point.
    */
-  public Point move(Point P1, int d);
+  Point move(Point p, int d);
 }

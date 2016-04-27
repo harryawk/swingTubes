@@ -52,7 +52,7 @@ public class DirectionMovement implements Movement {
    * a function to get direction.
    * @return integer.
    */
-  public final int getDirection() {
+  public int getDirection() {
     return direction;
   }
 
@@ -60,12 +60,12 @@ public class DirectionMovement implements Movement {
    * a function to get when is the time to change direction.
    * @return an integer.
    */
-  public int getTimeToChangeDirection() {
+  public final int getTimeToChangeDirection() {
     return timeToChangeDirection;
   }
 
   /**
-   * a procedure to set the direction to random.
+   * a procedure to set direction to random direction.
    */
   public final void setWithRandomDirection() {
     Random rand = new Random();
@@ -76,7 +76,7 @@ public class DirectionMovement implements Movement {
   }
 
   @Override
-  public Point move(Point P1, int d) {
+  public final Point move(final Point P1, int d) {
     Point temp = new Point(0, 0);
     temp.setAbsis(P1.getAbsis());
     temp.setOrdinat(P1.getOrdinat());
