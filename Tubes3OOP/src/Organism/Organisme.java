@@ -72,4 +72,9 @@ public interface Organisme {
      * @return Color of the creature
      */
     public Color getColor(); //tambahan bimo
+    
+    public int getKekenyangan();
+    
+    public void setKekenyangan(int k);
+    
 }

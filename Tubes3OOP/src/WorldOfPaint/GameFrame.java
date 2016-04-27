@@ -21,6 +21,9 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class GameFrame extends JFrame {
     private World w;
     
+    /**
+     *
+     */
     public GameFrame()
     {
         w = new World();
@@ -30,17 +33,23 @@ public class GameFrame extends JFrame {
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         //inisialisasi makhluk
-        NPCEater o1 = new NPCEater("wawa");
-        NPCEater o2 = new NPCEater("wawa");
-        NPCEater o3 = new NPCEater("wawa");
+        NPCEater o1 = new NPCEater();
+        NPCEater o2 = new NPCEater();
+        NPCEater o3 = new NPCEater();
         
         Food f1 = new Food();
         Food f2 = new Food();
         Food f3 = new Food();
         Food f4 = new Food();
+        Food f5 = new Food();
+        Food f6 = new Food();
+        Food f7 = new Food();
+        Food f8 = new Food();
+        Food f9 = new Food();
         
-        FirstPlayer pl1 = new FirstPlayer("1");
-        SecondPlayer pl2 = new SecondPlayer("2");
+        
+        FirstPlayer pl1 = new FirstPlayer();
+        SecondPlayer pl2 = new SecondPlayer();
 
         Point p1 = new Point(50, 300);
         Point p2 = new Point(500, 500);
@@ -63,6 +72,11 @@ public class GameFrame extends JFrame {
         f2.setPosition(p7);
         f3.setPosition(p8);
         f4.setPosition(p9);
+        f5.setPosition(new Point());
+        f6.setPosition(new Point());
+        f7.setPosition(new Point());
+        f8.setPosition(new Point());
+        f9.setPosition(new Point());
 
         w.add(o1);
         w.add(o2);
@@ -73,17 +87,35 @@ public class GameFrame extends JFrame {
         w.add(f2);
         w.add(f3);
         w.add(f4);
+        w.add(f5);
+        w.add(f6);
+        w.add(f7);
+        w.add(f8);
+        w.add(f9);
+        
     }
     
+    /**
+     *
+     */
     public void updateGame()
     {
         w.updateGame();
     }
+
+    /**
+     *
+     */
     public void updateDisplay()
     {
         w.updateDisplay();
         repaint();
     }
+
+    /**
+     *
+     * @return
+     */
     public boolean GameOver()
     {
         return w.GameOver();

@@ -19,6 +19,7 @@ public class Food implements Organisme{
     private boolean mati;
     private CautionMovement pergerakan;
     private int kecepatan;
+    private int tingkat_kekenyangan;
     
     /**
      *
@@ -52,7 +53,7 @@ public class Food implements Organisme{
      */
     public void setKecepatan(){
         Random rand = new Random();
-        kecepatan = rand.nextInt(3)+2;
+        kecepatan = rand.nextInt(2)+2;
     }
     
     @Override
@@ -72,7 +73,7 @@ public class Food implements Organisme{
     
     @Override
     public int getKecepatan(){
-        return kecepatan;
+        return 2;
     }
     
     public void setMati(boolean t){
@@ -91,7 +92,7 @@ public class Food implements Organisme{
  
     @Override
     public void Reaction(Organisme M){
-        if (isRadius(10,M.getPosition())) {
+        if (isRadius(20,M.getPosition())) {
             if ((M.name() == "2") || (M.name() == "N")){
                 setMati(true);
             } else
@@ -104,28 +105,28 @@ public class Food implements Organisme{
         } else
             pergerakan.setWithRandomDirection(); 
         
-         //tetap di dalam
+        //tetap di dalam
         int width  = 1366;
         int height = 768; 
         int x = getPosition().getAbsis();
         int y = getPosition().getOrdinat();
         
         //boundary
-        if(x > (width-100))
+        if(x < 100)
         {
-            setArah(7);
+            getPosition().setAbsis(width-125);
         }
-        else if(x < 100)
+        else if(x > (width-115))
         {
-            setArah(3);
-        }
-        else if(y > (height-100))
-        {
-            setArah(1);
+            getPosition().setAbsis(110);
         }
         else if(y < 100)
         {
-            setArah(5);
+            getPosition().setOrdinat(height-125);
+        }
+        else if(y > (height-115))
+        {
+            getPosition().setOrdinat(110);
         }
     }
     
@@ -159,6 +160,16 @@ public class Food implements Organisme{
         }
         
         return false;
+    }
+    
+    @Override
+    public int getKekenyangan(){
+        return tingkat_kekenyangan;
+    }
+    
+    @Override
+    public void setKekenyangan(int k){
+        tingkat_kekenyangan = k;
     }
 }
     

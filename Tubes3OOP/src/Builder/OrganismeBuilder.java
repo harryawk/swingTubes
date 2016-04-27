@@ -5,6 +5,11 @@
  */
 package Builder;
 
+import Organism.FirstPlayer;
+import Organism.Food;
+import Organism.NPCEater;
+import Organism.SecondPlayer;
+
 /**
  *
  * @author Ali-pc
@@ -14,28 +19,32 @@ public class OrganismeBuilder {
     /**
      *
      */
-    public void makeFood(){
-        
+    public Food makeFood(){
+        Food myFood = new Food();
+        return myFood;
     }
     
     /**
      *
      */
-    public void makeEaterNPC(){
-        
+    public NPCEater makeEaterNPC(){
+        NPCEater myNPCEater = new NPCEater();
+        return myNPCEater;
     }
     
     /**
      *
      */
-    public void makeFirstEater(){
-    
+    public FirstPlayer makeFirstEater(){
+        FirstPlayer myFirst = new FirstPlayer();
+        return myFirst;
     }
     
     /**
      *
      */
-    public void makeSecondEater(){
-    
+    public SecondPlayer makeSecondEater(){
+        SecondPlayer mySecond = new SecondPlayer();
+        return mySecond;
     }
 }

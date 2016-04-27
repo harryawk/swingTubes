@@ -7,31 +7,29 @@ package Organism;
  */
 
 /**
- *
+ * A class to implement an eater organism
  * @author Ali-pc
  */
 import Movement.Point;
 
-/**
- *
- * @author Ali-pc
- */
 public abstract class Eater implements Organisme{
     private Point position = new Point();
+    private int tingkat_kekenyangan;
     
     /**
-     *
+     * A constructor
      */
     public Eater(){
     }
     
     /**
-     *
+     * Set the current position of the 
      * @param P
      */
     public void setPosition(Point P){
         position.setAbsis(P.getAbsis());
         position.setOrdinat(P.getOrdinat());
+        tingkat_kekenyangan = 3;
     }
     
     @Override
@@ -40,7 +38,7 @@ public abstract class Eater implements Organisme{
     }
     
     /**
-     *
+     * a function check if some point is near to eater current position
      * @param rad
      * @param p
      * @return
@@ -57,14 +55,29 @@ public abstract class Eater implements Organisme{
     }
     
     @Override
+    /**
+     * An abstract method that return name of the eater
+     */
     public abstract String name();
     
     @Override
+    /**
+     * An abstract method to check if the eater already die or not
+     */
     public abstract boolean isMati();
     
     @Override
+    /**
+     * An abstract method to move the eater
+     */
     public abstract void move();
     
+    /**
+     * a method to check if the eater is outside the box or not
+     * @param width an integer
+     * @param height an integer
+     * @return 
+     */
     public boolean isOutside(int width, int height)
     {
         if(getPosition().getAbsis() > width || getPosition().getAbsis() < 0)
@@ -78,5 +91,15 @@ public abstract class Eater implements Organisme{
         }
         
         return false;
+    }
+    
+    public int getKekenyangan()
+    {
+        return 1;
+    }
+    
+    public void setKekenyangan(int k)
+    {
+        
     }
 }

@@ -15,21 +15,42 @@ public class DirectionMovement implements Movement{
     private int direction;
     private int timeToChangeDirection;
     
+    /**
+     *
+     */
     public DirectionMovement(){
-        direction = 0;
+        Random rand = new Random();
+        direction = rand.nextInt(8)+1;
         timeToChangeDirection = 0;
     }
+
+    /**
+     *
+     * @param i
+     */
     public void setDirection(int i){
         direction = i;
     }
     
+    /**
+     *
+     * @param i
+     */
     public void setTimeToChangeDirection(int i){
         timeToChangeDirection = i;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getDirection(){
         return direction;
     }
+
+    /**
+     *
+     */
     public void setWithRandomDirection(){
         Random rand = new Random();
         if (timeToChangeDirection%(rand.nextInt(30) + 20) == 0){
@@ -39,8 +60,7 @@ public class DirectionMovement implements Movement{
     }
 
     @Override
-    public Point move(Point P1, int k) {
-        int d = 5;
+    public Point move(Point P1, int d) {
         Point temp = new Point(0,0);
         temp.setAbsis(P1.getAbsis());
         temp.setOrdinat(P1.getOrdinat());

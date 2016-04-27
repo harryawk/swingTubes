@@ -17,16 +17,15 @@ import java.util.Random;
  * @author Ali-pc
  */
 public class NPCEater extends Eater {
-    private String nickName;
     private boolean mati;
     private CautionMovement pergerakan;
-    Color myColor;
+    private Color myColor;
     
     /**
      *
      * @param name
      */
-    public NPCEater(String name){
+    public NPCEater(){
         mati = false;
         pergerakan = new CautionMovement();
         Random rand = new Random();
@@ -60,6 +59,7 @@ public class NPCEater extends Eater {
         setPosition(pergerakan.move(getPosition(),getKecepatan()));
     }
     
+    @Override
     public Color getColor()
     {
         return myColor;
@@ -68,7 +68,6 @@ public class NPCEater extends Eater {
     @Override
     public void Reaction(Organisme M){
         if (isRadius(100,M.getPosition())){
-            System.out.println("Cek");
             if (M.name() == "F") {
                 hunt(M);
             }
@@ -91,28 +90,27 @@ public class NPCEater extends Eater {
         int y = getPosition().getOrdinat();
         
         //boundary
-        if(x > (width-100))
+        if(x < 100)
         {
-            setArah(7);
+            getPosition().setAbsis(width-125);
         }
-        else if(x < 100)
+        else if(x > (width-115))
         {
-            setArah(3);
-        }
-        else if(y > (height-100))
-        {
-            setArah(1);
+            getPosition().setAbsis(110);
         }
         else if(y < 100)
         {
-            setArah(5);
+            getPosition().setOrdinat(height-125);
         }
-            
+        else if(y > (height-115))
+        {
+            getPosition().setOrdinat(110);
+        }
     }
     
     @Override
     public int getKecepatan(){
-        return 6;
+        return 4;
     }
     
     /**

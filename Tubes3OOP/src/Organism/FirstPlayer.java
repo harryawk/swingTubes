@@ -13,20 +13,30 @@ package Organism;
 import Movement.*;
 import java.awt.Color;
 
+/**
+ *
+ * @author CXXXV
+ */
 public class FirstPlayer extends Eater{
-    private String nickName;
     private boolean mati;
     private int win;
     private DirectionMovement pergerakan;
     
-    public FirstPlayer(String name){
+    /**
+     *
+     * @param name
+     */
+    public FirstPlayer(){
         super();
-        nickName = name;
         mati = false;
         win = 0;
         pergerakan = new DirectionMovement();
     }
     
+    /**
+     *
+     * @param i
+     */
     public void setArah(int i){
         pergerakan.setDirection(i);
     }
@@ -41,10 +51,6 @@ public class FirstPlayer extends Eater{
         mati = t;
     }
     
-    public String nickName(){
-        return nickName;
-    }
-    
     @Override
     public String name() {
         return "1";
@@ -57,13 +63,18 @@ public class FirstPlayer extends Eater{
     
     @Override
     public int getKecepatan(){
-        return 7;
+        return 6;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getWin(){
         return win;
     }
     
+    @Override
     public Color getColor()
     {
         return Color.blue;
@@ -71,13 +82,37 @@ public class FirstPlayer extends Eater{
     
     @Override
     public void Reaction(Organisme M){
-        if (isRadius(10,M.getPosition())){
+        if (isRadius(20,M.getPosition())){
             if (M.name() != "2"){
                 setMati(true);
             }
             else{
                 win = 1;
             }
+        }
+        
+        //tetap di dalam
+        int width  = 1366;
+        int height = 768; 
+        int x = getPosition().getAbsis();
+        int y = getPosition().getOrdinat();
+        
+        //boundary
+        if(x < 100)
+        {
+            getPosition().setAbsis(width-125);
+        }
+        else if(x > (width-115))
+        {
+            getPosition().setAbsis(110);
+        }
+        else if(y < 100)
+        {
+            getPosition().setOrdinat(height-125);
+        }
+        else if(y > (height-115))
+        {
+            getPosition().setOrdinat(110);
         }
     }
 }
