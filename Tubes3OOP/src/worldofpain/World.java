@@ -158,15 +158,17 @@ public class World extends JPanel {
 
     //pluck yang mati
     i = 0;
+    j = -1;
     ArrayList<Integer> removeList = new ArrayList<>();
     for (Organisme o : dunia.getList()) {
       if (o != null && o.isMati()) {
         removeList.add(i);
+        j++;
       }
       i++;
     }
-    for (Integer k : removeList) {
-      dunia.deleteOrganismeAt(k.intValue());
+    for (int k=j; k>=0; k--) {
+      dunia.deleteOrganismeAt(removeList.get(k));
     }
   }
 
