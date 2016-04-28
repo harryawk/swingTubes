@@ -5,7 +5,7 @@
  */
 package Organism;
 
-import Movement.Point;
+import movement.Point;
 import java.awt.Color;
 import org.junit.After;
 import org.junit.AfterClass;
