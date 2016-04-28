@@ -5,7 +5,7 @@
  */
 package Instinct;
 
-import Movement.Point;
+import movement.Point;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

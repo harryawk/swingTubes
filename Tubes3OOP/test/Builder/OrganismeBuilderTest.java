@@ -5,10 +5,10 @@
  */
 package Builder;
 
-import Organism.FirstPlayer;
-import Organism.Food;
-import Organism.NPCEater;
-import Organism.SecondPlayer;
+import organism.FirstPlayer;
+import organism.Food;
+import organism.NPCEater;
+import organism.SecondPlayer;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

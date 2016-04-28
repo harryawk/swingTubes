@@ -5,8 +5,8 @@
  */
 package Builder;
 
-import static Builder.OrganismeBuilder.makeFood;
-import Organism.Organisme;
+import static builder.OrganismeBuilder.makeFood;
+import organism.Organisme;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;

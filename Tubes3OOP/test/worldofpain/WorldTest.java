@@ -6,11 +6,11 @@
 package worldofpain;
 
 
-import Builder.*;
-import Movement.Point;
-import Organism.FirstPlayer;
-import Organism.Organisme;
-import Organism.SecondPlayer;
+import builder.*;
+import movement.Point;
+import organism.FirstPlayer;
+import organism.Organisme;
+import organism.SecondPlayer;
 import java.awt.Graphics;
 import org.junit.After;
 import org.junit.AfterClass;
