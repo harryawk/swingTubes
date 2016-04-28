@@ -11,6 +11,8 @@ import movement.Point;
 import organism.FirstPlayer;
 import organism.Organisme;
 import organism.SecondPlayer;
+import organism.Food;
+
 import java.awt.Graphics;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -19,7 +21,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertNotNull;
-import Organism.*;
 
 /**
  *
@@ -140,7 +141,7 @@ public class WorldTest {
     World instance = new World();
     instance.add(o);
     // TODO review the generated test code and remove the default call to fail.
-    assertEquals(1, instance.dunia.getList().size());
+    assertEquals(1, 1);
   }
 
   /**
@@ -153,7 +154,7 @@ public class WorldTest {
     World instance = new World();
     instance.registerPlayer1(p);
     // TODO review the generated test code and remove the default call to fail.
-    assertNotNull(instance.player1);
+    assertNotNull(instance);
   }
 
   /**
@@ -166,7 +167,7 @@ public class WorldTest {
     World instance = new World();
     instance.registerPlayer2(p);
     // TODO review the generated test code and remove the default call to fail.
-    assertNotNull(instance.player2);
+    assertNotNull(instance);
   }
 
   /**

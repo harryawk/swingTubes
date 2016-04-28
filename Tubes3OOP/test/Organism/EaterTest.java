@@ -134,7 +134,7 @@ public class EaterTest {
       super();
     }
 
-    @Override
+    //@Override
     public String name() {
       return "eater";
     }
@@ -144,7 +144,7 @@ public class EaterTest {
      *
      * @return a boolean
      */
-    @Override
+    //@Override
     public boolean isMati() {
       return true;
     }
@@ -152,7 +152,7 @@ public class EaterTest {
     /**
      * procedure to move the organism
      */
-    @Override
+    //@Override
     public void move() {
 
     }
@@ -162,7 +162,7 @@ public class EaterTest {
      *
      * @return a Point
      */
-    @Override
+    //@Override
     public Point getPosition() {
       return new Point(0, 0);
     }
@@ -173,7 +173,7 @@ public class EaterTest {
      *
      * @param o an organism
      */
-    @Override
+    //@Override
     public void Reaction(Organisme o) {
 
     }
@@ -183,7 +183,7 @@ public class EaterTest {
      *
      * @return an integer
      */
-    @Override
+    //@Override
     public int getKecepatan() {
       return 0;
     }
@@ -193,7 +193,7 @@ public class EaterTest {
      *
      * @param t a boolean
      */
-    @Override
+    //@Override
     public void setMati(boolean t) //tambahan bimo
     {
 
@@ -204,7 +204,7 @@ public class EaterTest {
      *
      * @return Color of the creature
      */
-    @Override
+    //@Override
     public Color getColor() //tambahan bimo
     {
       return Color.black;
