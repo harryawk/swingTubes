@@ -28,13 +28,18 @@ public class GameFrame extends JFrame {
    * a constructor.
    */
   public GameFrame() {
-    w = new World();
-    add(w);
-    setPreferredSize(new Dimension(1366, 768));
+    add(initGame());
     pack();
     setVisible(true);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
+  }
+  
+  public World initGame()
+  {
+    w = new World();
+    setPreferredSize(new Dimension(1366, 768));
     //inisialisasi makhluk
+    
     w.registerPlayer1(OrganismeBuilder.makeFirstEater());
     w.registerPlayer2(OrganismeBuilder.makeSecondEater());
 
@@ -47,7 +52,8 @@ public class GameFrame extends JFrame {
     for (int i = 1; i <= 10; i++) {
       w.add(OrganismeBuilder.makeFood());
     }
-
+    
+    return w;
   }
 
   /**
@@ -78,5 +84,13 @@ public class GameFrame extends JFrame {
   public final boolean GameOver() {
     return w.GameOver();
   }
-
+  
+  public void waitContinue()
+  {
+    System.out.println("Wait");
+    while(w.gamestate() != 1)
+    {
+       System.out.print("");
+    }
+  }
 }

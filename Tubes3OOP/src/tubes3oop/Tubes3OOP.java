@@ -5,6 +5,7 @@
  */
 package tubes3oop;
 
+import javax.swing.JOptionPane;
 import worldofpain.GameFrame;
 
 /**
@@ -18,21 +19,27 @@ public class Tubes3OOP {
    */
   public static void main(final String[] args) {
     //inisialisasi dunia
-    GameFrame w = new GameFrame();
+  
+    while(true)
+    {
+      
+      GameFrame w = new GameFrame();
+      //game-loop
+      while (!w.GameOver()) {
+        w.updateGame();
+        w.updateDisplay();
 
-    //game-loop
-    while (!w.GameOver()) {
-      w.updateGame();
-      w.updateDisplay();
+        try {
+          Thread.sleep(33);
+        } catch (Exception e) {
 
-      try {
-        Thread.sleep(33);
-      } catch (Exception e) {
-
+        }
       }
-    }
 
-    //finalisasi
-    w.updateDisplay();
+      //finalisasi
+      w.updateDisplay();
+      w.waitContinue();
+      w.dispose();
+    }
   }
 }

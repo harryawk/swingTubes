@@ -41,6 +41,8 @@ public interface Organisme {
    * @return a Point.
    */
   Point getPosition();
+  
+  public void setPosition(Point p);
 
   /**
    * a procedure that control the reaction of organism if they meet another.

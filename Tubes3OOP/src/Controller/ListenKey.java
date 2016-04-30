@@ -98,6 +98,8 @@ public class ListenKey implements KeyListener {
       default:
         break;
     }
+    
+    world.continueGame();
   }
 
   /**

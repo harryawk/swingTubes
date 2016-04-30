@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import javax.swing.JPanel;
+import movement.Point;
 
 /**
  * A World is a singleton that contains information of all object within it and
@@ -56,6 +57,11 @@ public class World extends JPanel {
    */
   private long worldTimer = 30;
 
+  /**
+   * wether the game over or not
+   */
+  private int gameState = 1;
+  
   /**
    * A constructor of World class.
    */
@@ -214,11 +220,11 @@ public class World extends JPanel {
     if (GameOver()) {
       g.setColor(Color.black);
       if (player1.isMati()) {
-        g.drawString("GameOver: kalah", 600, 720);
+        g.drawString("Player2 win!", 600, 720);
       } else if (player2.isMati()) {
-        g.drawString("GameOver: menang", 600, 720);
+        g.drawString("Player1 win!", 600, 720);
       } else if (isTimeout()) {
-        g.drawString("GameOver: timeout", 600, 720);
+        g.drawString("Player2 win!", 600, 720);
       }
     }
   }
@@ -229,6 +235,8 @@ public class World extends JPanel {
    */
   public final boolean GameOver() {
     if (player1.isMati() || player2.isMati()) {
+      killAllNPC();
+      gameState = 0;
       return true;
     }
 
@@ -240,6 +248,10 @@ public class World extends JPanel {
    * @param o is organism that will be added to the world.
    */
   public final void add(final Organisme o) {
+    if(player1.isRadius(30, o.getPosition()))
+    {
+      o.setPosition(new Point(800,800));
+    }
     dunia.addOrganisme(o);
   }
 
@@ -289,5 +301,19 @@ public class World extends JPanel {
    */
   public final long getTime() {
     return worldTimer;
+  }
+  
+  public void killAllNPC(){
+    while(!dunia.getList().isEmpty()){
+      dunia.deleteOrganismeAt(0);
+    }
+  }
+  
+  public void continueGame(){
+    gameState = 1;
+  }
+  
+  public int gamestate(){
+    return gameState;
   }
 }
